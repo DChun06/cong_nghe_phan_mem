@@ -1,0 +1,58 @@
+\chapter{Thiết Kế Kiến Trúc Phần Mềm Backend với FastAPI}
+\label{ch:backend_architecture}
+\textit{Tran Thi Bich Diem}
+
+\section{Lựa Chọn Mô Hình Kiến Trúc Hệ Thống}
+Nhằm mục đích đạt được tính độc lập cao giữa các khối chức năng và tăng cường khả năng kiểm thử (Testability) theo nguyên lý chương 9-13 của Pressman, hệ thống Backend được triển khai theo mô hình kiến trúc phân lớp \textbf{3-Layer Architecture} bao gồm: Tầng giao tiếp API (Presentation Layer), Tầng xử lý nghiệp vụ cốt lõi (Business Logic Layer), và Tầng tương tác truy cập cơ sở dữ liệu (Data Access Layer).
+
+\section{Mã Nguồn Khung Triển Khai Hệ Thống API bằng Python và FastAPI}
+Dưới đây là mã nguồn cài đặt khung chạy hoàn chỉnh cho Backend, tích hợp cấu trúc tiếp nhận dữ liệu sinh viên và xử lý logic phân tích khoảng cách năng lực:
+
+\begin{lstlisting}[language=Python, caption=Tệp mã nguồn chính main.py xử lý API Backend]
+	from fastapi import FastAPI, Depends, HTTPException
+	from pydantic import BaseModel
+	from typing import List
+	
+	app = FastAPI(
+	title="Personalized Career Orientation & Learning Roadmap Platform API",
+	description="Hệ thống Backend xử lý phân tích khoảng cách năng lực và sinh lộ trình",
+	version="1.0"
+	)
+	
+	# Khai báo Schema cấu trúc dữ liệu đầu vào thông tin sinh viên
+	class StudentProfileSchema(BaseModel):
+	student_id: int
+	full_name: str
+	skills: List[str]
+	target_job: str
+	
+	@app.get("/")
+	def read_root():
+	return {"status": "Online", "message": "Career Orientation API Core Framework"}
+	
+	@app.post("/api/v1/roadmap/generate", response_model=dict)
+	def generate_roadmap(profile: StudentProfileSchema):
+	"""
+	Business Logic Layer: Hiện thực hóa logic tính toán khoảng cách năng lực 
+	giữa hồ sơ thực tế của sinh viên và bộ khung chuẩn ngành nghề.
+	"""
+	try:
+	student_skills_set = set(profile.skills)
+	
+	# Mô phỏng bộ khung năng lực chuẩn từ Database cho vị trí Backend Engineer
+	master_framework_skills = {"Python", "FastAPI", "SQL Server", "Docker", "Clean Architecture", "Git"}
+	
+	# Thực hiện thuật toán tìm tập hợp kỹ năng còn thiếu (Skill Gap Analysis)
+	missing_skills = list(master_framework_skills.difference(student_skills_set))
+	
+	return {
+		"student_id": profile.student_id,
+		"full_name": profile.full_name,
+		"target_position": profile.target_job,
+		"detected_skill_gap": missing_skills,
+		"recommended_modules_count": len(missing_skills),
+		"status": "Process_Success"
+	}
+	except Exception as e:
+	raise HTTPException(status_code=500, detail=f"Lỗi hệ thống xử lý nội bộ: {str(e)}")
+\end{lstlisting}
