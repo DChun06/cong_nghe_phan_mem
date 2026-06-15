@@ -1,0 +1,21 @@
+\chapter{Đặc Tả Yêu Cầu Phần Mềm (Software Requirements Specification - SRS)}
+\label{ch:srs_spec}
+\textit{Nguyen Van Bao}
+
+\section{Yêu Cầu Chức Năng Hệ Thống (Functional Requirements)}
+Dựa trên kết quả khảo sát nhu cầu thực tế của sinh viên ngành phần mềm, hệ thống được phân rã thành các khối chức năng nghiệp vụ chi tiết:
+
+\begin{enumerate}[label=\textbf{FR-\arabic*}]
+	\item \textbf{Đăng ký/Đăng nhập và Đồng bộ hồ sơ năng lực:} Sinh viên có khả năng đăng nhập hệ thống thông qua phương thức xác thực tập trung SSO (Google, GitHub). Hệ thống tự động phân tách tài khoản và đồng bộ dữ liệu dự án từ GitHub nhằm làm cơ sở đánh giá kỹ năng code.
+	\item \textbf{Bài kiểm tra định hướng học thuật:} Cung cấp các bài trắc nghiệm tâm lý học nghề nghiệp (Holland, MBTI) kết hợp bộ câu hỏi kiểm tra kiến thức chuyên môn SE để xác định thiên hướng cá nhân.
+	\item \textbf{Xây dựng bản đồ lộ trình học tập thích ứng (Adaptive Roadmap):} Trí tuệ nhân tạo của hệ thống dựa trên lỗ hổng kỹ năng (Skill Gap) hiện tại của sinh viên so với vị trí công việc đích để tự động tạo ra một sơ đồ cây tiến trình học tập cá nhân hóa.
+	\item \textbf{Hệ thống giám sát xu hướng tuyển dụng (Market Pulse):} Mô-đun chạy ngầm quét dữ liệu từ các trang web tuyển dụng lớn để trích xuất, phân tích tần suất xuất hiện của các từ khóa công nghệ mới ngoài thị trường lao động.
+\end{enumerate}
+
+\section{Yêu Cầu Phi Chức Năng (Non-Functional Requirements)}
+Để hệ thống vận hành đạt độ tin cậy kỹ thuật cao theo tiêu chí chất lượng của Pressman, các chỉ số phi chức năng sau bắt buộc phải tuân thủ:
+\begin{itemize}
+	\item \textbf{Độ trễ và Hiệu năng (Performance):} Thời gian xử lý thuật toán kết xuất đồ thị lộ trình cá nhân hóa không được vượt quá 3 giây từ lúc sinh viên bấm yêu cầu.
+	\item \textbf{An toàn bảo mật thông tin (Security):} Mọi kênh giao tiếp trao đổi dữ liệu API giữa Client (Next.js) và Server (FastAPI) phải được mã hóa mã nguồn qua giao thức HTTPS bảo mật cao và lưu token xác thực JWT dưới dạng HttpOnly Cookie.
+	\item \textbf{Tính chịu tải hệ thống (Scalability):} Cấu trúc vật lý của cơ sở dữ liệu trên hệ quản trị SQL Server phải được thiết lập chỉ mục (Indexing) tối ưu giúp chịu tải tối thiểu 10,000 phiên truy cập truy vấn đồng thời.
+\end{itemize}
