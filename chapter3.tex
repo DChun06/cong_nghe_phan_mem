@@ -1,0 +1,37 @@
+\chapter{Phân Tích Mô Hình Hóa Hệ Thống \& Sơ Đồ Use Case}
+\label{ch:use_case_modeling}
+\textit{Vo Bao Phuc}
+
+\section{Xác Định Các Tác Nhân (Actors) Vận Hành Hệ Thống}
+Mô hình hóa hệ thống xác định các thực thể tương tác trực tiếp bao gồm:
+\begin{itemize}
+	\item \textbf{Sinh viên (Student):} Tác nhân chính thực hiện tương tác giao diện, làm bài kiểm tra, xem lộ trình và kết nối GitHub cá nhân.
+	\item \textbf{Trí tuệ nhân tạo (AI Recommendation Engine):} Tác nhân hệ thống ngầm, chịu trách nhiệm nhận tham số đầu vào là hồ sơ sinh viên để sinh cây kỹ năng.
+	\item \textbf{Robot quét dữ liệu (Market Pulse Bot):} Tác nhân tự động thực hiện thu thập thông tin tuyển dụng từ internet.
+	\item \textbf{Quản trị viên (Admin):} Tác nhân quản lý hệ thống danh mục, kiểm duyệt nội dung và định cấu hình bộ khung năng lực chuẩn.
+\end{itemize}
+
+\section{Bảng Đặc Tả Chi Tiết Use Case Cốt Lõi}
+Dưới đây là kịch bản vận hành chi tiết cho Use Case trọng tâm của hệ thống: \textit{Tạo lộ trình học tập cá nhân hóa}:
+
+\begin{table}[H]
+	\centering
+	\small
+	\caption{Đặc tả Use Case Tạo Lộ Trình Học Tập Cá Nhân Hóa}
+	\label{tab:spec_usecase}
+	\begin{tabular}{|p{3.5cm}|p{11cm}|}
+		\hline
+		\rowcolor{mainblue} \color{white}\textbf{Thành Phần Đặc Tả} & \color{white}\textbf{Nội Dung Mô Tả Chi Tiết} \\ \hline
+		\textbf{Tên Use Case} & Tạo lộ trình học tập cá nhân hóa (Generate Personalized Roadmap) \\ \hline
+		\textbf{Tác nhân (Actors)} & Sinh viên (Student), Hệ thống AI Engine (Supporting Actor) \\ \hline
+		\textbf{Mục tiêu hành động} & Sinh viên có được biểu đồ cây chặng đường học tập được thiết kế riêng. \\ \hline
+		\textbf{Tiền điều kiện} & Sinh viên đã hoàn tất đăng nhập và đã đồng bộ dữ liệu kỹ năng hiện có. \\ \hline
+		\textbf{Luồng sự kiện chính} & 
+		1. Sinh viên nhấn chọn chức năng ``Tạo lộ trình cá nhân hóa'' trên giao diện. \newline
+		2. Hệ thống thu thập tập dữ liệu hồ sơ năng lực hiện tại của người dùng. \newline
+		3. Hệ thống chuyển đổi dữ liệu, gọi API lớp Business Logic để tính khoảng cách năng lực. \newline
+		4. Hệ thống AI Engine phân tích và trả lời cấu trúc dữ liệu cây kỹ năng còn thiếu. \newline
+		5. Giao diện kết xuất đồ thị trực quan hiển thị chặng đường học tập cho sinh viên. \\ \hline
+		\textbf{Hậu điều kiện} & Cấu trúc lộ trình học tập mới được lưu trữ an toàn vào cơ sở dữ liệu vật lý. \\ \hline
+	\end{tabular}
+\end{table}
