@@ -1,0 +1,57 @@
+\chapter{Thiết Kế Giao Diện \& Các Thành Phần UI Có Khả Năng Tái Sử Dụng}
+\label{ch:frontend_components}
+\textit{Vo Thi Kiem Dung}
+
+\section{Chiến Lược Xây Dựng Component Trong React JS \& Next.js}
+Để hiện thực hóa triết lý phát triển phần mềm dạng mô-đun hóa của Pressman trên môi trường giao diện người dùng, hệ thống Frontend sử dụng thư viện \textbf{React JS} kết hợp framework \textbf{Next.js (App Router)}. Mọi giao diện phức tạp như cây sơ đồ lộ trình học tập được phân rã thành các cấu trúc thành phần (UI Components) nhỏ gọn độc lập, tối ưu hóa khả năng tái sử dụng trên nhiều trang màn hình khác nhau nhằm tiết kiệm tài nguyên hệ thống.
+
+\section{Mã Nguồn Thành Phần Hiển Thị Trực Quan Nút Lộ Trình (Roadmap Node)}
+Dưới đây là mã nguồn TypeScript cài đặt thành phần giao diện Node lộ trình, tiếp nhận dữ liệu từ API Backend của Thành viên 4 để kết xuất trạng thái học tập của sinh viên:
+
+\begin{lstlisting}[language=Java, caption=Component React/Next.js tái sử dụng hiển thị RoadmapNode.tsx]
+	import React from 'react';
+	
+	// Định nghĩa cấu trúc kiểu dữ liệu Props đầu vào cho Component
+	interface RoadmapNodeProps {
+		stepNumber: number;
+		nodeName: string;
+		description: string;
+		isCompleted: boolean;
+		onClickAction?: () => void;
+	}
+	
+	export const RoadmapNode: React.FC<RoadmapNodeProps> = ({
+		stepNumber,
+		nodeName,
+		description,
+		isCompleted,
+		onClickAction
+	}) => {
+		return (
+		<div 
+		onClick={onClickAction}
+		className={`p-5 my-3 mx-2 rounded-xl border-2 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-md ${
+				isCompleted 
+				? 'border-green-500 bg-green-50/70 hover:bg-green-50' 
+				: 'border-blue-500 bg-blue-50/70 hover:bg-blue-50'
+			}`}
+		>
+		<div className="flex items-center justify-between mb-2">
+		<span className={`text-xs font-bold px-2 py-1 rounded-full ${
+				isCompleted ? 'bg-green-200 text-green-900' : 'bg-blue-200 text-blue-900'
+			}`}>
+		Chặng {stepNumber}
+		</span>
+		<span className={`text-xs font-medium ${isCompleted ? 'text-green-600' : 'text-blue-600'}`}>
+		{isCompleted ? '✓ Đã hoàn thành' : '● Chưa hoàn thành'}
+		</span>
+		</div>
+		
+		<h4 className="text-base font-bold text-slate-800 mb-1">{nodeName}</h4>
+		<p className="text-xs text-slate-600 line-clamp-2">{description}</p>
+		</div>
+		);
+	};
+	
+	export default RoadmapNode;
+\end{lstlisting}
