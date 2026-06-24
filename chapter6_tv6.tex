@@ -1,0 +1,47 @@
+\chapter{Quản Trị Hệ Thống: Cấu Hình Git Workflow, Quản Lý Jira \& Đặc Tả ERD}
+\label{ch:system_administration}
+\textit{Phan Thi Duy Chung}
+
+\section{Quy Trình Quản Lý Kho Lưu Trữ Mã Nguồn Git (Git Workflow)}
+Nhằm mục đích duy trì tính toàn vẹn của mã nguồn dự án trong môi trường phát triển đồng thời của 7 thành viên, nhóm thiết lập quy trình vận hành kho mã nguồn Git nghiêm ngặt:
+\begin{itemize}
+	\item Tuyệt đối cấm hành vi đẩy mã nguồn trực tiếp (push) lên nhánh chính \texttt{main}.
+	\item Mỗi thành viên khi phát triển một tính năng/nhiệm vụ được giao phải tạo một nhánh tính năng biệt lập bắt đầu bằng tiền tố \texttt{feature/}, ví dụ: \texttt{feature/fastapi-init-tv4}, \texttt{feature/sql-tables-tv7}.
+	\hline
+	\item Khi hoàn thiện mã nguồn, thành viên tiến hành khởi tạo một Pull Request (PR), yêu cầu ít nhất 1 thành viên khác duyệt mã (Review) trước khi tiến hành tích hợp (Merge) vào nhánh phát triển tập trung \texttt{dev}. Mã nguồn chỉ được đưa từ \texttt{dev} lên \texttt{main} cuối mỗi chu kỳ Sprint sau khi vượt qua các bài kiểm thử.
+	\item Quy chuẩn thông điệp commit (Commit Message): \texttt{[Mã\_Task\_Jira] Mô tả ngắn gọn bằng tiếng Việt không dấu}.
+\end{itemize}
+
+\section{Bản Hoạch Định Tiến Độ Hệ Thống Qua Tệp Tin Checklist.md}
+Tệp tin \texttt{checklist.md} được nhóm khởi tạo ở thư mục gốc của dự án để theo dõi tiến trình thực hiện thực tế của các thành viên:
+\begin{lstlisting}[caption=Nội dung cấu trúc tệp tin quản lý tiến độ checklist.md]
+	# Kế Hoạch Triển Khai Hệ Thống & Checklist Tiến Độ Thực Tế
+	
+	## Phân Hệ Quản Lý Tiến Độ Dự Án (Sprint 1)
+	- [x] Thiết lập kho lưu trữ GitHub và cấu hình luật bảo vệ nhánh main (Thành viên 6)
+	- [x] Chuyển đổi tệp thiết kế thực thể từ Draw.io XML sang cấu trúc Markdown ERD.md (Thành viên 6)
+	- [ ] Xây dựng khung API kết nối cơ sở dữ liệu trên FastAPI (Thành viên 4)
+	- [ ] Phát triển các khối giao diện UI Component hiển thị đồ thị trên Next.js (Thành viên 5)
+	- [ ] Hiện thực hóa kịch bản khởi tạo bảng vật lý trên SQL Server (Thành viên 7)
+\end{lstlisting}
+
+\section{Chuyển Đổi Sơ Đồ Khái Niệm Thực Thể Thành File ERD.md}
+Dữ liệu cấu trúc cơ sở dữ liệu lưu dưới dạng tệp XML trên draw.io được Thành viên 6 trích xuất, chuẩn hóa thành văn bản cấu trúc trong file \texttt{ERD.md}:
+\begin{lstlisting}[caption=Nội dung tệp cấu trúc dữ liệu ERD.md]
+	# Quy Cách Đặc Tả Thực Thể Mối Quan Hệ (Entity Relationship Diagram)
+	
+	## 1. Thực thể Hồ Sơ Sinh Viên (StudentProfiles)
+	- `StudentID` (INT, Khóa chính, Tự động tăng): Định danh duy nhất cho mỗi sinh viên.
+	- `FullName` (NVARCHAR(100), Bắt buộc): Họ và tên đầy đủ của sinh viên.
+	- `Email` (VARCHAR(100), Duy nhất): Địa chỉ thư điện tử đăng ký.
+	- `GitHubURL` (VARCHAR(255), Tùy chọn): Đường dẫn liên kết tài khoản lập trình.
+	
+	## 2. Thực thể Lộ Trình Cá Nhân Hóa (PersonalRoadmaps)
+	- `RoadmapID` (INT, Khóa chính, Tự động tăng): Mã định danh lộ trình.
+	- `StudentID` (INT, Khóa ngoại -> StudentProfiles): Liên kết thông tin tới sinh viên sở hữu.
+	- `TargetJobTitle` (NVARCHAR(100)): Vị trí công nghệ mục tiêu (Ví dụ: Backend Engineer).
+	- `CreatedDate` (DATETIME): Thời điểm hệ thống kết xuất lộ trình.
+\end{lstlisting}
+
+\section{Quản Trị Dự Án Tập Trung Qua Hệ Thống Jira}
+Dự án thiết lập một Jira Software Board dạng Kanban để trực quan hóa tiến độ. Các Issue được phân loại thành \textit{Epic} (Phân hệ lớn), \textit{Task} (Nhiệm vụ thành viên) và \textit{Bug} (Lỗi hệ thống). Việc đồng bộ hóa trạng thái Task dựa trên cấu hình mã liên kết bảo mật \texttt{JIRA\_API\_TOKEN} lưu giữ trong tệp môi trường ẩn \texttt{config.env}.
