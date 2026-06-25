@@ -39,6 +39,7 @@ personalized-learning-platform/
 ---
 
 ## PHÂN CHIA CHI TIẾT
+
 👤 Thành viên 1: Lập Checklist Yêu cầu & Use-case Tổng thể
 Nhiệm vụ: Rà soát để lập danh sách tính năng và vẽ sơ đồ tương tác.
 Checklist sản phẩm cần nộp:
@@ -75,5 +76,6 @@ Nhiệm vụ: Chuyển đổi thiết kế dữ liệu thành mã chạy trên S
 Checklist sản phẩm cần nộp:
 [ ] Cài đặt SQL Server: Chuyển đổi ERD thành cấu trúc bảng vật lý trên SQL Server với đầy đủ kiểu dữ liệu tương thích, ràng buộc toàn vẹn (Constraints).
 [ ] Sơ đồ hoạt động (Activity Diagram): Vẽ các sơ đồ hoạt động để mô tả tuần tự các bước xử lý của hệ thống cho các tính năng tự động (như tiến trình cào dữ liệu định kỳ của Market Pulse hoặc tiến trình phân tích của AI).
+
 
 
