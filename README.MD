@@ -35,6 +35,7 @@ personalized-learning-platform/
 └── reports/                  # Mã nguồn tài liệu báo cáo lớn LaTeX
     ├── chapters/             # Nội dung 7 chương con của 7 thành viên
     └── main.tex              # Tệp điều phối trung tâm báo cáo
+---
 
 PHÂN CHIA CHI TIẾT 
 👤 Thành viên 1: Lập Checklist Yêu cầu & Use-case Tổng thể
