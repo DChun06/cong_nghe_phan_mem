@@ -35,3 +35,43 @@ personalized-learning-platform/
 └── reports/                  # Mã nguồn tài liệu báo cáo lớn LaTeX
     ├── chapters/             # Nội dung 7 chương con của 7 thành viên
     └── main.tex              # Tệp điều phối trung tâm báo cáo
+
+PHÂN CHIA CHI TIẾT 
+👤 Thành viên 1: Lập Checklist Yêu cầu & Use-case Tổng thể
+Nhiệm vụ: Rà soát để lập danh sách tính năng và vẽ sơ đồ tương tác.
+Checklist sản phẩm cần nộp:
+[ ] Checklist chức năng (Functional Requirements): Liệt kê chi tiết 5 nhóm chức năng trong ảnh (AI Virtual Mentor, Dynamic Roadmap, Skill Gap Analysis, Market Pulse, E-Portfolio Management).
+[ ] Checklist phi chức năng (Non-Functional Requirements): Thiết lập các tiêu chuẩn về bảo mật, tốc độ phản hồi của AI và xử lý dữ liệu cào.
+[ ] Sơ đồ Use-case tổng thể: Vẽ sơ đồ thể hiện mối quan hệ giữa các Actor (SE Student, Academic Counselor, Industry Mentor) với các tính năng cốt lõi.
+👤 Thành viên 2: Đặc tả Use-case Chi tiết & Flow chuyển đổi
+Nhiệm vụ: Chi tiết hóa các use-case và thiết kế luồng chuyển đổi trạng thái giữa các luồng xử lý.
+Checklist sản phẩm cần nộp:
+[ ] Tài liệu Đặc tả Use-case: Viết kịch bản (Flow of events) cho các use-case quan trọng nhất (như Tạo Roadmap, Chat với AI, Đồng bộ GitHub).
+[ ] Sơ đồ trạng thái chuyển đổi các Flow: Vẽ sơ đồ thể hiện cách các luồng công việc (Flow) chuyển đổi qua lại lẫn nhau khi người dùng tương tác trên hệ thống.
+👤 Thành viên 3: Khái niệm ERD (Conceptual ERD)
+Nhiệm vụ: Xác định các thực thể tham gia vào hệ thống ở mức khái niệm căn bản.
+Checklist sản phẩm cần nộp:
+[ ] Khái niệm thực thể: Định nghĩa rõ ràng vai trò của các thực thể chính (Student Profile, Tech Path, Skill Node, Course Repo, Job Trend, Mentor Session).
+[ ] Sơ đồ ERD mức Khái niệm: Vẽ sơ đồ thực thể mối quan hệ ở mức thô, tập trung vào việc thể hiện thực thể và các mối quan hệ (1-n, n-n) giữa chúng mà chưa cần đi sâu vào kiểu dữ liệu chi tiết.
+👤 Thành viên 4: Logic ERD (Logical ERD & Business Logic)
+Nhiệm vụ: Tìm hiểu chi tiết và tối ưu hóa sơ đồ ERD dựa trên các quy tắc nghiệp vụ (Business logic).
+Checklist sản phẩm cần nộp:
+[ ] Business Logic ERD: Giải quyết các mối quan hệ nhiều-nhiều (n-n) bằng cách thêm các bảng trung gian (Ví dụ: Bảng theo dõi tiến độ học của Student đối với từng Skill Node).
+[ ] Sơ đồ ERD mức Logic: Điền đầy đủ các thuộc tính (Attributes), xác định rõ ràng thuộc tính nào là Khóa chính (Primary Key) và Khóa ngoại (Foreign Key) cho toàn bộ các bảng.
+👤 Thành viên 5: Vật lý Class DG (Physical Class Diagram) & Sơ đồ lớp
+Nhiệm vụ: Thiết kế sơ đồ lớp chi tiết ở mức vật lý (Class Diagram) để chuẩn bị cho việc cài đặt mã nguồn.
+Checklist sản phẩm cần nộp:
+[ ] Sơ đồ lớp (Class Diagram): Thiết kế các lớp đối tượng bao gồm đầy đủ các thuộc tính (kèm kiểu dữ liệu: String, Int...) và các phương thức/hàm xử lý logic (Ví dụ: generateRoadmap(), analyzeSkillGap()).
+[ ] Thể hiện mối quan hệ: Biểu diễn chính xác các quan hệ Dependency, Association, Aggregation, Composition giữa các lớp.
+👤 Thành viên 6: Sơ đồ luồng dữ liệu 3 mức & Swimlane DFD
+Nhiệm vụ: Mô hình hóa luồng đi của dữ liệu trong hệ thống qua các phân hệ.
+Checklist sản phẩm cần nộp:
+[ ] DFD 3 mức: Vẽ sơ đồ luồng dữ liệu bao gồm Mức ngữ cảnh (Context Diagram), Mức 0 (Tổng quát hệ thống) và Mức 1 (Chi tiết cho các phân hệ chức năng).
+[ ] Swimlane DFD: Tổ chức sơ đồ luồng dữ liệu theo dạng phân làn (Swimlane) để phân định rõ dữ liệu được xử lý bởi Actor nào, Tiến trình nào, hoặc Hệ thống AI nào.
+👤 Thành viên 7: Thiết kế Cơ sở dữ liệu vật lý (Database Designer - SQL Server) & Sơ đồ hoạt động
+Nhiệm vụ: Chuyển đổi thiết kế dữ liệu thành mã chạy trên SQL Server và vẽ sơ đồ hoạt động cho hệ thống.
+Checklist sản phẩm cần nộp:
+[ ] Cài đặt SQL Server: Chuyển đổi ERD thành cấu trúc bảng vật lý trên SQL Server với đầy đủ kiểu dữ liệu tương thích, ràng buộc toàn vẹn (Constraints).
+[ ] Sơ đồ hoạt động (Activity Diagram): Vẽ các sơ đồ hoạt động để mô tả tuần tự các bước xử lý của hệ thống cho các tính năng tự động (như tiến trình cào dữ liệu định kỳ của Market Pulse hoặc tiến trình phân tích của AI).
+
+
