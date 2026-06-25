@@ -3,7 +3,7 @@
 Nền tảng định hướng nghề nghiệp và tự động cá nhân hóa lộ trình học tập dành riêng cho sinh viên ngành Công nghệ Phần mềm. Hệ thống ứng dụng Trí tuệ nhân tạo (Gemini API) để phân tích khoảng cách năng lực (Gap Analysis) từ hồ sơ và kho mã nguồn GitHub của sinh viên, kết hợp module tự động quét xu hướng tuyển dụng thực tế (Market Pulse).
 
 ---
-
+## PHÂN CHIA CHI TIẾT
 ### 👤 Phúc: Lập Checklist Yêu cầu & Use-case Tổng thể
 > **Nhiệm vụ:** Rà soát để lập danh sách tính năng và vẽ sơ đồ tương tác.
 
