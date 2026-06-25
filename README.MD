@@ -37,8 +37,7 @@ personalized-learning-platform/
     └── main.tex              # Tệp điều phối trung tâm báo cáo
 
 ---
-##📂 PHÂN CHIA CHI TIẾT
-```text
+## PHÂN CHIA CHI TIẾT
 👤 Thành viên 1: Lập Checklist Yêu cầu & Use-case Tổng thể
 Nhiệm vụ: Rà soát để lập danh sách tính năng và vẽ sơ đồ tương tác.
 Checklist sản phẩm cần nộp:
