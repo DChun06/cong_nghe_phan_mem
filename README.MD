@@ -35,10 +35,10 @@ personalized-learning-platform/
 └── reports/                  # Mã nguồn tài liệu báo cáo lớn LaTeX
     ├── chapters/             # Nội dung 7 chương con của 7 thành viên
     └── main.tex              # Tệp điều phối trung tâm báo cáo
-<details open>
-  <summary><h3>📂 PHÂN CHIA CHI TIẾT</h3></summary>
 
-  ```text
+---
+##📂 PHÂN CHIA CHI TIẾT
+```text
 👤 Thành viên 1: Lập Checklist Yêu cầu & Use-case Tổng thể
 Nhiệm vụ: Rà soát để lập danh sách tính năng và vẽ sơ đồ tương tác.
 Checklist sản phẩm cần nộp:
