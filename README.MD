@@ -38,7 +38,6 @@ personalized-learning-platform/
 
 ---
 
-
 PHÂN CHIA CHI TIẾT 
 👤 Thành viên 1: Lập Checklist Yêu cầu & Use-case Tổng thể
 Nhiệm vụ: Rà soát để lập danh sách tính năng và vẽ sơ đồ tương tác.
