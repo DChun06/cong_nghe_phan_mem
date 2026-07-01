@@ -1,0 +1,73 @@
+\chapter{Thiết Kế Cơ Sở Dữ Liệu Vật Lý \& Sơ Đồ Hoạt Động Hệ Thống}
+\label{ch:database_activity}
+\textit{Vu Le Hoang Nhat}
+
+\section{Mã Kịch Bản SQL Server Khởi Tạo Hệ Thống Bảng Vật Lý}
+Từ tài liệu cấu trúc \texttt{ERD.md} do Thành viên 6 chuẩn hóa, dưới đây là mã lệnh thiết lập cấu trúc cơ sở dữ liệu vật lý hoàn chỉnh chạy trực tiếp trên SQL Server với đầy đủ ràng buộc khóa và quy tắc toàn vẹn dữ liệu:
+
+\begin{lstlisting}[language=SQL, caption=Mã lệnh T-SQL tạo cấu trúc các bảng dữ liệu cốt lõi]
+	-- Khởi tạo cơ sở dữ liệu cho hệ thống định hướng nghề nghiệp
+	CREATE DATABASE CareerOrientationDB;
+	GO
+	USE CareerOrientationDB;
+	GO
+	
+	-- 1. Tạo bảng lưu trữ Hồ sơ năng lực chi tiết của Sinh viên
+	CREATE TABLE StudentProfiles (
+	StudentID INT IDENTITY(1,1) NOT NULL,
+	FullName NVARCHAR(100) NOT NULL,
+	Email VARCHAR(100) NOT NULL,
+	Major NVARCHAR(50) DEFAULT N'Cong nghe Phan mem',
+	AcademicYear INT NOT NULL,
+	GitHubURL VARCHAR(255) NULL,
+	CONSTRAINT PK_StudentProfiles PRIMARY KEY (StudentID),
+	CONSTRAINT UC_StudentEmail UNIQUE (Email),
+	CONSTRAINT CK_AcademicYear CHECK (AcademicYear BETWEEN 1 AND 5)
+	);
+	
+	-- 2. Tạo bảng lưu trữ Lộ trình học tập tổng quan do AI sinh ra
+	CREATE TABLE PersonalRoadmaps (
+	RoadmapID INT IDENTITY(1,1) NOT NULL,
+	StudentID INT NOT NULL,
+	TargetJobTitle NVARCHAR(100) NOT NULL,
+	CreatedDate DATETIME DEFAULT GETDATE(),
+	IsActive BIT DEFAULT 1,
+	CONSTRAINT PK_PersonalRoadmaps PRIMARY KEY (RoadmapID),
+	CONSTRAINT FK_Roadmaps_Students FOREIGN KEY (StudentID) 
+	REFERENCES StudentProfiles(StudentID) ON DELETE CASCADE
+	);
+	
+	-- 3. Tạo bảng lưu trữ Chi tiết từng bước/kỹ năng trong cây lộ trình
+	CREATE TABLE RoadmapDetails (
+	DetailID INT IDENTITY(1,1) NOT NULL,
+	RoadmapID INT NOT NULL,
+	StepOrder INT NOT NULL,
+	NodeName NVARCHAR(100) NOT NULL,
+	Description NVARCHAR(MAX) NULL,
+	IsCompleted BIT DEFAULT 0,
+	CONSTRAINT PK_RoadmapDetails PRIMARY KEY (DetailID),
+	CONSTRAINT FK_Details_Roadmaps FOREIGN KEY (RoadmapID) 
+	REFERENCES PersonalRoadmaps(RoadmapID) ON DELETE CASCADE
+	);
+\end{lstlisting}
+
+\section{Đặc Tả Quy Trình Vận Hành Bằng Sơ Đồ Hoạt Động (Activity Diagram)}
+Để làm rõ luồng xử lý xử lý dữ liệu chạy ngầm của các phân hệ tự động trong hệ thống, cấu trúc logic của 2 quy trình cốt lõi được định nghĩa tuần tự như sau:
+
+\subsection{Tiến trình tự động Phân tích dữ liệu và Kết xuất Lộ trình bằng AI}
+\begin{enumerate}
+	\item \textbf{Bước 1:} Sinh viên gửi yêu cầu tạo lộ trình bằng cách chọn vị trí công việc đích (ví dụ: Backend Developer) trên giao diện Client.
+	\item \textbf{Bước 2:} Tầng giao tiếp API của FastAPI tiếp nhận thông tin, gửi lệnh truy vấn tới tầng Data Access để lấy thông tin kỹ năng hiện tại của sinh viên từ bảng \texttt{StudentProfiles}.
+	\item \textbf{Bước 3:} Lớp Business Logic thực hiện thuật toán so sánh, đối chiếu tập kỹ năng hiện tại của sinh viên với bộ khung năng lực chuẩn của ngành nghề để xác định lỗ hổng kiến thức.
+	\item \textbf{Bước 4:} Hệ thống gọi module AI Engine để sắp xếp các kỹ năng cần học theo trình tự từ cơ bản đến nâng cao.
+	\item \textbf{Bước 5:} Tiến hành ghi dữ liệu kết quả vào các bảng vật lý \texttt{PersonalRoadmaps} và \texttt{RoadmapDetails} trên SQL Server, đồng thời trả cấu trúc JSON về cho Frontend Next.js hiển thị đồ thị cây.
+\end{enumerate}
+
+\subsection{Tiến trình quét dữ liệu xu hướng tuyển dụng ngầm định kỳ (Market Pulse Bot)}
+\begin{enumerate}
+	\item \textbf{Bước 1:} Bộ lập lịch tự động của hệ thống (Cron Job) kích hoạt tiến trình chạy ngầm vào lúc 00:00 ngày đầu tiên của mỗi tuần.
+	\item \textbf{Bước 2:} Robot thực hiện gửi các yêu cầu kết nối (HTTP Requests) để lấy cấu trúc dữ liệu thô từ danh sách các trang tin tuyển dụng công nghệ lớn được cấu hình sẵn.
+	\item \textbf{Bước 3:} Phân tách mã nguồn văn bản (Mô tả công việc - JD) để trích xuất các từ khóa về kỹ năng, công nghệ.
+	\item \textbf{Bước 4:} Đưa chuỗi dữ liệu qua bộ xử lý ngôn ngữ tự nhiên (NLP) để phân tích tần suất xuất hiện và đối sánh trùng lặp dữ liệu trong Database.
+	\item \textbf{Bước 5:} Cập nhật các chỉ số công nghệ mới vào bảng lưu trữ tri thức hệ thống nhằm tối ưu hóa độ chính xác cho bài kiểm tra định hướng của Thành viên 2.
+\end{enumerate}
