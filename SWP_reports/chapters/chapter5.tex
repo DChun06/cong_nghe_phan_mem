@@ -1,3 +1,355 @@
-\chapter{Software Testing}
+%==========================================================
+% CHAPTER V
+%==========================================================
 
-This chapter will be updated later.
+\chapter{Requirement Appendix}
+
+\section{Business Rules}
+
+The following business rules define the constraints and policies applied throughout the Personalized Career Orientation \& Learning Roadmap Platform.
+
+\begin{table}[H]
+\centering
+\caption{Business Rules}
+\begin{tabular}{|c|p{11cm}|}
+\hline
+\textbf{ID} & \textbf{Rule Definition} \\ \hline
+
+BR-01 &
+A student can own only one profile in the system.
+\\ \hline
+
+BR-02 &
+A student can select only one target career role at a time.
+\\ \hline
+
+BR-03 &
+A personalized roadmap can only be generated after a target career role has been selected.
+\\ \hline
+
+BR-04 &
+Each Skill Node belongs to exactly one Tech Path.
+\\ \hline
+
+BR-05 &
+A Skill Node cannot be marked as completed unless it exists in the student's roadmap.
+\\ \hline
+
+BR-06 &
+Roadmap progress is automatically recalculated whenever the completion status changes.
+\\ \hline
+
+BR-07 &
+AI recommendations are generated using the student's transcript, GitHub repositories, and selected career role.
+\\ \hline
+
+BR-08 &
+A student may upload multiple transcripts, but only the latest version is used for analysis.
+\\ \hline
+
+BR-09 &
+One GitHub account can only be linked to one system account.
+\\ \hline
+
+BR-10 &
+Only public GitHub repositories are synchronized.
+\\ \hline
+
+BR-11 &
+Repositories without a README.md file are not analyzed by the AI.
+\\ \hline
+
+BR-12 &
+Each repository is synchronized only once during a synchronization cycle.
+\\ \hline
+
+BR-13 &
+One AI-generated summary is created for every synchronized repository.
+\\ \hline
+
+BR-14 &
+Skill Gap Analysis compares only the skills required for the selected career role.
+\\ \hline
+
+BR-15 &
+Missing skills are prioritized according to industry demand and prerequisite relationships.
+\\ \hline
+
+BR-16 &
+Generated Skill Gap reports are stored for future reference.
+\\ \hline
+
+BR-17 &
+Market Pulse data is automatically updated every 24 hours.
+\\ \hline
+
+BR-18 &
+Only verified job postings are included in technology trend analysis.
+\\ \hline
+
+BR-19 &
+Technology popularity is calculated using keyword frequency extracted from job descriptions.
+\\ \hline
+
+BR-20 &
+All AI mentor conversations are stored in the user's chat history.
+\\ \hline
+
+BR-21 &
+Users may delete their chat history without affecting roadmap data.
+\\ \hline
+
+BR-22 &
+Each student owns exactly one shareable E-Portfolio URL.
+\\ \hline
+
+BR-23 &
+Generating a new E-Portfolio URL invalidates the previous one.
+\\ \hline
+
+BR-24 &
+Only authenticated users can access personalized recommendations.
+\\ \hline
+
+BR-25 &
+Google OAuth users must authenticate with a verified Google account.
+\\ \hline
+
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Assumptions and Dependencies}
+
+This section describes the assumptions made during system development and the external dependencies required for system operation.
+
+\subsection{Assumptions}
+
+\begin{itemize}
+    \item Users have a stable Internet connection.
+    \item GitHub repositories are publicly accessible.
+    \item Uploaded academic transcripts are valid and readable.
+    \item AI services (OpenAI or Gemini) are available during recommendation requests.
+    \item External job portals provide accessible data for technology trend analysis.
+\end{itemize}
+
+\subsection{Dependencies}
+
+\begin{table}[H]
+\centering
+\caption{External Dependencies}
+\begin{tabular}{|l|p{9cm}|}
+\hline
+\textbf{Service} & \textbf{Purpose} \\ \hline
+
+OpenAI API / Gemini API &
+Generate AI career recommendations and chatbot responses.
+\\ \hline
+
+GitHub REST API &
+Synchronize repositories and retrieve README files.
+\\ \hline
+
+Google OAuth 2.0 &
+User authentication.
+\\ \hline
+
+Job Portal APIs &
+Collect job market information and technology trends.
+\\ \hline
+
+PDF Generator &
+Export Skill Gap Analysis reports.
+\\ \hline
+
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Data Dictionary}
+
+\subsection{Student Profile}
+
+\begin{table}[H]
+\centering
+\caption{Student Profile Entity}
+\begin{tabular}{|l|l|p{8cm}|}
+\hline
+\textbf{Attribute} & \textbf{Type} & \textbf{Description} \\ \hline
+
+StudentId & UUID & Unique identifier \\ \hline
+FullName & String & Student full name \\ \hline
+Email & String & Student email \\ \hline
+GPA & Float & Grade Point Average \\ \hline
+CareerRole & String & Selected career role \\ \hline
+GitHubURL & String & GitHub profile link \\ \hline
+Transcript & File & Uploaded transcript \\ \hline
+
+\end{tabular}
+\end{table}
+
+\subsection{Tech Path}
+
+\begin{table}[H]
+\centering
+\caption{Tech Path Entity}
+\begin{tabular}{|l|l|p{8cm}|}
+\hline
+Attribute & Type & Description \\ \hline
+PathId & UUID & Unique identifier \\ \hline
+PathName & String & Career path name \\ \hline
+Description & Text & Career path description \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Skill Node}
+
+\begin{table}[H]
+\centering
+\caption{Skill Node Entity}
+\begin{tabular}{|l|l|p{8cm}|}
+\hline
+Attribute & Type & Description \\ \hline
+SkillId & UUID & Skill identifier \\ \hline
+SkillName & String & Skill name \\ \hline
+ParentSkill & UUID & Parent node \\ \hline
+Status & Boolean & Completion status \\ \hline
+Priority & Integer & Learning priority \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Course Repository}
+
+\begin{table}[H]
+\centering
+\caption{Course Repository Entity}
+\begin{tabular}{|l|l|p{8cm}|}
+\hline
+Attribute & Type & Description \\ \hline
+RepoId & UUID & Repository identifier \\ \hline
+RepositoryName & String & Repository name \\ \hline
+TechStack & Text & Technologies used \\ \hline
+Summary & Text & AI-generated summary \\ \hline
+RepositoryURL & String & GitHub URL \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Job Trend}
+
+\begin{table}[H]
+\centering
+\caption{Job Trend Entity}
+\begin{tabular}{|l|l|p{8cm}|}
+\hline
+Attribute & Type & Description \\ \hline
+TrendId & UUID & Trend identifier \\ \hline
+Skill & String & Technology name \\ \hline
+Frequency & Integer & Number of occurrences \\ \hline
+GrowthRate & Float & Growth percentage \\ \hline
+UpdatedAt & DateTime & Last updated time \\ \hline
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Glossary}
+
+\begin{table}[H]
+\centering
+\caption{Glossary}
+\begin{tabular}{|l|p{10cm}|}
+\hline
+
+\textbf{Term} &
+\textbf{Definition}
+\\ \hline
+
+AI Virtual Mentor &
+Artificial Intelligence chatbot providing personalized career advice.
+\\ \hline
+
+Tech Path &
+Personalized career learning roadmap.
+\\ \hline
+
+Skill Node &
+An individual technical skill in the roadmap.
+\\ \hline
+
+Skill Gap &
+Missing skills compared to the target career.
+\\ \hline
+
+Market Pulse &
+Technology trend analysis generated from job postings.
+\\ \hline
+
+GitHub Sync &
+Synchronization of public GitHub repositories.
+\\ \hline
+
+README Analysis &
+AI analysis of README.md files.
+\\ \hline
+
+E-Portfolio &
+Automatically generated online portfolio.
+\\ \hline
+
+Repository Summary &
+AI-generated project summary.
+\\ \hline
+
+Career Role &
+Target software engineering position.
+\\ \hline
+
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Requirement Traceability Matrix}
+
+\begin{table}[H]
+\centering
+\caption{Requirement Traceability Matrix}
+\begin{tabular}{|l|l|}
+\hline
+
+\textbf{Functional Requirement} &
+\textbf{Main Entity}
+\\ \hline
+
+FR1.1 -- FR1.3 &
+Student Profile, Mentor Session
+\\ \hline
+
+FR2.1 -- FR2.4 &
+Tech Path, Skill Node
+\\ \hline
+
+FR3.1 -- FR3.3 &
+Student Profile, Skill Node
+\\ \hline
+
+FR4.1 -- FR4.3 &
+Job Trend
+\\ \hline
+
+FR5.1 -- FR5.3 &
+Course Repository, Student Profile
+\\ \hline
+
+FR6.1 &
+Student Profile
+\\ \hline
+
+FR6.2 &
+Student Profile, Mentor Session
+\\ \hline
+
+\end{tabular}
+\end{table}
