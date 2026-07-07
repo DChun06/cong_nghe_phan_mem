@@ -99,7 +99,7 @@ The fastest way to explore Release 1.0 is through the hosted GitHub Pages demo, 
 
 \begin{itemize}[nosep]
     \item Step 1: Open a web browser.
-    \item Step 2: Navigate to \url{https://phucvobao.github.io/Software-Engineering-Students/}.
+    \item Step 2: Navigate to \url{https://software-engineering-students.onrender.com/}.
     \item Step 3: The landing page of \textit{SE Career Compass} will load directly; no login credentials are required to explore the demo flows.
 \end{itemize}
 
@@ -203,49 +203,116 @@ The platform serves four internal actors, each with a dedicated working area, as
     \caption{AI Mentor Interface}
     \label{fig:ai-mentor}
     \end{figure}
-    \item Step 2: Optionally attach context such as transcript data, GPA, or a linked GitHub profile so the mentor can personalize its guidance.
+    \item Step 2:Click on the Target role dropdown menu at the top-right corner and select the desired career position (e.g., "Data Engineer") to update the consultation context.
+     \includegraphics[width=0.8\textwidth]{images/Target-role.png}
     \item Step 3: Type a career or learning question (e.g., "What should I learn to become a Cloud Architect?") and send it.
-    \item Step 4: Review the AI Mentor's suggested career direction and recommended next steps directly in the chat window.
-\end{itemize}
-
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/mentor-chat.png}
+    \caption{AI Mentor Chat}
+    \label{fig:ai-mentor}
+    \end{figure}
 \subsubsection{View and Update the Dynamic Learning Roadmap (FR2)}
 \begin{itemize}[nosep]
-    \item Step 1: Select a target role (e.g., \textit{Cloud Architect}) from the career selection screen.
-    \item Step 2: Open \textbf{Roadmap} to view the hierarchical skill tree generated for that role.
-    \item Step 3: Mark a skill node as completed once the corresponding learning milestone is finished; the completion percentage updates automatically.
+    \item Step 1: From the left navigation menu, select Roadmap to view the Hierarchical skill tree generated for the target role (e.g., Cloud Architect).
+     \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/career-selection.png}
+    \caption{Career Selection}
+    \label{fig:career-selection}
+    \end{figure}
+    \item Step 2: Click on the checkbox of a specific skill block (e.g., Linux and networking basics, AWS core services) once that learning milestone is completed. The Overall completion percentage bar will update automatically.
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/learning-roadmap.png}
+    \caption{Learning Roadmap}
+    \label{fig:learning-roadmap}
+    \end{figure}
+    \item Step 3: Optionally, use the Mark first priority button to highlight key starting milestones, or click Reset to clear all current progress and start over.
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/roadmap-progress.png}
+    \caption{Roadmap Progress}
+    \label{fig:roadmap-progress}
+    \end{figure}
 \end{itemize}
 
 \subsubsection{Run a Skill Gap Analysis (FR3)}
 \begin{itemize}[nosep]
     \item Step 1: Open \textbf{Skill Gap Analysis} from the Student dashboard.
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/skill-gap-dashboard.png}
+    \caption{Skill Gap Analysis}
+    \label{fig:skill-gap}
+    \end{figure}
     \item Step 2: The system compares the student's current skills against the requirements of the selected target role.
+     \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/skill-gap-analysis.png}
+    \caption{Skill Gap Analysis}
+    \label{fig:skill-gap-analysis}
+     \end{figure}
     \item Step 3: Review the list of missing competencies and click \textbf{Export Report} to download the analysis as a PDF.
 \end{itemize}
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/skill-gap-report.png}
+    \caption{Skill Gap Report}
+    \label{fig:skill-gap-report}
+\end{figure}
 \subsubsection{Check Market Pulse (FR4)}
 \begin{itemize}[nosep]
     \item Step 1: Open \textbf{Market Pulse} from the navigation menu.
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/market-pulse.png}
+    \caption{Market Pulse}
+    \label{fig:market-pulse}
+    \end{figure}
     \item Step 2: Browse trending job keywords, in-demand technologies, and salary statistics aggregated from job-market sources such as LinkedIn and TopCV.
 \end{itemize}
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/market-trends.png}
+    \caption{Market Trends}
+    \label{fig:market-trends}
+    \end{figure}
 \subsubsection{Build and Share an E-Portfolio (FR5)}
 \begin{itemize}[nosep]
     \item Step 1: Open \textbf{E-Portfolio} and click \textbf{Sync GitHub} to connect a GitHub account.
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/github-sync.png}
+    \caption{GitHub Sync}
+    \label{fig:github-sync}
+    \end{figure}
     \item Step 2: Select the repositories to include; the platform assembles a project story from each repository's activity.
     \item Step 3: Click \textbf{Generate Portfolio} to build the portfolio page, then click \textbf{Share} to obtain a public link that can be sent to recruiters or mentors.
 \end{itemize}
 
 \subsubsection{Academic Counselor — Review a Student}
 \begin{itemize}[nosep]
-    \item Step 1: Login to the counselor workspace and open \textbf{Student List}.
+    \item Step 1: Login to the counselor workspace 
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/counselor-dashboard.png}
+    \caption{Counselor Dashboard}
+    \label{fig:counselor-dashboard}
+    \end{figure}
     \item Step 2: Select a student to view their profile and skill gap report.
     \item Step 3: Add a recommended career path or course, or leave a comment on the student's learning plan.
 \end{itemize}
 
 \subsubsection{Industry Mentor — Evaluate a Portfolio}
 \begin{itemize}[nosep]
-    \item Step 1: Login to the mentor workspace and open \textbf{Portfolio Reviews}.
+    \item Step 1: Login to the mentor workspace 
+     \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/mentor-dashboard.png}
+    \caption{Mentor Dashboard}
+    \label{fig:mentor-dashboard}
+    \end{figure}
     \item Step 2: Open a student's e-portfolio and review the listed projects.
     \item Step 3: Leave technical feedback, suggest improvements, or approve the portfolio.
 \end{itemize}
-
