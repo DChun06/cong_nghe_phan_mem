@@ -1,3 +1,348 @@
+%====================================================
+% CHAPTER II
+%====================================================
 \chapter{Project Management Plan}
 
-This chapter will be updated later.
+\section{Overview}
+
+\subsection{Project Scope and Estimation}
+
+The \textbf{Personalized Career Orientation \& Learning Roadmap Platform for Software Engineering Students} is a web-based system designed to assist Software Engineering students in identifying suitable career paths and generating personalized learning roadmaps based on their academic performance, technical skills, interests, and career goals.
+
+The project consists of the following major work packages.
+
+\begin{table}[H]
+\centering
+\caption{Work Breakdown Structure (WBS) and Project Effort Estimation}
+\label{tab:wbs}
+
+\resizebox{0.95\textwidth}{!}{
+\begin{tabular}{|c|p{7cm}|c|c|}
+\hline
+\textbf{WBS} & \textbf{Task} & \textbf{Complexity} & \textbf{Estimated Effort (Man-days)}\\
+\hline
+1 & Project Initiation & Medium & 10\\
+\hline
+1.1 & Requirement Gathering & Medium & 5\\
+\hline
+1.2 & Feasibility Analysis & Medium & 5\\
+\hline
+2 & Planning & Medium & 8\\
+\hline
+2.1 & Project Planning & Medium & 4\\
+\hline
+2.2 & Risk Planning & Medium & 4\\
+\hline
+3 & Analysis and Design & Complex & 22\\
+\hline
+3.1 & Requirement Analysis & Medium & 8\\
+\hline
+3.2 & Database Design & Medium & 6\\
+\hline
+3.3 & System Architecture & Complex & 8\\
+\hline
+4 & Implementation & Complex & 80\\
+\hline
+4.1 & Authentication Module & Simple & 6\\
+\hline
+4.2 & Student Profile Module & Medium & 8\\
+\hline
+4.3 & Career Assessment Module & Complex & 12\\
+\hline
+4.4 & Career Recommendation Engine & Complex & 16\\
+\hline
+4.5 & Learning Roadmap Generator & Complex & 16\\
+\hline
+4.6 & Learning Resource Management & Medium & 10\\
+\hline
+4.7 & Dashboard and Progress Tracking & Medium & 12\\
+\hline
+5 & Testing & Complex & 24\\
+\hline
+5.1 & Unit Testing & Medium & 8\\
+\hline
+5.2 & Integration Testing & Complex & 8\\
+\hline
+5.3 & System Testing & Complex & 8\\
+\hline
+6 & Deployment & Medium & 8\\
+\hline
+6.1 & Deployment & Medium & 4\\
+\hline
+6.2 & User Acceptance Testing & Medium & 4\\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\textbf{Total Estimated Effort: 152 Man-days}
+
+The objectives of the project are as follows.
+
+\begin{itemize}
+\item Develop a web-based personalized career orientation platform.
+\item Recommend suitable Software Engineering career paths.
+\item Generate personalized learning roadmaps.
+\item Track students' learning progress.
+\item Recommend appropriate learning resources.
+\item Improve students' career planning capability.
+\item Complete the project within one academic semester.
+\end{itemize}
+
+\subsection{Testing Objectives}
+
+\begin{table}[H]
+\centering
+\caption{Testing Objectives}
+\label{tab:testing}
+
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Testing Stage} & \textbf{Coverage} & \textbf{Target Defects}\\
+\hline
+Code Review & Coding Standard & <10\\
+\hline
+Unit Testing & Business Logic & <8\\
+\hline
+Integration Testing & Module Communication & <5\\
+\hline
+System Testing & Complete Workflow & <5\\
+\hline
+Acceptance Testing & User Requirements & <3\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Project Risks}
+
+\begin{table}[H]
+\centering
+\caption{Project Risks}
+\label{tab:risks}
+
+\begin{tabular}{|p{4cm}|c|c|p{5cm}|}
+\hline
+\textbf{Risk} & \textbf{Impact} & \textbf{Probability} & \textbf{Mitigation}\\
+\hline
+Changing Requirements & High & Medium & Weekly meetings with supervisor\\
+\hline
+Implementation Delay & High & Medium & Sprint planning and monitoring\\
+\hline
+Incorrect Recommendation Results & Medium & Medium & Validation and testing\\
+\hline
+Database Performance Issues & Medium & Low & Query optimization\\
+\hline
+Communication Problems & Medium & Medium & Weekly meetings and GitHub tracking\\
+\hline
+Member Absence & High & Low & Knowledge sharing and backup assignments\\
+\hline
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Management Approach}
+
+\subsection{Development Methodology}
+
+The project adopts the Agile Scrum methodology.
+
+The reasons include:
+
+\begin{itemize}
+\item Continuous customer feedback
+\item Flexible requirement changes
+\item Incremental software delivery
+\item Continuous testing
+\item Better project monitoring
+\end{itemize}
+
+Each sprint lasts two weeks.
+
+\subsection{Quality Management}
+
+Quality assurance activities include:
+
+\begin{itemize}
+\item Requirement Review
+\item Code Review
+\item Unit Testing
+\item Integration Testing
+\item System Testing
+\item User Acceptance Testing
+\end{itemize}
+
+\subsection{Training Plan}
+
+\begin{table}[H]
+\centering
+\caption{Training Plan}
+\label{tab:training}
+
+\begin{tabular}{|l|l|c|}
+\hline
+\textbf{Technology} & \textbf{Participants} & \textbf{Duration}\\
+\hline
+ASP.NET Core & All Members & 1 Week\\
+\hline
+ReactJS & Front-end Developers & 1 Week\\
+\hline
+SQL Server & All Members & 3 Days\\
+\hline
+Git and GitHub & All Members & 2 Days\\
+\hline
+Figma & UI Designer & 2 Days\\
+\hline
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Project Deliverables}
+
+\begin{table}[H]
+\centering
+\caption{Project Deliverables}
+\label{tab:deliverables}
+
+\begin{tabular}{|c|p{9cm}|}
+\hline
+\textbf{Sprint} & \textbf{Deliverables}\\
+\hline
+1 & Requirement Analysis\\
+\hline
+2 & Database Design and UI Prototype\\
+\hline
+3 & Authentication Module\\
+\hline
+4 & Student Profile Module\\
+\hline
+5 & Career Assessment Module\\
+\hline
+6 & Career Recommendation Module\\
+\hline
+7 & Learning Roadmap Module\\
+\hline
+8 & Learning Resource Module\\
+\hline
+9 & Dashboard and Progress Tracking\\
+\hline
+10 & Integration Testing\\
+\hline
+11 & System Testing\\
+\hline
+12 & Deployment and Final Report\\
+\hline
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Responsibility Assignments}
+
+\begin{table}[H]
+\centering
+\caption{Responsibility Assignment Matrix}
+\label{tab:responsibility}
+
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Task} & \textbf{Member 1} & \textbf{Member 2} & \textbf{Member 3} & \textbf{Member 4}\\
+\hline
+Requirement Analysis & D & R & S & S\\
+\hline
+Project Planning & D & S & R & S\\
+\hline
+Database Design & R & D & S & S\\
+\hline
+Backend Development & S & D & R & S\\
+\hline
+Frontend Development & S & R & D & S\\
+\hline
+Testing & R & S & D & S\\
+\hline
+Documentation & S & R & S & D\\
+\hline
+\end{tabular}
+\end{table}
+
+Where
+
+\begin{itemize}
+\item D = Do
+\item R = Review
+\item S = Support
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Project Communications}
+
+\begin{table}[H]
+\centering
+\caption{Project Communications}
+\label{tab:communication}
+
+\begin{tabular}{|p{4cm}|p{3cm}|p{3cm}|p{3cm}|}
+\hline
+\textbf{Communication} & \textbf{Participants} & \textbf{Frequency} & \textbf{Tool}\\
+\hline
+Daily Meeting & Development Team & Daily & Google Meet\\
+\hline
+Sprint Planning & All Members & Every 2 Weeks & Google Meet\\
+\hline
+Sprint Review & Supervisor & Every Sprint & Offline/Meet\\
+\hline
+Issue Discussion & Related Members & As Needed & Discord\\
+\hline
+Document Sharing & All Members & Continuous & Google Drive\\
+\hline
+Source Code Review & Developers & Continuous & GitHub\\
+\hline
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Configuration Management}
+
+\subsection{Document Management}
+
+The project documentation is maintained using:
+
+\begin{itemize}
+\item Microsoft Word
+\item Microsoft Excel
+\item Google Drive
+\end{itemize}
+
+\subsection{Source Code Management}
+
+The source code is managed using GitHub and Git.
+
+The following branching strategy is adopted:
+
+\begin{itemize}
+\item main
+\item develop
+\item feature/*
+\item release/*
+\item hotfix/*
+\end{itemize}
+
+\subsection{Version Control Policy}
+
+\begin{itemize}
+\item Every feature is developed in an independent branch.
+\item Pull Requests are mandatory before merging.
+\item Code review is required before approval.
+\item Semantic Versioning is applied.
+\end{itemize}
+
+Example versions:
+
+\begin{itemize}
+\item Version 1.0.0
+\item Version 1.1.0
+\item Version 2.0.0
+\end{itemize}
