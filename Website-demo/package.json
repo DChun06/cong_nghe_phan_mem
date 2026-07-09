@@ -1,0 +1,24 @@
+{
+  "name": "se-career-compass",
+  "version": "1.0.0",
+  "description": "Personalized Career Orientation and Learning Roadmap Platform for Software Engineering Students",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check app.js && node --check login.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "career-roadmap",
+    "software-engineering",
+    "nodejs",
+    "student-portfolio"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}
