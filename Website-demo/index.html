@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SE Career Compass</title>
+    <link rel="icon" href="assets/student-avatar.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <div class="brand">
+          <img src="assets/student-avatar.png" alt="SE Career Compass mark" />
+          <div>
+            <strong>SE Career Compass</strong>
+            <span>Roadmap platform</span>
+          </div>
+        </div>
+
+        <nav class="nav-list">
+          <button class="nav-item active" data-section="dashboard">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </button>
+          <button class="nav-item" data-section="mentor">
+            <i data-lucide="bot-message-square"></i>
+            <span>AI Mentor</span>
+          </button>
+          <button class="nav-item" data-section="roadmap">
+            <i data-lucide="route"></i>
+            <span>Roadmap</span>
+          </button>
+          <button class="nav-item" data-section="gap">
+            <i data-lucide="radar"></i>
+            <span>Skill Gap</span>
+          </button>
+          <button class="nav-item" data-section="market">
+            <i data-lucide="trending-up"></i>
+            <span>Market Pulse</span>
+          </button>
+          <button class="nav-item" data-section="portfolio">
+            <i data-lucide="folder-git-2"></i>
+            <span>E-Portfolio</span>
+          </button>
+          <button class="nav-item" data-section="workspace">
+            <i data-lucide="briefcase-business"></i>
+            <span>Workspace</span>
+          </button>
+          <button class="nav-item" data-section="resources">
+            <i data-lucide="library-big"></i>
+            <span>Resources</span>
+          </button>
+          <button class="nav-item" data-section="spec">
+            <i data-lucide="clipboard-list"></i>
+            <span>System Spec</span>
+          </button>
+          <button class="nav-item" data-section="users">
+            <i data-lucide="users-round"></i>
+            <span>Users</span>
+          </button>
+        </nav>
+
+        <div class="advisor-strip">
+          <img src="assets/mentor-avatar.png" alt="Industry mentor avatar" />
+          <div>
+            <span>Next mentor slot</span>
+            <strong>Friday, 14:00</strong>
+          </div>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Submitted by AnNDH2</p>
+            <h1>Personalized Career Orientation & Learning Roadmap Platform</h1>
+            <div class="topbar-meta">
+              <span><i data-lucide="shield-check"></i> Demo build</span>
+              <span><i data-lucide="database-zap"></i> Local persistence</span>
+              <span><i data-lucide="sparkles"></i> AI-ready flows</span>
+            </div>
+          </div>
+          <div class="profile-controls">
+            <label for="roleSelect">Target role</label>
+            <select id="roleSelect"></select>
+            <button class="icon-button" id="saveSnapshot" title="Save student snapshot">
+              <i data-lucide="save"></i>
+            </button>
+          </div>
+        </header>
+
+        <section class="view active" id="dashboard">
+          <div class="role-insight-strip">
+            <div class="insight-item">
+              <span>Active role</span>
+              <strong id="insightRole">Cloud Architect</strong>
+            </div>
+            <div class="insight-item">
+              <span>Next best action</span>
+              <strong id="insightNextAction">Complete first priority node</strong>
+            </div>
+            <div class="insight-item">
+              <span>Demo readiness</span>
+              <strong id="insightDemoReadiness">Prototype-ready</strong>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="hero-panel">
+              <div class="hero-copy">
+                <p class="eyebrow">Student workspace</p>
+                <h2 id="dashboardRoleTitle">Cloud Architect readiness plan</h2>
+                <p id="dashboardLead">
+                  A focused path from current skills to internship-ready evidence.
+                </p>
+                <div class="hero-actions">
+                  <button class="primary-action" data-jump="roadmap">
+                    <i data-lucide="route"></i>
+                    Open roadmap
+                  </button>
+                  <button class="secondary-action" data-jump="gap">
+                    <i data-lucide="radar"></i>
+                    Analyze gaps
+                  </button>
+                </div>
+                <div class="readiness-orb" aria-label="Readiness score">
+                  <svg viewBox="0 0 120 120" role="img" aria-hidden="true">
+                    <circle class="orb-track" cx="60" cy="60" r="48"></circle>
+                    <circle class="orb-value" id="readinessCircle" cx="60" cy="60" r="48"></circle>
+                  </svg>
+                  <div>
+                    <strong id="readinessScore">0%</strong>
+                    <span>ready</span>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-visual">
+                <img src="assets/career-compass-banner.png" alt="Software engineering career roadmap dashboard" />
+              </div>
+            </article>
+
+            <article class="metric-card">
+              <span>Roadmap progress</span>
+              <strong id="metricProgress">0%</strong>
+              <div class="meter"><span id="metricProgressBar"></span></div>
+            </article>
+            <article class="metric-card">
+              <span>Matched skills</span>
+              <strong id="metricMatched">0</strong>
+              <small id="metricMatchedLabel">Current skill match</small>
+            </article>
+            <article class="metric-card">
+              <span>Portfolio story</span>
+              <strong id="metricPortfolio">3 projects</strong>
+              <small>Evidence aligned to target role</small>
+            </article>
+            <article class="metric-card">
+              <span>Mentor actions</span>
+              <strong id="metricMentorActions">0</strong>
+              <small>Open review and counseling items</small>
+            </article>
+          </div>
+
+          <div class="content-grid three">
+            <article class="panel">
+              <div class="panel-title">
+                <i data-lucide="graduation-cap"></i>
+                <h3>Student Profile</h3>
+              </div>
+              <dl class="profile-facts">
+                <div><dt>Program</dt><dd>Software Engineering</dd></div>
+                <div><dt>Year</dt><dd>2-3 orientation stage</dd></div>
+                <div><dt>GPA signal</dt><dd id="gpaSignal">Good foundation</dd></div>
+                <div><dt>GitHub</dt><dd id="githubSignal">Not linked</dd></div>
+              </dl>
+            </article>
+
+            <article class="panel">
+              <div class="panel-title">
+                <i data-lucide="handshake"></i>
+                <h3>Actors</h3>
+              </div>
+              <div class="actor-list">
+                <div><img src="assets/student-avatar.png" alt="Student" /><span>SE Student</span></div>
+                <div><img src="assets/counselor-avatar.png" alt="Academic counselor" /><span>Academic Counselor</span></div>
+                <div><img src="assets/mentor-avatar.png" alt="Industry mentor" /><span>Industry Mentor</span></div>
+              </div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-title">
+                <i data-lucide="database"></i>
+                <h3>Main Entities</h3>
+              </div>
+              <div class="entity-cloud">
+                <span>Student Profile</span>
+                <span>Tech Path</span>
+                <span>Skill Node</span>
+                <span>Course Repo</span>
+                <span>Job Trend</span>
+                <span>Mentor Session</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="content-grid two">
+            <article class="panel">
+              <div class="panel-title">
+                <i data-lucide="bell-ring"></i>
+                <h3>Notification Center</h3>
+              </div>
+              <div class="notification-list" id="dashboardNotifications"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-title">
+                <i data-lucide="calendar-check-2"></i>
+                <h3>Learning Sprint</h3>
+              </div>
+              <div class="sprint-list" id="dashboardSprint"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="mentor">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">FR1 AI Virtual Mentor</p>
+              <h2>Personalized mentor chat</h2>
+            </div>
+            <button class="secondary-action" id="clearChat">
+              <i data-lucide="trash-2"></i>
+              Clear
+            </button>
+          </div>
+
+          <div class="mentor-layout">
+            <article class="chat-panel">
+              <div class="chat-advisor-header">
+                <div class="advisor-identity">
+                  <img src="assets/mentor-avatar.png" alt="AI career advisor avatar" />
+                  <div>
+                    <strong>CareerCompass AI Advisor</strong>
+                    <span><i data-lucide="circle-dot"></i> Online - tư vấn định hướng nghề nghiệp</span>
+                  </div>
+                </div>
+                <div class="advisor-scope">
+                  <span>Roadmap</span>
+                  <span>Skill gap</span>
+                  <span>Portfolio</span>
+                  <span>Internship</span>
+                </div>
+              </div>
+              <div class="quick-prompts" id="quickPrompts" aria-label="Suggested advisor questions">
+                <button type="button" data-prompt="Tư vấn cho mình lộ trình 4 tuần tới để đi thực tập">
+                  Lộ trình 4 tuần
+                </button>
+                <button type="button" data-prompt="Mình đang thiếu kỹ năng gì quan trọng nhất?">
+                  Kỹ năng còn thiếu
+                </button>
+                <button type="button" data-prompt="Gợi ý dự án portfolio phù hợp với target role của mình">
+                  Dự án portfolio
+                </button>
+                <button type="button" data-prompt="Mình nên chuẩn bị CV và GitHub như thế nào?">
+                  CV & GitHub
+                </button>
+              </div>
+              <div class="chat-feed" id="chatFeed" aria-live="polite"></div>
+              <form class="chat-form" id="chatForm">
+                <input id="chatInput" type="text" placeholder="Nhập câu hỏi: lộ trình, kỹ năng thiếu, portfolio, thực tập..." autocomplete="off" />
+                <button class="primary-action" type="submit">
+                  <i data-lucide="send"></i>
+                  Send
+                </button>
+              </form>
+            </article>
+
+            <aside class="context-panel">
+              <h3>Personalization sources</h3>
+              <label class="field-label" for="transcriptFile">Transcript file</label>
+              <input id="transcriptFile" type="file" accept=".txt,.csv,.pdf,.doc,.docx" />
+              <div class="mini-status" id="transcriptStatus">No transcript uploaded</div>
+
+              <label class="field-label" for="gpaInput">Current GPA</label>
+              <input id="gpaInput" type="number" min="0" max="4" step="0.01" value="3.2" />
+
+              <label class="field-label" for="githubInputMentor">GitHub profile</label>
+              <input id="githubInputMentor" type="text" placeholder="github username" />
+              <button class="secondary-action full" id="mentorRefresh" type="button">
+                <i data-lucide="refresh-cw"></i>
+                Refresh context
+              </button>
+
+              <div class="recommendation-box" id="mentorContext"></div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view" id="roadmap">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">FR2 Dynamic Roadmap</p>
+              <h2>Hierarchical skill tree</h2>
+            </div>
+            <div class="inline-actions">
+              <button class="secondary-action" id="resetRoadmap">
+                <i data-lucide="rotate-ccw"></i>
+                Reset
+              </button>
+              <button class="primary-action" id="completeFirstPriority">
+                <i data-lucide="check-check"></i>
+                Mark first priority
+              </button>
+            </div>
+          </div>
+          <div class="roadmap-summary">
+            <div>
+              <span>Overall completion</span>
+              <strong id="roadmapPercent">0%</strong>
+            </div>
+            <div class="meter"><span id="roadmapProgressBar"></span></div>
+          </div>
+          <div class="roadmap-tree" id="roadmapTree"></div>
+        </section>
+
+        <section class="view" id="gap">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">FR3 Skill Gap Analysis</p>
+              <h2>Current skills vs target role</h2>
+            </div>
+            <button class="primary-action" id="exportGapReport">
+              <i data-lucide="file-down"></i>
+              Save PDF report
+            </button>
+          </div>
+
+          <div class="gap-layout">
+            <article class="panel">
+              <h3>Current technical skills</h3>
+              <div class="skill-picker" id="skillPicker"></div>
+              <form class="add-skill" id="addSkillForm">
+                <input id="customSkill" type="text" placeholder="Add another skill" />
+                <button class="secondary-action" type="submit">
+                  <i data-lucide="plus"></i>
+                  Add
+                </button>
+              </form>
+            </article>
+            <article class="panel">
+              <h3>Gap report</h3>
+              <div id="gapReport"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="market">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">FR4 Market Pulse</p>
+              <h2>Daily job trend intelligence</h2>
+            </div>
+            <button class="secondary-action" id="simulateScrape">
+              <i data-lucide="calendar-sync"></i>
+              Run daily scan
+            </button>
+          </div>
+
+          <div class="market-grid">
+            <article class="panel chart-panel">
+              <div class="chart-header">
+                <h3>Keyword frequency</h3>
+                <select id="marketSource">
+                  <option value="all">All portals</option>
+                  <option value="LinkedIn">LinkedIn</option>
+                  <option value="TopCV">TopCV</option>
+                </select>
+              </div>
+              <canvas id="trendChart" width="900" height="420" aria-label="Skill trend chart"></canvas>
+            </article>
+            <article class="panel">
+              <h3>Trending technologies</h3>
+              <div class="trend-list" id="trendList"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="portfolio">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">FR5 E-Portfolio Management</p>
+              <h2>GitHub-backed project story</h2>
+            </div>
+            <button class="primary-action" id="copyPortfolioUrl">
+              <i data-lucide="link"></i>
+              Copy share URL
+            </button>
+          </div>
+
+          <div class="portfolio-tools">
+            <label for="githubUsername">GitHub username</label>
+            <input id="githubUsername" type="text" placeholder="octocat" />
+            <button class="secondary-action" id="syncGithub">
+              <i data-lucide="github"></i>
+              Sync repositories
+            </button>
+            <span id="portfolioUrl">se-career-compass.local/u/student</span>
+          </div>
+          <div class="portfolio-grid" id="portfolioGrid"></div>
+        </section>
+
+        <section class="view" id="workspace">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Actor Workspaces</p>
+              <h2>Student, counselor, and mentor operations</h2>
+            </div>
+            <div class="inline-actions">
+              <select id="actorMode">
+                <option value="student">SE Student</option>
+                <option value="counselor">Academic Counselor</option>
+                <option value="mentor">Industry Mentor</option>
+              </select>
+              <button class="primary-action" id="createMentorSession">
+                <i data-lucide="calendar-plus"></i>
+                New session
+              </button>
+            </div>
+          </div>
+
+          <div class="workspace-grid">
+            <article class="panel">
+              <h3 id="workspaceTitle">Student action board</h3>
+              <div class="kanban-board" id="taskBoard"></div>
+            </article>
+            <article class="panel">
+              <h3>Advising notes</h3>
+              <form class="note-form" id="noteForm">
+                <input id="noteInput" type="text" placeholder="Add advising note" />
+                <button class="secondary-action" type="submit">
+                  <i data-lucide="plus"></i>
+                  Add note
+                </button>
+              </form>
+              <div class="note-list" id="noteList"></div>
+            </article>
+          </div>
+
+          <div class="content-grid two">
+            <article class="panel">
+              <h3>Mentor session queue</h3>
+              <div class="session-table" id="workspaceSessions"></div>
+            </article>
+            <article class="panel">
+              <h3>Portfolio review checklist</h3>
+              <div class="review-checklist" id="portfolioChecklist"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="resources">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Course Repo</p>
+              <h2>Curated learning resources</h2>
+            </div>
+            <div class="resource-controls">
+              <input id="resourceSearch" type="search" placeholder="Search resource, skill, provider" />
+              <select id="resourceLevel">
+                <option value="all">All levels</option>
+                <option value="Foundation">Foundation</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Portfolio">Portfolio</option>
+              </select>
+            </div>
+          </div>
+          <div class="resource-summary" id="resourceSummary"></div>
+          <div class="resource-grid" id="resourceGrid"></div>
+        </section>
+
+        <section class="view" id="spec">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">SRS and Project Traceability</p>
+              <h2>Requirement coverage and data model</h2>
+            </div>
+            <button class="primary-action" id="exportSpec">
+              <i data-lucide="file-down"></i>
+              Print spec
+            </button>
+          </div>
+
+          <div class="spec-grid">
+            <article class="panel">
+              <h3>Functional requirements matrix</h3>
+              <div class="matrix-table" id="frMatrix"></div>
+            </article>
+            <article class="panel">
+              <h3>Non-functional requirements</h3>
+              <div class="nfr-list" id="nfrList"></div>
+            </article>
+          </div>
+
+          <div class="content-grid two">
+            <article class="panel">
+              <h3>Business rules</h3>
+              <div class="rule-list" id="businessRules"></div>
+            </article>
+            <article class="panel">
+              <h3>Logical data model</h3>
+              <div class="model-map" id="modelMap"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="users">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">FR6 User Management</p>
+              <h2>Account center and persistent records</h2>
+            </div>
+            <div class="account-badge" id="authSummary">
+              <i data-lucide="shield-check"></i>
+              <span>Local demo session</span>
+            </div>
+          </div>
+
+          <div class="account-layout">
+            <article class="panel account-profile">
+              <div class="profile-hero">
+                <div class="profile-avatar" id="accountAvatarInitials">AN</div>
+                <div>
+                  <p class="eyebrow">Current session</p>
+                  <h3 id="accountName">AnNDH2</h3>
+                  <span id="accountEmail">anndh2@fpt.edu.vn</span>
+                </div>
+              </div>
+              <dl class="account-facts">
+                <div><dt>Provider</dt><dd id="accountProvider">Email/Password</dd></div>
+                <div><dt>Role</dt><dd id="accountRole">Student</dd></div>
+                <div><dt>Last login</dt><dd id="accountLastLogin">Just now</dd></div>
+                <div><dt>Session</dt><dd id="accountSession">Remembered</dd></div>
+              </dl>
+              <div class="inline-actions">
+                <button class="secondary-action" id="signOutButton" type="button">
+                  <i data-lucide="log-out"></i>
+                  Sign out
+                </button>
+              </div>
+            </article>
+
+            <article class="panel security-panel">
+              <div class="auth-card-head">
+                <h3>Access checklist</h3>
+                <span class="security-badge" id="sessionBadge">Active</span>
+              </div>
+              <div class="security-list" id="securityChecklist"></div>
+            </article>
+          </div>
+
+          <div class="user-grid account-records">
+            <article class="panel">
+              <h3>Stored student records</h3>
+              <div class="record-list" id="recordList"></div>
+            </article>
+
+            <article class="panel">
+              <h3>Mentor sessions</h3>
+              <div class="session-list" id="sessionList"></div>
+            </article>
+
+            <article class="panel">
+              <h3>Known accounts</h3>
+              <div class="account-list" id="accountList"></div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

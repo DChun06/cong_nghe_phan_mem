@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign in - SE Career Compass</title>
+    <link rel="icon" href="assets/student-avatar.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="login-page-body">
+    <main class="login-page">
+      <div class="login-shell">
+        <section class="login-panel" aria-label="Authentication">
+          <div class="login-brand">
+            <img src="assets/student-avatar.png" alt="SE Career Compass mark" />
+            <div>
+              <strong>SE Career Compass</strong>
+              <span>Roadmap platform</span>
+            </div>
+          </div>
+
+          <div>
+            <p class="eyebrow">Student portal</p>
+            <h1>Sign in to continue</h1>
+          </div>
+          <p>Access your roadmap, skill gap report, mentor notes, and portfolio records.</p>
+
+          <div class="auth-tabs" role="tablist" aria-label="Authentication modes">
+            <button class="active" type="button" data-auth-tab="login">Sign in</button>
+            <button type="button" data-auth-tab="register">Create account</button>
+          </div>
+
+          <form class="auth-form" id="loginForm">
+            <label class="field-label" for="emailInput">Email</label>
+            <input id="emailInput" type="email" autocomplete="email" value="anndh2@fpt.edu.vn" />
+
+            <label class="field-label" for="passwordInput">Password</label>
+            <div class="input-with-action">
+              <input id="passwordInput" type="password" autocomplete="current-password" value="careercompass" />
+              <button class="icon-button" id="toggleLoginPassword" type="button" title="Show password">
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+
+            <label class="inline-check">
+              <input id="rememberMe" type="checkbox" checked />
+              <span>Keep me signed in on this device</span>
+            </label>
+
+            <button class="primary-action full" type="submit">
+              <i data-lucide="log-in"></i>
+              Sign in
+            </button>
+            <button class="secondary-action full" id="googleLogin" type="button">
+              <i data-lucide="badge-check"></i>
+              Continue with Google
+            </button>
+            <div class="mini-status" id="loginStatus">Use the demo account or create a local account.</div>
+          </form>
+
+          <form class="auth-form hidden" id="registerForm">
+            <label class="field-label" for="registerName">Full name</label>
+            <input id="registerName" type="text" autocomplete="name" placeholder="Nguyen An" />
+
+            <label class="field-label" for="registerEmail">School email</label>
+            <input id="registerEmail" type="email" autocomplete="email" placeholder="student@fpt.edu.vn" />
+
+            <label class="field-label" for="registerPassword">Password</label>
+            <div class="input-with-action">
+              <input id="registerPassword" type="password" autocomplete="new-password" placeholder="At least 8 characters" />
+              <button class="icon-button" id="toggleRegisterPassword" type="button" title="Show password">
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+            <div class="password-strength" aria-live="polite">
+              <span><b id="passwordStrengthBar"></b></span>
+              <small id="passwordStrengthText">Password strength: waiting</small>
+            </div>
+
+            <label class="field-label" for="confirmPassword">Confirm password</label>
+            <div class="input-with-action">
+              <input id="confirmPassword" type="password" autocomplete="new-password" placeholder="Repeat password" />
+              <button class="icon-button" id="toggleConfirmPassword" type="button" title="Show confirm password">
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+
+            <label class="field-label" for="registerRole">Account role</label>
+            <select id="registerRole">
+              <option value="Student">Student</option>
+              <option value="Academic Counselor">Academic Counselor</option>
+              <option value="Industry Mentor">Industry Mentor</option>
+            </select>
+
+            <label class="inline-check">
+              <input id="termsCheck" type="checkbox" />
+              <span>I agree to store this demo account in localStorage</span>
+            </label>
+
+            <button class="primary-action full" type="submit">
+              <i data-lucide="user-plus"></i>
+              Create account
+            </button>
+            <div class="mini-status" id="registerStatus">New accounts are stored locally for the demo.</div>
+          </form>
+
+          <div class="login-demo-box">
+            <strong>Demo account</strong>
+            <span>anndh2@fpt.edu.vn</span>
+            <span>careercompass</span>
+          </div>
+        </section>
+
+        <section class="login-preview" aria-label="Application preview">
+          <img src="assets/career-compass-banner.png" alt="Software engineering roadmap dashboard preview" />
+          <div class="login-preview-copy">
+            <div>
+              <p class="eyebrow">Main workspace</p>
+              <h2>Personalized roadmap after authentication</h2>
+            </div>
+            <p>Students continue into the dashboard with saved roadmap progress, portfolio evidence, and advising records.</p>
+            <div class="login-stats">
+              <div>
+                <strong>4</strong>
+                <span>Career roles</span>
+              </div>
+              <div>
+                <strong>7</strong>
+                <span>Core modules</span>
+              </div>
+              <div>
+                <strong>Local</strong>
+                <span>Persistence</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div class="oauth-overlay hidden" id="googleOAuthDialog" role="dialog" aria-modal="true" aria-labelledby="googleOAuthTitle">
+      <section class="oauth-dialog">
+        <div class="oauth-topbar">
+          <div class="google-mark" aria-hidden="true">G</div>
+          <span>Sign in with Google</span>
+          <button class="icon-button" id="closeGoogleDialog" type="button" title="Close Google sign in">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div class="oauth-body">
+          <h2 id="googleOAuthTitle">Choose an account</h2>
+          <p>to continue to SE Career Compass</p>
+          <div class="oauth-account-list" id="googleAccountList"></div>
+
+          <button class="oauth-account use-other" id="useOtherGoogleAccount" type="button">
+            <span class="oauth-avatar outline"><i data-lucide="user-plus"></i></span>
+            <span>Use another account</span>
+          </button>
+
+          <form class="oauth-other-form hidden" id="googleOtherForm">
+            <label class="field-label" for="googleEmailInput">Email or phone</label>
+            <input id="googleEmailInput" type="email" placeholder="name@gmail.com" autocomplete="email" />
+            <button class="primary-action full" type="submit">
+              <i data-lucide="arrow-right"></i>
+              Continue
+            </button>
+          </form>
+
+          <div class="oauth-status-message" id="googleOAuthStatus" aria-live="polite"></div>
+          <div class="oauth-note">
+            This is a simulated OAuth account chooser for the frontend prototype.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="login.js"></script>
+  </body>
+</html>
