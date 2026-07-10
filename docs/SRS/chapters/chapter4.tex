@@ -823,7 +823,7 @@ The database contains 19 main tables. The tables cover user authentication, stud
 
 \section{Detailed Design}
 
-This section provides detailed design coverage for all 82 use cases described in Chapter~III. Each use case is traced to the related actor, database tables, controller, service, entity, repository, processing flow, exception handling, class diagram, and sequence diagram. This ensures that the detailed design is consistent with the system architecture, package design, database design, and class design presented earlier in Chapter~IV.
+This section provides detailed design coverage for all 84 use cases described in Chapter~III. Each use case is traced to the related actor, database tables, controller, service, entity, repository, processing flow, exception handling, class diagram, and sequence diagram. This ensures that the detailed design is consistent with the system architecture, package design, database design, and class design presented earlier in Chapter~IV.
 
 \subsection{Use Case to Design Coverage Summary}
 
@@ -841,170 +841,259 @@ This section provides detailed design coverage for all 82 use cases described in
 \textbf{UC} & \textbf{Use Case} & \textbf{Actor} & \textbf{Design Group} \\
 \hline
 \endhead
-UC01 & Register & Student & Authentication and Account Access \\
+
+UC01 & Register & SE Student & Authentication and Account Access \\
 \hline
-UC02 & Login & Student & Authentication and Account Access \\
+
+UC02 & Login & All authenticated users & Authentication and Account Access \\
 \hline
-UC03 & Login with Google & Student & Authentication and Account Access \\
+
+UC03 & Login with Google & SE Student & Authentication and Account Access \\
 \hline
-UC04 & Forgot Password & Student & Authentication and Account Access \\
+
+UC04 & Logout & All authenticated users & Authentication and Account Access \\
 \hline
-UC05 & Logout & Student & Authentication and Account Access \\
+
+UC05 & Reset Password & All users & Authentication and Account Access \\
 \hline
-UC06 & Manage Profile & Student & Student Profile and GitHub Integration \\
+
+UC06 & Change Password & Authenticated users & Authentication and Account Access \\
 \hline
-UC07 & Upload Avatar & Student & Student Profile and GitHub Integration \\
+
+UC07 & View Profile & Student & Student Profile and GitHub Integration \\
 \hline
-UC08 & Update Contact Information & Student & Student Profile and GitHub Integration \\
+
+UC08 & Update Profile & Student & Student Profile and GitHub Integration \\
 \hline
-UC09 & Change Password & Student & Student Profile and GitHub Integration \\
+
+UC09 & Upload Avatar & Student & Student Profile and GitHub Integration \\
 \hline
+
 UC10 & Upload Transcript & Student & Student Profile and GitHub Integration \\
 \hline
-UC11 & Upload CV & Student & Student Profile and GitHub Integration \\
+
+UC11 & View Transcript & Student & Student Profile and GitHub Integration \\
 \hline
-UC12 & Link GitHub & Student & Student Profile and GitHub Integration \\
+
+UC12 & Update Transcript & Student & Student Profile and GitHub Integration \\
 \hline
-UC13 & Sync GitHub Repository & Student & Student Profile and GitHub Integration \\
+
+UC13 & Delete Transcript & Student & Student Profile and GitHub Integration \\
 \hline
-UC14 & View GitHub Analysis & Student & Student Profile and GitHub Integration \\
+
+UC14 & Select Career Goal & Student & Career Path and Skill Management \\
 \hline
-UC15 & View Skill Gap Report & Student & Student Profile and GitHub Integration \\
+
+UC15 & View Career Roles & Student & Career Path and Skill Management \\
 \hline
-UC16 & Select Career Role & Student & Career Path and Skill Management \\
+
+UC16 & Connect GitHub & Student & Student Profile and GitHub Integration \\
 \hline
-UC17 & Update Career Goal & Student & Career Path and Skill Management \\
+
+UC17 & Disconnect GitHub & Student & Student Profile and GitHub Integration \\
 \hline
-UC18 & View Recommended Roles & Student & Career Path and Skill Management \\
+
+UC18 & View GitHub Projects & Student & Student Profile and GitHub Integration \\
 \hline
-UC19 & Compare Career Paths & Student & Career Path and Skill Management \\
+
+UC19 & Chat with AI Mentor & Student & AI Mentor and Analysis Logging \\
 \hline
-UC20 & View Required Skills & Student & Career Path and Skill Management \\
+
+UC20 & Receive AI Advice & Student & AI Mentor and Analysis Logging \\
 \hline
-UC21 & Generate Learning Roadmap & Student & Learning Roadmap and Course Management \\
+
+UC21 & View Personalized Roadmap & Student & Learning Roadmap and Course Management \\
 \hline
-UC22 & View Learning Roadmap & Student & Learning Roadmap and Course Management \\
+
+UC22 & Update Roadmap Progress & Student & Learning Roadmap and Course Management \\
 \hline
-UC23 & Update Roadmap Progress & Student & Learning Roadmap and Course Management \\
+
+UC23 & View Skill Gap Report & Student & Career Path and Skill Management \\
 \hline
+
 UC24 & View Learning Progress & Student & Learning Roadmap and Course Management \\
 \hline
-UC25 & Receive Learning Reminder & Student & Learning Roadmap and Course Management \\
+
+UC25 & Search Learning Resources & Student & Learning Roadmap and Course Management \\
 \hline
-UC26 & Search Learning Resources & Student & Learning Roadmap and Course Management \\
+
+UC26 & View Recommended Courses & Student & Learning Roadmap and Course Management \\
 \hline
-UC27 & View Recommended Courses & Student & Learning Roadmap and Course Management \\
+
+UC27 & View Market Trends & Student & Market Trend Management \\
 \hline
-UC28 & Save Favorite Courses & Student & Learning Roadmap and Course Management \\
+
+UC28 & View Job Insights & Student & Market Trend Management \\
 \hline
-UC29 & Register External Course & Student & Learning Roadmap and Course Management \\
+
+UC29 & Generate Portfolio & Student & E-Portfolio Management \\
 \hline
-UC30 & Track Course Completion & Student & Learning Roadmap and Course Management \\
+
+UC30 & View Portfolio & Student & E-Portfolio Management \\
 \hline
-UC31 & View Market Trends & Student & Market Trend Management \\
+
+UC31 & Share Portfolio & Student & E-Portfolio Management \\
 \hline
-UC32 & Search Job Opportunities & Student & Market Trend Management \\
+
+UC32 & Download Portfolio & Student & E-Portfolio Management \\
 \hline
-UC33 & View Salary Information & Student & Market Trend Management \\
+
+UC33 & View Notifications & Student & Notification Management \\
 \hline
-UC34 & View Technology Trends & Student & Market Trend Management \\
+
+UC34 & View Student Profile & Counselor & Academic Counselor Review and Consultation \\
 \hline
-UC35 & Receive Job Recommendation & Student & Market Trend Management \\
+
+UC35 & Review Transcript & Counselor & Academic Counselor Review and Consultation \\
 \hline
-UC36 & Chat with AI Mentor & Student & AI Mentor and Analysis Logging \\
+
+UC36 & Review Skill Gap & Counselor & Academic Counselor Review and Consultation \\
 \hline
-UC37 & Ask Career Questions & Student & AI Mentor and Analysis Logging \\
+
+UC37 & Review Learning Progress & Counselor & Academic Counselor Review and Consultation \\
 \hline
-UC38 & Receive AI Feedback & Student & AI Mentor and Analysis Logging \\
+
+UC38 & Recommend Career Path & Counselor & Academic Counselor Review and Consultation \\
 \hline
-UC39 & Generate E-Portfolio & Student & E-Portfolio and Mentor Review \\
+
+UC39 & Recommend Learning Plan & Counselor & Academic Counselor Review and Consultation \\
 \hline
-UC40 & Share Portfolio & Student & E-Portfolio and Mentor Review \\
+
+UC40 & Comment Learning Plan & Counselor & Academic Counselor Review and Consultation \\
 \hline
-UC41 & Login & Academic Counselor & Authentication and Account Access \\
+
+UC41 & Send Feedback & Counselor & Academic Counselor Review and Consultation \\
 \hline
-UC42 & View Student Profile & Academic Counselor & Consultation and Feedback Management \\
+
+UC42 & View Reports & Counselor & Academic Counselor Review and Consultation \\
 \hline
-UC43 & Review Skill Gap & Academic Counselor & Consultation and Feedback Management \\
+
+UC43 & Manage Consultation & Counselor & Academic Counselor Review and Consultation \\
 \hline
-UC44 & Recommend Career Path & Academic Counselor & Consultation and Feedback Management \\
+
+UC44 & View Student Portfolio & Mentor & Industry Mentor Review and Portfolio Feedback \\
 \hline
-UC45 & Recommend Courses & Academic Counselor & Consultation and Feedback Management \\
+
+UC45 & Review GitHub Repository & Mentor & Industry Mentor Review and Portfolio Feedback \\
 \hline
-UC46 & Track Student Progress & Academic Counselor & Consultation and Feedback Management \\
+
+UC46 & Review Projects & Mentor & Industry Mentor Review and Portfolio Feedback \\
 \hline
-UC47 & Comment Learning Plan & Academic Counselor & Consultation and Feedback Management \\
+
+UC47 & Recommend Technologies & Mentor & Industry Mentor Review and Portfolio Feedback \\
 \hline
-UC48 & Schedule Consultation & Academic Counselor & Consultation and Feedback Management \\
+
+UC48 & Provide Technical Advice & Mentor & Industry Mentor Review and Portfolio Feedback \\
 \hline
-UC49 & View Consultation History & Academic Counselor & Consultation and Feedback Management \\
+
+UC49 & Evaluate Progress & Mentor & Industry Mentor Review and Portfolio Feedback \\
 \hline
-UC50 & Logout & Academic Counselor & Authentication and Account Access \\
+
+UC50 & Comment Portfolio & Mentor & Industry Mentor Review and Portfolio Feedback \\
 \hline
-UC51 & Login & Industry Mentor & Authentication and Account Access \\
+
+UC51 & View Skill Gap Report & Mentor & Industry Mentor Review and Portfolio Feedback \\
 \hline
-UC52 & View Student Portfolio & Industry Mentor & E-Portfolio and Mentor Review \\
+
+UC52 & Recommend Industry Skills & Mentor & Industry Mentor Review and Portfolio Feedback \\
 \hline
-UC53 & Review Projects & Industry Mentor & E-Portfolio and Mentor Review \\
+
+UC53 & Send Mentoring Feedback & Mentor & Industry Mentor Review and Portfolio Feedback \\
 \hline
-UC54 & Recommend Technologies & Industry Mentor & E-Portfolio and Mentor Review \\
+
+UC54 & Manage Users & Administrator & Administration and Resource Management \\
 \hline
-UC55 & Give Technical Advice & Industry Mentor & E-Portfolio and Mentor Review \\
+
+UC55 & Add User & Administrator & Administration and Resource Management \\
 \hline
-UC56 & Evaluate Progress & Industry Mentor & E-Portfolio and Mentor Review \\
+
+UC56 & Update User & Administrator & Administration and Resource Management \\
 \hline
-UC57 & Comment Projects & Industry Mentor & E-Portfolio and Mentor Review \\
+
+UC57 & Delete User & Administrator & Administration and Resource Management \\
 \hline
-UC58 & Approve Portfolio & Industry Mentor & E-Portfolio and Mentor Review \\
+
+UC58 & View Users & Administrator & Administration and Resource Management \\
 \hline
-UC59 & Suggest Improvements & Industry Mentor & E-Portfolio and Mentor Review \\
+
+UC59 & Manage Career Roles & Administrator & Career Path and Skill Management \\
 \hline
-UC60 & Logout & Industry Mentor & Authentication and Account Access \\
+
+UC60 & Manage Skill Nodes & Administrator & Career Path and Skill Management \\
 \hline
-UC61 & Login & Administrator & Authentication and Account Access \\
+
+UC61 & Manage Skill Categories & Administrator & Career Path and Skill Management \\
 \hline
-UC62 & Manage Users & Administrator & Administration and Resource Management \\
+
+UC62 & Manage Learning Resources & Administrator & Administration and Resource Management \\
 \hline
-UC63 & Manage Career Roles & Administrator & Career Path and Skill Management \\
+
+UC63 & Manage Courses & Administrator & Administration and Resource Management \\
 \hline
-UC64 & Manage Skill Nodes & Administrator & Career Path and Skill Management \\
+
+UC64 & Manage Job Trend Data & Administrator & Market Trend and Reporting Management \\
 \hline
-UC65 & Manage Courses & Administrator & Administration and Resource Management \\
+
+UC65 & Manage AI Models & Administrator & AI and Recommendation Configuration \\
 \hline
-UC66 & Manage Learning Resources & Administrator & Administration and Resource Management \\
+
+UC66 & Configure Recommendation Engine & Administrator & AI and Recommendation Configuration \\
 \hline
-UC67 & Manage Job Trend Data & Administrator & Market Trend Management \\
+
+UC67 & Manage Notifications & Administrator & Administration and Resource Management \\
 \hline
-UC68 & Manage AI Configuration & Administrator & AI and Market Configuration \\
+
+UC68 & View Analytics & Administrator & Market Trend and Reporting Management \\
 \hline
-UC69 & Manage Reports & Administrator & Administration and Resource Management \\
+
+UC69 & Generate Reports & Administrator & Market Trend and Reporting Management \\
 \hline
-UC70 & Logout & Administrator & Authentication and Account Access \\
+
+UC70 & Backup Database & Administrator & Database Administration \\
 \hline
-UC71 & Analyze Transcript & AI Recommendation Engine & AI Mentor and Analysis Logging \\
+
+UC71 & Restore Database & Administrator & Database Administration \\
 \hline
-UC72 & Analyze GitHub Repository & AI Recommendation Engine & AI Mentor and Analysis Logging \\
+
+UC72 & Analyze Transcript & AI Recommendation Engine & AI Mentor and Analysis Logging \\
 \hline
-UC73 & Generate Personalized Roadmap & AI Recommendation Engine & Learning Roadmap and Course Management \\
+
+UC73 & Analyze GitHub Repository & AI Recommendation Engine & Student Profile and GitHub Integration \\
 \hline
+
 UC74 & Analyze Skill Gap & AI Recommendation Engine & Learning Roadmap and Course Management \\
 \hline
-UC75 & Recommend Courses & AI Recommendation Engine & Learning Roadmap and Course Management \\
+
+UC75 & Generate Personalized Roadmap & AI Recommendation Engine & Learning Roadmap and Course Management \\
 \hline
-UC76 & Generate Portfolio Summary & AI Recommendation Engine & AI Mentor and Analysis Logging \\
+
+UC76 & Recommend Courses & AI Recommendation Engine & Learning Roadmap and Course Management \\
 \hline
-UC77 & Authenticate User & Google OAuth & Authentication and Account Access \\
+
+UC77 & Generate Portfolio Summary & AI Recommendation Engine & AI Mentor and Analysis Logging \\
 \hline
-UC78 & Retrieve Repository & GitHub API & Student Profile and GitHub Integration \\
+
+UC78 & Authenticate User & Google OAuth & Authentication and Account Access \\
 \hline
-UC79 & Retrieve README & GitHub API & Student Profile and GitHub Integration \\
+
+UC79 & Retrieve Repository & GitHub API & Student Profile and GitHub Integration \\
 \hline
-UC80 & Retrieve Tech Stack & GitHub API & Student Profile and GitHub Integration \\
+
+UC80 & Retrieve README & GitHub API & Student Profile and GitHub Integration \\
 \hline
-UC81 & Retrieve Job Data & Job Portal API & Market Trend Management \\
+
+UC81 & Retrieve Tech Stack & GitHub API & Student Profile and GitHub Integration \\
 \hline
-UC82 & Analyze Market Trends & Job Portal API & Market Trend Management \\
+
+UC82 & Retrieve Job Data & Job Portal API & Market Trend Management \\
 \hline
+
+UC83 & Analyze Market Trends & Job Portal API & Market Trend Management \\
+\hline
+
+UC84 & Retrieve Salary Statistics & Job Portal API & Market Trend Management \\
+\hline
+
 \end{longtable}
 \normalsize
 \setlength{\tabcolsep}{6pt}
@@ -1020,8 +1109,8 @@ This group contains use cases related to authentication and account access. The 
 \begin{itemize}
     \item \textbf{Use case ID:} UC01.
     \item \textbf{Use case name:} Register.
-    \item \textbf{Actor:} Student.
-    \item \textbf{Requirement description:} Create a new student account.
+    \item \textbf{Actor:} SE Student.
+    \item \textbf{Requirement description:} Create a new account.
     \item \textbf{Related table(s):} \texttt{Users}.
 \end{itemize}
 
@@ -1036,7 +1125,7 @@ The system stores the created or updated data in the related database table(s), 
 \paragraph{Main Processing Flow}
 
 \begin{enumerate}
-    \item The actor opens \texttt{RegisterPage} and performs the action: create a new student account..
+    \item The actor opens \texttt{RegisterPage} and performs the action: create a new account.
     \item The frontend validates required fields, prepares the request DTO, and sends it to \texttt{AuthController}.
     \item \texttt{AuthController} checks authentication, authorization, request format, and path parameters.
     \item \texttt{AuthService} loads related data through \texttt{UserRepository} and applies business rules for Register.
@@ -7008,6 +7097,149 @@ The system stores the created or updated data in the related database table(s), 
 {UC82 Analyze Market Trends}
 {Job Portal API}
 {analyze labor market trends.}
+{MarketTrendController}
+{MarketTrendService}
+{JobTrendRepository}
+{display processed result}
+\subsubsection{UC83 Analyze Market Trends}
+
+\paragraph{Requirement Traceability}
+
+\begin{itemize}
+    \item \textbf{Use case ID:} UC83.
+    \item \textbf{Use case name:} Analyze Market Trends.
+    \item \textbf{Actor:} Job Portal API.
+    \item \textbf{Requirement description:} Analyze job market.
+    \item \textbf{Related table(s):} \texttt{JobTrends, CareerPaths}.
+\end{itemize}
+
+\paragraph{Preconditions}
+
+The actor has access to the corresponding interface. For protected functions, the actor must be authenticated, the account must be active, and the role stored in \texttt{Users.Role} must be allowed to perform this use case. Required market data and career path records must already exist when the analysis depends on them.
+
+\paragraph{Postconditions}
+
+The system stores or updates analyzed market trend records, returns a response DTO to the frontend, and records logs or notifications when the use case requires auditing, trend analysis, reminder, or integration feedback.
+
+\paragraph{Main Processing Flow}
+
+\begin{enumerate}
+    \item The actor opens \texttt{AnalyzeMarketTrendsPage} and performs the action: analyze job market.
+    \item The frontend validates required fields, prepares the request DTO, and sends it to \texttt{MarketTrendController}.
+    \item \texttt{MarketTrendController} checks authentication, authorization, request format, and path parameters.
+    \item \texttt{MarketTrendService} loads related data through \texttt{JobTrendRepository} and applies business rules for Analyze Market Trends.
+    \item The service calls the job portal gateway when fresh recruitment data is required.
+    \item The service creates, updates, reads, or deletes records in \texttt{JobTrends, CareerPaths} and builds the response DTO.
+    \item The frontend displays the processed result and updates the visible state for the actor.
+\end{enumerate}
+
+\paragraph{Alternative and Exception Flow}
+
+\begin{itemize}
+    \item If required input is missing or invalid, the controller returns validation errors and no database change is committed.
+    \item If the actor does not have permission, the security layer returns an unauthorized or forbidden response.
+    \item If a referenced record does not exist, the service returns a not-found response.
+    \item If the job portal API fails, the service handles the failure, records the issue when applicable, and returns a retryable error message.
+\end{itemize}
+
+\paragraph{Participating Components}
+
+\begin{itemize}
+    \item \textbf{Boundary/UI -- \texttt{AnalyzeMarketTrendsPage}:} collects input and displays the final result for Analyze Market Trends.
+    \item \textbf{Controller -- \texttt{MarketTrendController}:} receives REST requests and validates request DTOs.
+    \item \textbf{Service -- \texttt{MarketTrendService}:} coordinates business logic, integration calls, and transaction boundaries.
+    \item \textbf{Entity -- \texttt{JobTrend}:} represents the main persisted domain object.
+    \item \textbf{Repository -- \texttt{JobTrendRepository}:} provides data access operations for the related table(s).
+\end{itemize}
+
+\paragraph{Class Diagram}
+
+\ClassDiagram
+{UC83 Analyze Market Trends}
+{AnalyzeMarketTrendsPage}
+{MarketTrendController}
+{MarketTrendService}
+{JobTrend}
+{JobTrendRepository}
+
+\paragraph{Sequence Diagram}
+
+\SequenceDiagram
+{UC83 Analyze Market Trends}
+{Job Portal API}
+{analyze job market.}
+{MarketTrendController}
+{MarketTrendService}
+{JobTrendRepository}
+{display processed result}
+
+\subsubsection{UC84 Retrieve Salary Statistics}
+
+\paragraph{Requirement Traceability}
+
+\begin{itemize}
+    \item \textbf{Use case ID:} UC84.
+    \item \textbf{Use case name:} Retrieve Salary Statistics.
+    \item \textbf{Actor:} Job Portal API.
+    \item \textbf{Requirement description:} Retrieve salary data.
+    \item \textbf{Related table(s):} \texttt{JobTrends, CareerPaths}.
+\end{itemize}
+
+\paragraph{Preconditions}
+
+The actor has access to the corresponding interface. For protected functions, the actor must be authenticated, the account must be active, and the role stored in \texttt{Users.Role} must be allowed to perform this use case. Required career path and job market records must already exist when salary statistics are grouped by role or technology.
+
+\paragraph{Postconditions}
+
+The system stores or updates salary statistic records, returns a response DTO to the frontend, and records logs or notifications when the use case requires auditing, trend analysis, reminder, or integration feedback.
+
+\paragraph{Main Processing Flow}
+
+\begin{enumerate}
+    \item The actor opens \texttt{RetrieveSalaryStatisticsPage} and performs the action: retrieve salary data.
+    \item The frontend validates required fields, prepares the request DTO, and sends it to \texttt{MarketTrendController}.
+    \item \texttt{MarketTrendController} checks authentication, authorization, request format, and path parameters.
+    \item \texttt{MarketTrendService} loads related data through \texttt{JobTrendRepository} and applies business rules for Retrieve Salary Statistics.
+    \item The service calls the job portal gateway when current salary data is required.
+    \item The service creates, updates, reads, or deletes records in \texttt{JobTrends, CareerPaths} and builds the response DTO.
+    \item The frontend displays the processed result and updates the visible state for the actor.
+\end{enumerate}
+
+\paragraph{Alternative and Exception Flow}
+
+\begin{itemize}
+    \item If required input is missing or invalid, the controller returns validation errors and no database change is committed.
+    \item If the actor does not have permission, the security layer returns an unauthorized or forbidden response.
+    \item If a referenced record does not exist, the service returns a not-found response.
+    \item If the job portal API fails, the service handles the failure, records the issue when applicable, and returns a retryable error message.
+\end{itemize}
+
+\paragraph{Participating Components}
+
+\begin{itemize}
+    \item \textbf{Boundary/UI -- \texttt{RetrieveSalaryStatisticsPage}:} collects input and displays the final result for Retrieve Salary Statistics.
+    \item \textbf{Controller -- \texttt{MarketTrendController}:} receives REST requests and validates request DTOs.
+    \item \textbf{Service -- \texttt{MarketTrendService}:} coordinates business logic, integration calls, and transaction boundaries.
+    \item \textbf{Entity -- \texttt{JobTrend}:} represents the main persisted domain object.
+    \item \textbf{Repository -- \texttt{JobTrendRepository}:} provides data access operations for the related table(s).
+\end{itemize}
+
+\paragraph{Class Diagram}
+
+\ClassDiagram
+{UC84 Retrieve Salary Statistics}
+{RetrieveSalaryStatisticsPage}
+{MarketTrendController}
+{MarketTrendService}
+{JobTrend}
+{JobTrendRepository}
+
+\paragraph{Sequence Diagram}
+
+\SequenceDiagram
+{UC84 Retrieve Salary Statistics}
+{Job Portal API}
+{retrieve salary data.}
 {MarketTrendController}
 {MarketTrendService}
 {JobTrendRepository}
