@@ -4737,36 +4737,7 @@ The system stores the created or updated data in the related database table(s), 
 {AuthService}
 {UserRepository}
 {display processed result}
-\begin{flushright}
-	\begin{center}
-		\begin{flushleft}
-			
-		\end{flushleft}
-	\end{center}
-\end{flushright}\chapter{Software Design Description}
 
-\section{System Design}
-
-\subsection{System Architecture}
-
-The system is designed as a web-based platform based on a layered client--server architecture. The frontend provides interactive interfaces for students, counselors, mentors, and administrators, while the backend exposes RESTful APIs, implements business logic, integrates external services, and manages persistent data. LLM APIs, the GitHub API, Google OAuth, and job portal crawlers are integrated to personalize recommendations and enrich career information.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.95\textwidth]{images/system.jpg}
-    \caption{System Architecture Diagram}
-    \label{fig:system_architecture}
-\end{figure}
-
-\subsubsection{Frontend}
-
-The frontend layer presents information, collects user input, displays roadmap progress, and visualizes skill gap and market trend reports.
-
-\begin{itemize}
-    \item \textbf{ReactJS:} Builds a component-based single-page application with reusable user interface modules.
-    \item \textbf{TypeScript:} Provides static typing to reduce runtime errors and improve maintainability in complex user interfaces.
-    \item \textbf{TailwindCSS:} Supports responsive and consistent styling for dashboards, roadmap trees, cards, forms, and charts.
-    \item \textbf{Chart Library:} Visualizes skill gap charts, learning progress statistics, and technology trend graphs.
 \subsubsection{UC51 Login}
 
 \paragraph{Requirement Traceability}
@@ -7273,6 +7244,3 @@ The system stores or updates salary statistic records, returns a response DTO to
 {MarketTrendService}
 {JobTrendRepository}
 {display processed result}
-
-
-
