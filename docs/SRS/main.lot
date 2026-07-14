@@ -1,0 +1,49 @@
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {I.1}{\ignorespaces Project Team}}{2}{table.caption.4}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {II.1}{\ignorespaces Work Breakdown Structure (WBS) and Project Effort Estimation}}{7}{table.caption.5}%
+\contentsline {table}{\numberline {II.2}{\ignorespaces Testing Objectives}}{8}{table.caption.6}%
+\contentsline {table}{\numberline {II.3}{\ignorespaces Project Risks}}{8}{table.caption.7}%
+\contentsline {table}{\numberline {II.4}{\ignorespaces Training Plan}}{9}{table.caption.8}%
+\contentsline {table}{\numberline {II.5}{\ignorespaces Project Deliverables}}{10}{table.caption.9}%
+\contentsline {table}{\numberline {II.6}{\ignorespaces Responsibility Assignment Matrix}}{10}{table.caption.10}%
+\contentsline {table}{\numberline {II.7}{\ignorespaces Project Communications}}{11}{table.caption.11}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {III.6}{\ignorespaces Business Rules}}{55}{table.caption.18}%
+\contentsline {table}{\numberline {III.7}{\ignorespaces Application Messages}}{56}{table.caption.19}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {IV.1}{\ignorespaces Frontend Package Description}}{61}{table.4.1}%
+\contentsline {table}{\numberline {IV.2}{\ignorespaces Backend Package Description}}{62}{table.4.2}%
+\contentsline {table}{\numberline {IV.3}{\ignorespaces Users Table Description}}{64}{table.4.3}%
+\contentsline {table}{\numberline {IV.4}{\ignorespaces CareerPaths Table Description}}{64}{table.4.4}%
+\contentsline {table}{\numberline {IV.5}{\ignorespaces SkillNodes Table Description}}{64}{table.4.5}%
+\contentsline {table}{\numberline {IV.6}{\ignorespaces LearningResources Table Description}}{64}{table.4.6}%
+\contentsline {table}{\numberline {IV.7}{\ignorespaces StudentProfiles Table Description}}{65}{table.4.7}%
+\contentsline {table}{\numberline {IV.8}{\ignorespaces StaffProfiles Table Description}}{65}{table.4.8}%
+\contentsline {table}{\numberline {IV.9}{\ignorespaces StudentCourses Table Description}}{65}{table.4.9}%
+\contentsline {table}{\numberline {IV.10}{\ignorespaces CareerPathSkills Table Description}}{65}{table.4.10}%
+\contentsline {table}{\numberline {IV.11}{\ignorespaces Roadmaps Table Description}}{66}{table.4.11}%
+\contentsline {table}{\numberline {IV.12}{\ignorespaces RoadmapProgress Table Description}}{66}{table.4.12}%
+\contentsline {table}{\numberline {IV.13}{\ignorespaces Portfolios Table Description}}{66}{table.4.13}%
+\contentsline {table}{\numberline {IV.14}{\ignorespaces GitHubRepositories Table Description}}{66}{table.4.14}%
+\contentsline {table}{\numberline {IV.15}{\ignorespaces GitHubRepoLanguages Table Description}}{67}{table.4.15}%
+\contentsline {table}{\numberline {IV.16}{\ignorespaces ConsultationSessions Table Description}}{67}{table.4.16}%
+\contentsline {table}{\numberline {IV.17}{\ignorespaces ConsultationFeedbacks Table Description}}{67}{table.4.17}%
+\contentsline {table}{\numberline {IV.18}{\ignorespaces JobTrends Table Description}}{68}{table.4.18}%
+\contentsline {table}{\numberline {IV.19}{\ignorespaces AIConfigurations Table Description}}{68}{table.4.19}%
+\contentsline {table}{\numberline {IV.20}{\ignorespaces AIAnalysisLogs Table Description}}{68}{table.4.20}%
+\contentsline {table}{\numberline {IV.21}{\ignorespaces Notifications Table Description}}{68}{table.4.21}%
+\contentsline {table}{\numberline {IV.22}{\ignorespaces Use Case to Detailed Design Coverage}}{69}{table.4.22}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {V.2}{\ignorespaces External Dependencies}}{272}{table.caption.192}%
+\contentsline {table}{\numberline {V.3}{\ignorespaces Student Profile Entity}}{272}{table.caption.193}%
+\contentsline {table}{\numberline {V.4}{\ignorespaces Tech Path Entity}}{272}{table.caption.194}%
+\contentsline {table}{\numberline {V.5}{\ignorespaces Skill Node Entity}}{273}{table.caption.195}%
+\contentsline {table}{\numberline {V.6}{\ignorespaces Course Repository Entity}}{273}{table.caption.196}%
+\contentsline {table}{\numberline {V.7}{\ignorespaces Job Trend Entity}}{273}{table.caption.197}%
+\contentsline {table}{\numberline {V.8}{\ignorespaces Glossary}}{274}{table.caption.198}%
+\contentsline {table}{\numberline {V.9}{\ignorespaces Requirement Traceability Matrix}}{274}{table.caption.199}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {VI.1}{\ignorespaces Deliverable Package}}{276}{table.caption.200}%
+\contentsline {table}{\numberline {VI.2}{\ignorespaces System Requirements}}{277}{table.caption.201}%

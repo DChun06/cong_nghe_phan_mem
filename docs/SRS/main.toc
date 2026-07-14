@@ -1,0 +1,938 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {I}Project Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1}Overview}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1}Project Information}{1}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.2}Project Team}{2}{subsection.1.1.2}%
+\contentsline {section}{\numberline {2}Product Background}{2}{section.1.2}%
+\contentsline {section}{\numberline {3}Existing Systems}{2}{section.1.3}%
+\contentsline {section}{\numberline {4}Business Opportunity}{3}{section.1.4}%
+\contentsline {section}{\numberline {5}Software Product Vision}{4}{section.1.5}%
+\contentsline {section}{\numberline {6}Project Scope \& Limitations}{4}{section.1.6}%
+\contentsline {subsection}{\numberline {6.1}Major Features}{4}{subsection.1.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Major Features for Administrators}{4}{subsubsection.1.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Major Features for Student}{5}{subsubsection.1.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Major Features for Academic Counselor}{5}{subsubsection.1.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.4}Major Features for Industry Mentor}{5}{subsubsection.1.6.1.4}%
+\contentsline {subsection}{\numberline {6.2}Limitations \& Exclusions}{5}{subsection.1.6.2}%
+\contentsline {chapter}{\numberline {II}Project Management Plan}{7}{chapter.2}%
+\contentsline {section}{\numberline {1}Overview}{7}{section.2.1}%
+\contentsline {subsection}{\numberline {1.1}Project Scope and Estimation}{7}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {1.2}Testing Objectives}{8}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {1.3}Project Risks}{8}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2}Management Approach}{8}{section.2.2}%
+\contentsline {subsection}{\numberline {2.1}Development Methodology}{8}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2}Quality Management}{9}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.3}Training Plan}{9}{subsection.2.2.3}%
+\contentsline {section}{\numberline {3}Project Deliverables}{10}{section.2.3}%
+\contentsline {section}{\numberline {4}Responsibility Assignments}{10}{section.2.4}%
+\contentsline {section}{\numberline {5}Project Communications}{11}{section.2.5}%
+\contentsline {section}{\numberline {6}Configuration Management}{11}{section.2.6}%
+\contentsline {subsection}{\numberline {6.1}Document Management}{11}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {6.2}Source Code Management}{11}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {6.3}Version Control Policy}{11}{subsection.2.6.3}%
+\contentsline {chapter}{\numberline {III}Software Requirement Specification}{13}{chapter.3}%
+\contentsline {section}{\numberline {1}Product Overview}{13}{section.3.1}%
+\contentsline {section}{\numberline {2}User Requirements}{14}{section.3.2}%
+\contentsline {subsection}{\numberline {2.1}Actors}{14}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {2.2}Use Cases}{16}{subsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Diagram(s)}{16}{subsubsection.3.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Descriptions}{16}{subsubsection.3.2.2.2}%
+\contentsline {section}{\numberline {3}Functional Requirements}{20}{section.3.3}%
+\contentsline {subsection}{\numberline {3.1}System Functional Requirements}{20}{subsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Screens Flow}{20}{subsubsection.3.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Screen Descriptions}{22}{subsubsection.3.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Screen Authorization}{27}{subsubsection.3.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}Non-Screen Functions}{29}{subsubsection.3.3.1.4}%
+\contentsline {subsubsection}{\numberline {3.1.5}Entity Relationship Diagram}{31}{subsubsection.3.3.1.5}%
+\contentsline {section}{\numberline {4}Functional Requirements}{31}{section.3.4}%
+\contentsline {subsection}{\numberline {4.1}System Functional Overview}{31}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {4.2}Authentication}{31}{subsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Login}{31}{subsubsection.3.4.2.1}%
+\contentsline {subsection}{\numberline {4.3}User Management}{31}{subsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Manage Users}{32}{subsubsection.3.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Import Students}{32}{subsubsection.3.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Import Mentors}{33}{subsubsection.3.4.3.3}%
+\contentsline {subsection}{\numberline {4.4}Career Assessment Management}{33}{subsection.3.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Student Take Career Assessment}{33}{subsubsection.3.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}View Assessment Result}{34}{subsubsection.3.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Mentor Review Assessment}{35}{subsubsection.3.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.4}Manage Assessment Questions}{35}{subsubsection.3.4.4.4}%
+\contentsline {subsection}{\numberline {4.5}Mentorship Management}{36}{subsection.3.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Student Request Mentor}{36}{subsubsection.3.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Mentor Review Request}{36}{subsubsection.3.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.3}Mentor Respond Request}{37}{subsubsection.3.4.5.3}%
+\contentsline {subsubsection}{\numberline {4.5.4}Schedule Mentoring Session}{37}{subsubsection.3.4.5.4}%
+\contentsline {subsubsection}{\numberline {4.5.5}View Mentoring History}{38}{subsubsection.3.4.5.5}%
+\contentsline {subsection}{\numberline {4.6}Learning Roadmap Management}{38}{subsection.3.4.6}%
+\contentsline {subsubsection}{\numberline {4.6.1}Generate Learning Roadmap}{38}{subsubsection.3.4.6.1}%
+\contentsline {subsubsection}{\numberline {4.6.2}Update Learning Progress}{39}{subsubsection.3.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.3}Export Learning Roadmap}{39}{subsubsection.3.4.6.3}%
+\contentsline {subsection}{\numberline {4.7}Learning Resource Management}{40}{subsection.3.4.7}%
+\contentsline {subsubsection}{\numberline {4.7.1}Generate Learning Resource Recommendations}{40}{subsubsection.3.4.7.1}%
+\contentsline {subsubsection}{\numberline {4.7.2}Manage Learning Resources}{41}{subsubsection.3.4.7.2}%
+\contentsline {subsection}{\numberline {4.8}Timeline Management}{41}{subsection.3.4.8}%
+\contentsline {subsubsection}{\numberline {4.8.1}Manage Career Development Timeline}{42}{subsubsection.3.4.8.1}%
+\contentsline {subsection}{\numberline {4.9}Blog Management}{43}{subsection.3.4.9}%
+\contentsline {subsubsection}{\numberline {4.9.1}Create Blog Post}{44}{subsubsection.3.4.9.1}%
+\contentsline {subsubsection}{\numberline {4.9.2}Interact with Blog Post}{45}{subsubsection.3.4.9.2}%
+\contentsline {subsubsection}{\numberline {4.9.3}Apply for Internship or Team Recruitment}{47}{subsubsection.3.4.9.3}%
+\contentsline {subsection}{\numberline {4.10}Semester Management}{48}{subsection.3.4.10}%
+\contentsline {subsubsection}{\numberline {4.10.1}Manage Semester}{49}{subsubsection.3.4.10.1}%
+\contentsline {subsection}{\numberline {4.11}Criteria Form Management}{50}{subsection.3.4.11}%
+\contentsline {subsubsection}{\numberline {4.11.1}Manage Criteria Form}{50}{subsubsection.3.4.11.1}%
+\contentsline {section}{\numberline {5}Non-Functional Requirements}{52}{section.3.5}%
+\contentsline {subsection}{\numberline {5.1}External Interfaces}{52}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {5.2}Quality Attributes}{53}{subsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Usability}{53}{subsubsection.3.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Reliability}{54}{subsubsection.3.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}Performance}{54}{subsubsection.3.5.2.3}%
+\contentsline {section}{\numberline {6}Requirement Appendix}{55}{section.3.6}%
+\contentsline {subsection}{\numberline {6.1}Business Rules}{55}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {6.2}Common Requirements}{55}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {6.3}Application Messages List}{56}{subsection.3.6.3}%
+\contentsline {subsection}{\numberline {6.4}Other Requirements}{56}{subsection.3.6.4}%
+\contentsline {chapter}{\numberline {IV}Software Design Description}{58}{chapter.4}%
+\contentsline {section}{\numberline {1}System Design}{58}{section.4.1}%
+\contentsline {subsection}{\numberline {1.1}System Architecture}{58}{subsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Frontend}{58}{subsubsection.4.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Backend}{60}{subsubsection.4.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}AI and Third-party Services}{61}{subsubsection.4.1.1.3}%
+\contentsline {subsection}{\numberline {1.2}Package Diagram}{61}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Frontend Package Structure}{61}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Backend Package Structure}{62}{subsubsection.4.1.2.2}%
+\contentsline {section}{\numberline {2}Database Design}{63}{section.4.2}%
+\contentsline {subsection}{\numberline {2.1}Database Tables Overview}{63}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {2.2}Users Table}{63}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {2.3}CareerPaths Table}{64}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {2.4}SkillNodes Table}{64}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {2.5}LearningResources Table}{64}{subsection.4.2.5}%
+\contentsline {subsection}{\numberline {2.6}StudentProfiles Table}{65}{subsection.4.2.6}%
+\contentsline {subsection}{\numberline {2.7}StaffProfiles Table}{65}{subsection.4.2.7}%
+\contentsline {subsection}{\numberline {2.8}StudentCourses Table}{65}{subsection.4.2.8}%
+\contentsline {subsection}{\numberline {2.9}CareerPathSkills Table}{65}{subsection.4.2.9}%
+\contentsline {subsection}{\numberline {2.10}Roadmaps Table}{66}{subsection.4.2.10}%
+\contentsline {subsection}{\numberline {2.11}RoadmapProgress Table}{66}{subsection.4.2.11}%
+\contentsline {subsection}{\numberline {2.12}Portfolios Table}{66}{subsection.4.2.12}%
+\contentsline {subsection}{\numberline {2.13}GitHubRepositories Table}{66}{subsection.4.2.13}%
+\contentsline {subsection}{\numberline {2.14}GitHubRepoLanguages Table}{67}{subsection.4.2.14}%
+\contentsline {subsection}{\numberline {2.15}ConsultationSessions Table}{67}{subsection.4.2.15}%
+\contentsline {subsection}{\numberline {2.16}ConsultationFeedbacks Table}{67}{subsection.4.2.16}%
+\contentsline {subsection}{\numberline {2.17}JobTrends Table}{68}{subsection.4.2.17}%
+\contentsline {subsection}{\numberline {2.18}AIConfigurations Table}{68}{subsection.4.2.18}%
+\contentsline {subsection}{\numberline {2.19}AIAnalysisLogs Table}{68}{subsection.4.2.19}%
+\contentsline {subsection}{\numberline {2.20}Notifications Table}{68}{subsection.4.2.20}%
+\contentsline {section}{\numberline {3}Detailed Design}{69}{section.4.3}%
+\contentsline {subsection}{\numberline {3.1}Use Case to Design Coverage Summary}{69}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {3.2}Authentication and Account Access}{72}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}UC01 Register}{72}{subsubsection.4.3.2.1}%
+\contentsline {paragraph}{\numberline {3.2.1.1}Requirement Traceability}{72}{paragraph.4.3.2.1.1}%
+\contentsline {paragraph}{\numberline {3.2.1.2}Preconditions}{72}{paragraph.4.3.2.1.2}%
+\contentsline {paragraph}{\numberline {3.2.1.3}Postconditions}{72}{paragraph.4.3.2.1.3}%
+\contentsline {paragraph}{\numberline {3.2.1.4}Main Processing Flow}{72}{paragraph.4.3.2.1.4}%
+\contentsline {paragraph}{\numberline {3.2.1.5}Alternative and Exception Flow}{73}{paragraph.4.3.2.1.5}%
+\contentsline {paragraph}{\numberline {3.2.1.6}Participating Components}{73}{paragraph.4.3.2.1.6}%
+\contentsline {paragraph}{\numberline {3.2.1.7}Class Diagram}{73}{paragraph.4.3.2.1.7}%
+\contentsline {paragraph}{\numberline {3.2.1.8}Sequence Diagram}{74}{paragraph.4.3.2.1.8}%
+\contentsline {subsubsection}{\numberline {3.2.2}UC02 Login}{74}{subsubsection.4.3.2.2}%
+\contentsline {paragraph}{\numberline {3.2.2.1}Requirement Traceability}{74}{paragraph.4.3.2.2.1}%
+\contentsline {paragraph}{\numberline {3.2.2.2}Preconditions}{74}{paragraph.4.3.2.2.2}%
+\contentsline {paragraph}{\numberline {3.2.2.3}Postconditions}{74}{paragraph.4.3.2.2.3}%
+\contentsline {paragraph}{\numberline {3.2.2.4}Main Processing Flow}{74}{paragraph.4.3.2.2.4}%
+\contentsline {paragraph}{\numberline {3.2.2.5}Alternative and Exception Flow}{75}{paragraph.4.3.2.2.5}%
+\contentsline {paragraph}{\numberline {3.2.2.6}Participating Components}{75}{paragraph.4.3.2.2.6}%
+\contentsline {paragraph}{\numberline {3.2.2.7}Class Diagram}{76}{paragraph.4.3.2.2.7}%
+\contentsline {paragraph}{\numberline {3.2.2.8}Sequence Diagram}{76}{paragraph.4.3.2.2.8}%
+\contentsline {subsubsection}{\numberline {3.2.3}UC03 Login with Google}{76}{subsubsection.4.3.2.3}%
+\contentsline {paragraph}{\numberline {3.2.3.1}Requirement Traceability}{76}{paragraph.4.3.2.3.1}%
+\contentsline {paragraph}{\numberline {3.2.3.2}Preconditions}{77}{paragraph.4.3.2.3.2}%
+\contentsline {paragraph}{\numberline {3.2.3.3}Postconditions}{77}{paragraph.4.3.2.3.3}%
+\contentsline {paragraph}{\numberline {3.2.3.4}Main Processing Flow}{77}{paragraph.4.3.2.3.4}%
+\contentsline {paragraph}{\numberline {3.2.3.5}Alternative and Exception Flow}{77}{paragraph.4.3.2.3.5}%
+\contentsline {paragraph}{\numberline {3.2.3.6}Participating Components}{77}{paragraph.4.3.2.3.6}%
+\contentsline {paragraph}{\numberline {3.2.3.7}Class Diagram}{78}{paragraph.4.3.2.3.7}%
+\contentsline {paragraph}{\numberline {3.2.3.8}Sequence Diagram}{78}{paragraph.4.3.2.3.8}%
+\contentsline {subsubsection}{\numberline {3.2.4}UC04 Forgot Password}{78}{subsubsection.4.3.2.4}%
+\contentsline {paragraph}{\numberline {3.2.4.1}Requirement Traceability}{78}{paragraph.4.3.2.4.1}%
+\contentsline {paragraph}{\numberline {3.2.4.2}Preconditions}{79}{paragraph.4.3.2.4.2}%
+\contentsline {paragraph}{\numberline {3.2.4.3}Postconditions}{79}{paragraph.4.3.2.4.3}%
+\contentsline {paragraph}{\numberline {3.2.4.4}Main Processing Flow}{79}{paragraph.4.3.2.4.4}%
+\contentsline {paragraph}{\numberline {3.2.4.5}Alternative and Exception Flow}{79}{paragraph.4.3.2.4.5}%
+\contentsline {paragraph}{\numberline {3.2.4.6}Participating Components}{80}{paragraph.4.3.2.4.6}%
+\contentsline {paragraph}{\numberline {3.2.4.7}Class Diagram}{80}{paragraph.4.3.2.4.7}%
+\contentsline {paragraph}{\numberline {3.2.4.8}Sequence Diagram}{81}{paragraph.4.3.2.4.8}%
+\contentsline {subsubsection}{\numberline {3.2.5}UC05 Logout}{81}{subsubsection.4.3.2.5}%
+\contentsline {paragraph}{\numberline {3.2.5.1}Requirement Traceability}{81}{paragraph.4.3.2.5.1}%
+\contentsline {paragraph}{\numberline {3.2.5.2}Preconditions}{81}{paragraph.4.3.2.5.2}%
+\contentsline {paragraph}{\numberline {3.2.5.3}Postconditions}{81}{paragraph.4.3.2.5.3}%
+\contentsline {paragraph}{\numberline {3.2.5.4}Main Processing Flow}{81}{paragraph.4.3.2.5.4}%
+\contentsline {paragraph}{\numberline {3.2.5.5}Alternative and Exception Flow}{82}{paragraph.4.3.2.5.5}%
+\contentsline {paragraph}{\numberline {3.2.5.6}Participating Components}{82}{paragraph.4.3.2.5.6}%
+\contentsline {paragraph}{\numberline {3.2.5.7}Class Diagram}{83}{paragraph.4.3.2.5.7}%
+\contentsline {paragraph}{\numberline {3.2.5.8}Sequence Diagram}{83}{paragraph.4.3.2.5.8}%
+\contentsline {subsection}{\numberline {3.3}Student Profile and GitHub Integration}{83}{subsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}UC06 Manage Profile}{83}{subsubsection.4.3.3.1}%
+\contentsline {paragraph}{\numberline {3.3.1.1}Requirement Traceability}{83}{paragraph.4.3.3.1.1}%
+\contentsline {paragraph}{\numberline {3.3.1.2}Preconditions}{84}{paragraph.4.3.3.1.2}%
+\contentsline {paragraph}{\numberline {3.3.1.3}Postconditions}{84}{paragraph.4.3.3.1.3}%
+\contentsline {paragraph}{\numberline {3.3.1.4}Main Processing Flow}{84}{paragraph.4.3.3.1.4}%
+\contentsline {paragraph}{\numberline {3.3.1.5}Alternative and Exception Flow}{84}{paragraph.4.3.3.1.5}%
+\contentsline {paragraph}{\numberline {3.3.1.6}Participating Components}{85}{paragraph.4.3.3.1.6}%
+\contentsline {paragraph}{\numberline {3.3.1.7}Class Diagram}{85}{paragraph.4.3.3.1.7}%
+\contentsline {paragraph}{\numberline {3.3.1.8}Sequence Diagram}{86}{paragraph.4.3.3.1.8}%
+\contentsline {subsubsection}{\numberline {3.3.2}UC07 Upload Avatar}{86}{subsubsection.4.3.3.2}%
+\contentsline {paragraph}{\numberline {3.3.2.1}Requirement Traceability}{86}{paragraph.4.3.3.2.1}%
+\contentsline {paragraph}{\numberline {3.3.2.2}Preconditions}{86}{paragraph.4.3.3.2.2}%
+\contentsline {paragraph}{\numberline {3.3.2.3}Postconditions}{86}{paragraph.4.3.3.2.3}%
+\contentsline {paragraph}{\numberline {3.3.2.4}Main Processing Flow}{86}{paragraph.4.3.3.2.4}%
+\contentsline {paragraph}{\numberline {3.3.2.5}Alternative and Exception Flow}{87}{paragraph.4.3.3.2.5}%
+\contentsline {paragraph}{\numberline {3.3.2.6}Participating Components}{87}{paragraph.4.3.3.2.6}%
+\contentsline {paragraph}{\numberline {3.3.2.7}Class Diagram}{88}{paragraph.4.3.3.2.7}%
+\contentsline {paragraph}{\numberline {3.3.2.8}Sequence Diagram}{88}{paragraph.4.3.3.2.8}%
+\contentsline {subsubsection}{\numberline {3.3.3}UC08 Update Contact Information}{88}{subsubsection.4.3.3.3}%
+\contentsline {paragraph}{\numberline {3.3.3.1}Requirement Traceability}{88}{paragraph.4.3.3.3.1}%
+\contentsline {paragraph}{\numberline {3.3.3.2}Preconditions}{89}{paragraph.4.3.3.3.2}%
+\contentsline {paragraph}{\numberline {3.3.3.3}Postconditions}{89}{paragraph.4.3.3.3.3}%
+\contentsline {paragraph}{\numberline {3.3.3.4}Main Processing Flow}{89}{paragraph.4.3.3.3.4}%
+\contentsline {paragraph}{\numberline {3.3.3.5}Alternative and Exception Flow}{89}{paragraph.4.3.3.3.5}%
+\contentsline {paragraph}{\numberline {3.3.3.6}Participating Components}{89}{paragraph.4.3.3.3.6}%
+\contentsline {paragraph}{\numberline {3.3.3.7}Class Diagram}{90}{paragraph.4.3.3.3.7}%
+\contentsline {paragraph}{\numberline {3.3.3.8}Sequence Diagram}{90}{paragraph.4.3.3.3.8}%
+\contentsline {subsubsection}{\numberline {3.3.4}UC09 Change Password}{90}{subsubsection.4.3.3.4}%
+\contentsline {paragraph}{\numberline {3.3.4.1}Requirement Traceability}{90}{paragraph.4.3.3.4.1}%
+\contentsline {paragraph}{\numberline {3.3.4.2}Preconditions}{91}{paragraph.4.3.3.4.2}%
+\contentsline {paragraph}{\numberline {3.3.4.3}Postconditions}{91}{paragraph.4.3.3.4.3}%
+\contentsline {paragraph}{\numberline {3.3.4.4}Main Processing Flow}{91}{paragraph.4.3.3.4.4}%
+\contentsline {paragraph}{\numberline {3.3.4.5}Alternative and Exception Flow}{91}{paragraph.4.3.3.4.5}%
+\contentsline {paragraph}{\numberline {3.3.4.6}Participating Components}{92}{paragraph.4.3.3.4.6}%
+\contentsline {paragraph}{\numberline {3.3.4.7}Class Diagram}{92}{paragraph.4.3.3.4.7}%
+\contentsline {paragraph}{\numberline {3.3.4.8}Sequence Diagram}{93}{paragraph.4.3.3.4.8}%
+\contentsline {subsubsection}{\numberline {3.3.5}UC10 Upload Transcript}{93}{subsubsection.4.3.3.5}%
+\contentsline {paragraph}{\numberline {3.3.5.1}Requirement Traceability}{93}{paragraph.4.3.3.5.1}%
+\contentsline {paragraph}{\numberline {3.3.5.2}Preconditions}{93}{paragraph.4.3.3.5.2}%
+\contentsline {paragraph}{\numberline {3.3.5.3}Postconditions}{93}{paragraph.4.3.3.5.3}%
+\contentsline {paragraph}{\numberline {3.3.5.4}Main Processing Flow}{93}{paragraph.4.3.3.5.4}%
+\contentsline {paragraph}{\numberline {3.3.5.5}Alternative and Exception Flow}{94}{paragraph.4.3.3.5.5}%
+\contentsline {paragraph}{\numberline {3.3.5.6}Participating Components}{94}{paragraph.4.3.3.5.6}%
+\contentsline {paragraph}{\numberline {3.3.5.7}Class Diagram}{95}{paragraph.4.3.3.5.7}%
+\contentsline {paragraph}{\numberline {3.3.5.8}Sequence Diagram}{95}{paragraph.4.3.3.5.8}%
+\contentsline {subsubsection}{\numberline {3.3.6}UC11 Upload CV}{95}{subsubsection.4.3.3.6}%
+\contentsline {paragraph}{\numberline {3.3.6.1}Requirement Traceability}{95}{paragraph.4.3.3.6.1}%
+\contentsline {paragraph}{\numberline {3.3.6.2}Preconditions}{96}{paragraph.4.3.3.6.2}%
+\contentsline {paragraph}{\numberline {3.3.6.3}Postconditions}{96}{paragraph.4.3.3.6.3}%
+\contentsline {paragraph}{\numberline {3.3.6.4}Main Processing Flow}{96}{paragraph.4.3.3.6.4}%
+\contentsline {paragraph}{\numberline {3.3.6.5}Alternative and Exception Flow}{96}{paragraph.4.3.3.6.5}%
+\contentsline {paragraph}{\numberline {3.3.6.6}Participating Components}{96}{paragraph.4.3.3.6.6}%
+\contentsline {paragraph}{\numberline {3.3.6.7}Class Diagram}{97}{paragraph.4.3.3.6.7}%
+\contentsline {paragraph}{\numberline {3.3.6.8}Sequence Diagram}{97}{paragraph.4.3.3.6.8}%
+\contentsline {subsubsection}{\numberline {3.3.7}UC12 Link GitHub}{97}{subsubsection.4.3.3.7}%
+\contentsline {paragraph}{\numberline {3.3.7.1}Requirement Traceability}{97}{paragraph.4.3.3.7.1}%
+\contentsline {paragraph}{\numberline {3.3.7.2}Preconditions}{98}{paragraph.4.3.3.7.2}%
+\contentsline {paragraph}{\numberline {3.3.7.3}Postconditions}{98}{paragraph.4.3.3.7.3}%
+\contentsline {paragraph}{\numberline {3.3.7.4}Main Processing Flow}{98}{paragraph.4.3.3.7.4}%
+\contentsline {paragraph}{\numberline {3.3.7.5}Alternative and Exception Flow}{98}{paragraph.4.3.3.7.5}%
+\contentsline {paragraph}{\numberline {3.3.7.6}Participating Components}{99}{paragraph.4.3.3.7.6}%
+\contentsline {paragraph}{\numberline {3.3.7.7}Class Diagram}{99}{paragraph.4.3.3.7.7}%
+\contentsline {paragraph}{\numberline {3.3.7.8}Sequence Diagram}{100}{paragraph.4.3.3.7.8}%
+\contentsline {subsubsection}{\numberline {3.3.8}UC13 Sync GitHub Repository}{100}{subsubsection.4.3.3.8}%
+\contentsline {paragraph}{\numberline {3.3.8.1}Requirement Traceability}{100}{paragraph.4.3.3.8.1}%
+\contentsline {paragraph}{\numberline {3.3.8.2}Preconditions}{100}{paragraph.4.3.3.8.2}%
+\contentsline {paragraph}{\numberline {3.3.8.3}Postconditions}{100}{paragraph.4.3.3.8.3}%
+\contentsline {paragraph}{\numberline {3.3.8.4}Main Processing Flow}{100}{paragraph.4.3.3.8.4}%
+\contentsline {paragraph}{\numberline {3.3.8.5}Alternative and Exception Flow}{101}{paragraph.4.3.3.8.5}%
+\contentsline {paragraph}{\numberline {3.3.8.6}Participating Components}{101}{paragraph.4.3.3.8.6}%
+\contentsline {paragraph}{\numberline {3.3.8.7}Class Diagram}{102}{paragraph.4.3.3.8.7}%
+\contentsline {paragraph}{\numberline {3.3.8.8}Sequence Diagram}{102}{paragraph.4.3.3.8.8}%
+\contentsline {subsubsection}{\numberline {3.3.9}UC14 View GitHub Analysis}{102}{subsubsection.4.3.3.9}%
+\contentsline {paragraph}{\numberline {3.3.9.1}Requirement Traceability}{102}{paragraph.4.3.3.9.1}%
+\contentsline {paragraph}{\numberline {3.3.9.2}Preconditions}{103}{paragraph.4.3.3.9.2}%
+\contentsline {paragraph}{\numberline {3.3.9.3}Postconditions}{103}{paragraph.4.3.3.9.3}%
+\contentsline {paragraph}{\numberline {3.3.9.4}Main Processing Flow}{103}{paragraph.4.3.3.9.4}%
+\contentsline {paragraph}{\numberline {3.3.9.5}Alternative and Exception Flow}{103}{paragraph.4.3.3.9.5}%
+\contentsline {paragraph}{\numberline {3.3.9.6}Participating Components}{103}{paragraph.4.3.3.9.6}%
+\contentsline {paragraph}{\numberline {3.3.9.7}Class Diagram}{104}{paragraph.4.3.3.9.7}%
+\contentsline {paragraph}{\numberline {3.3.9.8}Sequence Diagram}{104}{paragraph.4.3.3.9.8}%
+\contentsline {subsubsection}{\numberline {3.3.10}UC15 View Skill Gap Report}{104}{subsubsection.4.3.3.10}%
+\contentsline {paragraph}{\numberline {3.3.10.1}Requirement Traceability}{104}{paragraph.4.3.3.10.1}%
+\contentsline {paragraph}{\numberline {3.3.10.2}Preconditions}{105}{paragraph.4.3.3.10.2}%
+\contentsline {paragraph}{\numberline {3.3.10.3}Postconditions}{105}{paragraph.4.3.3.10.3}%
+\contentsline {paragraph}{\numberline {3.3.10.4}Main Processing Flow}{105}{paragraph.4.3.3.10.4}%
+\contentsline {paragraph}{\numberline {3.3.10.5}Alternative and Exception Flow}{105}{paragraph.4.3.3.10.5}%
+\contentsline {paragraph}{\numberline {3.3.10.6}Participating Components}{106}{paragraph.4.3.3.10.6}%
+\contentsline {paragraph}{\numberline {3.3.10.7}Class Diagram}{106}{paragraph.4.3.3.10.7}%
+\contentsline {paragraph}{\numberline {3.3.10.8}Sequence Diagram}{107}{paragraph.4.3.3.10.8}%
+\contentsline {subsection}{\numberline {3.4}Career Path and Skill Management}{107}{subsection.4.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}UC16 Select Career Role}{107}{subsubsection.4.3.4.1}%
+\contentsline {paragraph}{\numberline {3.4.1.1}Requirement Traceability}{107}{paragraph.4.3.4.1.1}%
+\contentsline {paragraph}{\numberline {3.4.1.2}Preconditions}{107}{paragraph.4.3.4.1.2}%
+\contentsline {paragraph}{\numberline {3.4.1.3}Postconditions}{107}{paragraph.4.3.4.1.3}%
+\contentsline {paragraph}{\numberline {3.4.1.4}Main Processing Flow}{108}{paragraph.4.3.4.1.4}%
+\contentsline {paragraph}{\numberline {3.4.1.5}Alternative and Exception Flow}{108}{paragraph.4.3.4.1.5}%
+\contentsline {paragraph}{\numberline {3.4.1.6}Participating Components}{108}{paragraph.4.3.4.1.6}%
+\contentsline {paragraph}{\numberline {3.4.1.7}Class Diagram}{109}{paragraph.4.3.4.1.7}%
+\contentsline {paragraph}{\numberline {3.4.1.8}Sequence Diagram}{109}{paragraph.4.3.4.1.8}%
+\contentsline {subsubsection}{\numberline {3.4.2}UC17 Update Career Goal}{109}{subsubsection.4.3.4.2}%
+\contentsline {paragraph}{\numberline {3.4.2.1}Requirement Traceability}{109}{paragraph.4.3.4.2.1}%
+\contentsline {paragraph}{\numberline {3.4.2.2}Preconditions}{110}{paragraph.4.3.4.2.2}%
+\contentsline {paragraph}{\numberline {3.4.2.3}Postconditions}{110}{paragraph.4.3.4.2.3}%
+\contentsline {paragraph}{\numberline {3.4.2.4}Main Processing Flow}{110}{paragraph.4.3.4.2.4}%
+\contentsline {paragraph}{\numberline {3.4.2.5}Alternative and Exception Flow}{110}{paragraph.4.3.4.2.5}%
+\contentsline {paragraph}{\numberline {3.4.2.6}Participating Components}{110}{paragraph.4.3.4.2.6}%
+\contentsline {paragraph}{\numberline {3.4.2.7}Class Diagram}{111}{paragraph.4.3.4.2.7}%
+\contentsline {paragraph}{\numberline {3.4.2.8}Sequence Diagram}{111}{paragraph.4.3.4.2.8}%
+\contentsline {subsubsection}{\numberline {3.4.3}UC18 View Recommended Roles}{111}{subsubsection.4.3.4.3}%
+\contentsline {paragraph}{\numberline {3.4.3.1}Requirement Traceability}{111}{paragraph.4.3.4.3.1}%
+\contentsline {paragraph}{\numberline {3.4.3.2}Preconditions}{112}{paragraph.4.3.4.3.2}%
+\contentsline {paragraph}{\numberline {3.4.3.3}Postconditions}{112}{paragraph.4.3.4.3.3}%
+\contentsline {paragraph}{\numberline {3.4.3.4}Main Processing Flow}{112}{paragraph.4.3.4.3.4}%
+\contentsline {paragraph}{\numberline {3.4.3.5}Alternative and Exception Flow}{112}{paragraph.4.3.4.3.5}%
+\contentsline {paragraph}{\numberline {3.4.3.6}Participating Components}{113}{paragraph.4.3.4.3.6}%
+\contentsline {paragraph}{\numberline {3.4.3.7}Class Diagram}{113}{paragraph.4.3.4.3.7}%
+\contentsline {paragraph}{\numberline {3.4.3.8}Sequence Diagram}{114}{paragraph.4.3.4.3.8}%
+\contentsline {subsubsection}{\numberline {3.4.4}UC19 Compare Career Paths}{114}{subsubsection.4.3.4.4}%
+\contentsline {paragraph}{\numberline {3.4.4.1}Requirement Traceability}{114}{paragraph.4.3.4.4.1}%
+\contentsline {paragraph}{\numberline {3.4.4.2}Preconditions}{114}{paragraph.4.3.4.4.2}%
+\contentsline {paragraph}{\numberline {3.4.4.3}Postconditions}{114}{paragraph.4.3.4.4.3}%
+\contentsline {paragraph}{\numberline {3.4.4.4}Main Processing Flow}{114}{paragraph.4.3.4.4.4}%
+\contentsline {paragraph}{\numberline {3.4.4.5}Alternative and Exception Flow}{115}{paragraph.4.3.4.4.5}%
+\contentsline {paragraph}{\numberline {3.4.4.6}Participating Components}{115}{paragraph.4.3.4.4.6}%
+\contentsline {paragraph}{\numberline {3.4.4.7}Class Diagram}{116}{paragraph.4.3.4.4.7}%
+\contentsline {paragraph}{\numberline {3.4.4.8}Sequence Diagram}{116}{paragraph.4.3.4.4.8}%
+\contentsline {subsubsection}{\numberline {3.4.5}UC20 View Required Skills}{116}{subsubsection.4.3.4.5}%
+\contentsline {paragraph}{\numberline {3.4.5.1}Requirement Traceability}{116}{paragraph.4.3.4.5.1}%
+\contentsline {paragraph}{\numberline {3.4.5.2}Preconditions}{117}{paragraph.4.3.4.5.2}%
+\contentsline {paragraph}{\numberline {3.4.5.3}Postconditions}{117}{paragraph.4.3.4.5.3}%
+\contentsline {paragraph}{\numberline {3.4.5.4}Main Processing Flow}{117}{paragraph.4.3.4.5.4}%
+\contentsline {paragraph}{\numberline {3.4.5.5}Alternative and Exception Flow}{117}{paragraph.4.3.4.5.5}%
+\contentsline {paragraph}{\numberline {3.4.5.6}Participating Components}{117}{paragraph.4.3.4.5.6}%
+\contentsline {paragraph}{\numberline {3.4.5.7}Class Diagram}{118}{paragraph.4.3.4.5.7}%
+\contentsline {paragraph}{\numberline {3.4.5.8}Sequence Diagram}{118}{paragraph.4.3.4.5.8}%
+\contentsline {subsection}{\numberline {3.5}Learning Roadmap and Course Management}{118}{subsection.4.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}UC21 Generate Learning Roadmap}{119}{subsubsection.4.3.5.1}%
+\contentsline {paragraph}{\numberline {3.5.1.1}Requirement Traceability}{119}{paragraph.4.3.5.1.1}%
+\contentsline {paragraph}{\numberline {3.5.1.2}Preconditions}{119}{paragraph.4.3.5.1.2}%
+\contentsline {paragraph}{\numberline {3.5.1.3}Postconditions}{119}{paragraph.4.3.5.1.3}%
+\contentsline {paragraph}{\numberline {3.5.1.4}Main Processing Flow}{119}{paragraph.4.3.5.1.4}%
+\contentsline {paragraph}{\numberline {3.5.1.5}Alternative and Exception Flow}{120}{paragraph.4.3.5.1.5}%
+\contentsline {paragraph}{\numberline {3.5.1.6}Participating Components}{120}{paragraph.4.3.5.1.6}%
+\contentsline {paragraph}{\numberline {3.5.1.7}Class Diagram}{120}{paragraph.4.3.5.1.7}%
+\contentsline {paragraph}{\numberline {3.5.1.8}Sequence Diagram}{121}{paragraph.4.3.5.1.8}%
+\contentsline {subsubsection}{\numberline {3.5.2}UC22 View Learning Roadmap}{121}{subsubsection.4.3.5.2}%
+\contentsline {paragraph}{\numberline {3.5.2.1}Requirement Traceability}{121}{paragraph.4.3.5.2.1}%
+\contentsline {paragraph}{\numberline {3.5.2.2}Preconditions}{121}{paragraph.4.3.5.2.2}%
+\contentsline {paragraph}{\numberline {3.5.2.3}Postconditions}{121}{paragraph.4.3.5.2.3}%
+\contentsline {paragraph}{\numberline {3.5.2.4}Main Processing Flow}{121}{paragraph.4.3.5.2.4}%
+\contentsline {paragraph}{\numberline {3.5.2.5}Alternative and Exception Flow}{122}{paragraph.4.3.5.2.5}%
+\contentsline {paragraph}{\numberline {3.5.2.6}Participating Components}{122}{paragraph.4.3.5.2.6}%
+\contentsline {paragraph}{\numberline {3.5.2.7}Class Diagram}{123}{paragraph.4.3.5.2.7}%
+\contentsline {paragraph}{\numberline {3.5.2.8}Sequence Diagram}{123}{paragraph.4.3.5.2.8}%
+\contentsline {subsubsection}{\numberline {3.5.3}UC23 Update Roadmap Progress}{123}{subsubsection.4.3.5.3}%
+\contentsline {paragraph}{\numberline {3.5.3.1}Requirement Traceability}{123}{paragraph.4.3.5.3.1}%
+\contentsline {paragraph}{\numberline {3.5.3.2}Preconditions}{124}{paragraph.4.3.5.3.2}%
+\contentsline {paragraph}{\numberline {3.5.3.3}Postconditions}{124}{paragraph.4.3.5.3.3}%
+\contentsline {paragraph}{\numberline {3.5.3.4}Main Processing Flow}{124}{paragraph.4.3.5.3.4}%
+\contentsline {paragraph}{\numberline {3.5.3.5}Alternative and Exception Flow}{124}{paragraph.4.3.5.3.5}%
+\contentsline {paragraph}{\numberline {3.5.3.6}Participating Components}{124}{paragraph.4.3.5.3.6}%
+\contentsline {paragraph}{\numberline {3.5.3.7}Class Diagram}{125}{paragraph.4.3.5.3.7}%
+\contentsline {paragraph}{\numberline {3.5.3.8}Sequence Diagram}{125}{paragraph.4.3.5.3.8}%
+\contentsline {subsubsection}{\numberline {3.5.4}UC24 View Learning Progress}{125}{subsubsection.4.3.5.4}%
+\contentsline {paragraph}{\numberline {3.5.4.1}Requirement Traceability}{125}{paragraph.4.3.5.4.1}%
+\contentsline {paragraph}{\numberline {3.5.4.2}Preconditions}{126}{paragraph.4.3.5.4.2}%
+\contentsline {paragraph}{\numberline {3.5.4.3}Postconditions}{126}{paragraph.4.3.5.4.3}%
+\contentsline {paragraph}{\numberline {3.5.4.4}Main Processing Flow}{126}{paragraph.4.3.5.4.4}%
+\contentsline {paragraph}{\numberline {3.5.4.5}Alternative and Exception Flow}{126}{paragraph.4.3.5.4.5}%
+\contentsline {paragraph}{\numberline {3.5.4.6}Participating Components}{127}{paragraph.4.3.5.4.6}%
+\contentsline {paragraph}{\numberline {3.5.4.7}Class Diagram}{127}{paragraph.4.3.5.4.7}%
+\contentsline {paragraph}{\numberline {3.5.4.8}Sequence Diagram}{128}{paragraph.4.3.5.4.8}%
+\contentsline {subsubsection}{\numberline {3.5.5}UC25 Receive Learning Reminder}{128}{subsubsection.4.3.5.5}%
+\contentsline {paragraph}{\numberline {3.5.5.1}Requirement Traceability}{128}{paragraph.4.3.5.5.1}%
+\contentsline {paragraph}{\numberline {3.5.5.2}Preconditions}{128}{paragraph.4.3.5.5.2}%
+\contentsline {paragraph}{\numberline {3.5.5.3}Postconditions}{128}{paragraph.4.3.5.5.3}%
+\contentsline {paragraph}{\numberline {3.5.5.4}Main Processing Flow}{128}{paragraph.4.3.5.5.4}%
+\contentsline {paragraph}{\numberline {3.5.5.5}Alternative and Exception Flow}{129}{paragraph.4.3.5.5.5}%
+\contentsline {paragraph}{\numberline {3.5.5.6}Participating Components}{129}{paragraph.4.3.5.5.6}%
+\contentsline {paragraph}{\numberline {3.5.5.7}Class Diagram}{130}{paragraph.4.3.5.5.7}%
+\contentsline {paragraph}{\numberline {3.5.5.8}Sequence Diagram}{130}{paragraph.4.3.5.5.8}%
+\contentsline {subsubsection}{\numberline {3.5.6}UC26 Search Learning Resources}{130}{subsubsection.4.3.5.6}%
+\contentsline {paragraph}{\numberline {3.5.6.1}Requirement Traceability}{130}{paragraph.4.3.5.6.1}%
+\contentsline {paragraph}{\numberline {3.5.6.2}Preconditions}{131}{paragraph.4.3.5.6.2}%
+\contentsline {paragraph}{\numberline {3.5.6.3}Postconditions}{131}{paragraph.4.3.5.6.3}%
+\contentsline {paragraph}{\numberline {3.5.6.4}Main Processing Flow}{131}{paragraph.4.3.5.6.4}%
+\contentsline {paragraph}{\numberline {3.5.6.5}Alternative and Exception Flow}{131}{paragraph.4.3.5.6.5}%
+\contentsline {paragraph}{\numberline {3.5.6.6}Participating Components}{131}{paragraph.4.3.5.6.6}%
+\contentsline {paragraph}{\numberline {3.5.6.7}Class Diagram}{132}{paragraph.4.3.5.6.7}%
+\contentsline {paragraph}{\numberline {3.5.6.8}Sequence Diagram}{132}{paragraph.4.3.5.6.8}%
+\contentsline {subsubsection}{\numberline {3.5.7}UC27 View Recommended Courses}{132}{subsubsection.4.3.5.7}%
+\contentsline {paragraph}{\numberline {3.5.7.1}Requirement Traceability}{132}{paragraph.4.3.5.7.1}%
+\contentsline {paragraph}{\numberline {3.5.7.2}Preconditions}{133}{paragraph.4.3.5.7.2}%
+\contentsline {paragraph}{\numberline {3.5.7.3}Postconditions}{133}{paragraph.4.3.5.7.3}%
+\contentsline {paragraph}{\numberline {3.5.7.4}Main Processing Flow}{133}{paragraph.4.3.5.7.4}%
+\contentsline {paragraph}{\numberline {3.5.7.5}Alternative and Exception Flow}{133}{paragraph.4.3.5.7.5}%
+\contentsline {paragraph}{\numberline {3.5.7.6}Participating Components}{134}{paragraph.4.3.5.7.6}%
+\contentsline {paragraph}{\numberline {3.5.7.7}Class Diagram}{134}{paragraph.4.3.5.7.7}%
+\contentsline {paragraph}{\numberline {3.5.7.8}Sequence Diagram}{135}{paragraph.4.3.5.7.8}%
+\contentsline {subsubsection}{\numberline {3.5.8}UC28 Save Favorite Courses}{135}{subsubsection.4.3.5.8}%
+\contentsline {paragraph}{\numberline {3.5.8.1}Requirement Traceability}{135}{paragraph.4.3.5.8.1}%
+\contentsline {paragraph}{\numberline {3.5.8.2}Preconditions}{135}{paragraph.4.3.5.8.2}%
+\contentsline {paragraph}{\numberline {3.5.8.3}Postconditions}{135}{paragraph.4.3.5.8.3}%
+\contentsline {paragraph}{\numberline {3.5.8.4}Main Processing Flow}{135}{paragraph.4.3.5.8.4}%
+\contentsline {paragraph}{\numberline {3.5.8.5}Alternative and Exception Flow}{136}{paragraph.4.3.5.8.5}%
+\contentsline {paragraph}{\numberline {3.5.8.6}Participating Components}{136}{paragraph.4.3.5.8.6}%
+\contentsline {paragraph}{\numberline {3.5.8.7}Class Diagram}{137}{paragraph.4.3.5.8.7}%
+\contentsline {paragraph}{\numberline {3.5.8.8}Sequence Diagram}{137}{paragraph.4.3.5.8.8}%
+\contentsline {subsubsection}{\numberline {3.5.9}UC29 Register External Course}{137}{subsubsection.4.3.5.9}%
+\contentsline {paragraph}{\numberline {3.5.9.1}Requirement Traceability}{137}{paragraph.4.3.5.9.1}%
+\contentsline {paragraph}{\numberline {3.5.9.2}Preconditions}{138}{paragraph.4.3.5.9.2}%
+\contentsline {paragraph}{\numberline {3.5.9.3}Postconditions}{138}{paragraph.4.3.5.9.3}%
+\contentsline {paragraph}{\numberline {3.5.9.4}Main Processing Flow}{138}{paragraph.4.3.5.9.4}%
+\contentsline {paragraph}{\numberline {3.5.9.5}Alternative and Exception Flow}{138}{paragraph.4.3.5.9.5}%
+\contentsline {paragraph}{\numberline {3.5.9.6}Participating Components}{138}{paragraph.4.3.5.9.6}%
+\contentsline {paragraph}{\numberline {3.5.9.7}Class Diagram}{139}{paragraph.4.3.5.9.7}%
+\contentsline {paragraph}{\numberline {3.5.9.8}Sequence Diagram}{139}{paragraph.4.3.5.9.8}%
+\contentsline {subsubsection}{\numberline {3.5.10}UC30 Track Course Completion}{139}{subsubsection.4.3.5.10}%
+\contentsline {paragraph}{\numberline {3.5.10.1}Requirement Traceability}{139}{paragraph.4.3.5.10.1}%
+\contentsline {paragraph}{\numberline {3.5.10.2}Preconditions}{140}{paragraph.4.3.5.10.2}%
+\contentsline {paragraph}{\numberline {3.5.10.3}Postconditions}{140}{paragraph.4.3.5.10.3}%
+\contentsline {paragraph}{\numberline {3.5.10.4}Main Processing Flow}{140}{paragraph.4.3.5.10.4}%
+\contentsline {paragraph}{\numberline {3.5.10.5}Alternative and Exception Flow}{140}{paragraph.4.3.5.10.5}%
+\contentsline {paragraph}{\numberline {3.5.10.6}Participating Components}{141}{paragraph.4.3.5.10.6}%
+\contentsline {paragraph}{\numberline {3.5.10.7}Class Diagram}{141}{paragraph.4.3.5.10.7}%
+\contentsline {paragraph}{\numberline {3.5.10.8}Sequence Diagram}{142}{paragraph.4.3.5.10.8}%
+\contentsline {subsection}{\numberline {3.6}Market Trend Management}{142}{subsection.4.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}UC31 View Market Trends}{142}{subsubsection.4.3.6.1}%
+\contentsline {paragraph}{\numberline {3.6.1.1}Requirement Traceability}{142}{paragraph.4.3.6.1.1}%
+\contentsline {paragraph}{\numberline {3.6.1.2}Preconditions}{142}{paragraph.4.3.6.1.2}%
+\contentsline {paragraph}{\numberline {3.6.1.3}Postconditions}{142}{paragraph.4.3.6.1.3}%
+\contentsline {paragraph}{\numberline {3.6.1.4}Main Processing Flow}{143}{paragraph.4.3.6.1.4}%
+\contentsline {paragraph}{\numberline {3.6.1.5}Alternative and Exception Flow}{143}{paragraph.4.3.6.1.5}%
+\contentsline {paragraph}{\numberline {3.6.1.6}Participating Components}{143}{paragraph.4.3.6.1.6}%
+\contentsline {paragraph}{\numberline {3.6.1.7}Class Diagram}{144}{paragraph.4.3.6.1.7}%
+\contentsline {paragraph}{\numberline {3.6.1.8}Sequence Diagram}{144}{paragraph.4.3.6.1.8}%
+\contentsline {subsubsection}{\numberline {3.6.2}UC32 Search Job Opportunities}{144}{subsubsection.4.3.6.2}%
+\contentsline {paragraph}{\numberline {3.6.2.1}Requirement Traceability}{144}{paragraph.4.3.6.2.1}%
+\contentsline {paragraph}{\numberline {3.6.2.2}Preconditions}{145}{paragraph.4.3.6.2.2}%
+\contentsline {paragraph}{\numberline {3.6.2.3}Postconditions}{145}{paragraph.4.3.6.2.3}%
+\contentsline {paragraph}{\numberline {3.6.2.4}Main Processing Flow}{145}{paragraph.4.3.6.2.4}%
+\contentsline {paragraph}{\numberline {3.6.2.5}Alternative and Exception Flow}{145}{paragraph.4.3.6.2.5}%
+\contentsline {paragraph}{\numberline {3.6.2.6}Participating Components}{145}{paragraph.4.3.6.2.6}%
+\contentsline {paragraph}{\numberline {3.6.2.7}Class Diagram}{146}{paragraph.4.3.6.2.7}%
+\contentsline {paragraph}{\numberline {3.6.2.8}Sequence Diagram}{146}{paragraph.4.3.6.2.8}%
+\contentsline {subsubsection}{\numberline {3.6.3}UC33 View Salary Information}{146}{subsubsection.4.3.6.3}%
+\contentsline {paragraph}{\numberline {3.6.3.1}Requirement Traceability}{146}{paragraph.4.3.6.3.1}%
+\contentsline {paragraph}{\numberline {3.6.3.2}Preconditions}{147}{paragraph.4.3.6.3.2}%
+\contentsline {paragraph}{\numberline {3.6.3.3}Postconditions}{147}{paragraph.4.3.6.3.3}%
+\contentsline {paragraph}{\numberline {3.6.3.4}Main Processing Flow}{147}{paragraph.4.3.6.3.4}%
+\contentsline {paragraph}{\numberline {3.6.3.5}Alternative and Exception Flow}{147}{paragraph.4.3.6.3.5}%
+\contentsline {paragraph}{\numberline {3.6.3.6}Participating Components}{148}{paragraph.4.3.6.3.6}%
+\contentsline {paragraph}{\numberline {3.6.3.7}Class Diagram}{148}{paragraph.4.3.6.3.7}%
+\contentsline {paragraph}{\numberline {3.6.3.8}Sequence Diagram}{149}{paragraph.4.3.6.3.8}%
+\contentsline {subsubsection}{\numberline {3.6.4}UC34 View Technology Trends}{149}{subsubsection.4.3.6.4}%
+\contentsline {paragraph}{\numberline {3.6.4.1}Requirement Traceability}{149}{paragraph.4.3.6.4.1}%
+\contentsline {paragraph}{\numberline {3.6.4.2}Preconditions}{149}{paragraph.4.3.6.4.2}%
+\contentsline {paragraph}{\numberline {3.6.4.3}Postconditions}{149}{paragraph.4.3.6.4.3}%
+\contentsline {paragraph}{\numberline {3.6.4.4}Main Processing Flow}{149}{paragraph.4.3.6.4.4}%
+\contentsline {paragraph}{\numberline {3.6.4.5}Alternative and Exception Flow}{150}{paragraph.4.3.6.4.5}%
+\contentsline {paragraph}{\numberline {3.6.4.6}Participating Components}{150}{paragraph.4.3.6.4.6}%
+\contentsline {paragraph}{\numberline {3.6.4.7}Class Diagram}{151}{paragraph.4.3.6.4.7}%
+\contentsline {paragraph}{\numberline {3.6.4.8}Sequence Diagram}{151}{paragraph.4.3.6.4.8}%
+\contentsline {subsubsection}{\numberline {3.6.5}UC35 Receive Job Recommendation}{151}{subsubsection.4.3.6.5}%
+\contentsline {paragraph}{\numberline {3.6.5.1}Requirement Traceability}{151}{paragraph.4.3.6.5.1}%
+\contentsline {paragraph}{\numberline {3.6.5.2}Preconditions}{152}{paragraph.4.3.6.5.2}%
+\contentsline {paragraph}{\numberline {3.6.5.3}Postconditions}{152}{paragraph.4.3.6.5.3}%
+\contentsline {paragraph}{\numberline {3.6.5.4}Main Processing Flow}{152}{paragraph.4.3.6.5.4}%
+\contentsline {paragraph}{\numberline {3.6.5.5}Alternative and Exception Flow}{152}{paragraph.4.3.6.5.5}%
+\contentsline {paragraph}{\numberline {3.6.5.6}Participating Components}{152}{paragraph.4.3.6.5.6}%
+\contentsline {paragraph}{\numberline {3.6.5.7}Class Diagram}{153}{paragraph.4.3.6.5.7}%
+\contentsline {paragraph}{\numberline {3.6.5.8}Sequence Diagram}{153}{paragraph.4.3.6.5.8}%
+\contentsline {subsection}{\numberline {3.7}AI Mentor and Analysis Logging}{153}{subsection.4.3.7}%
+\contentsline {subsubsection}{\numberline {3.7.1}UC36 Chat with AI Mentor}{154}{subsubsection.4.3.7.1}%
+\contentsline {paragraph}{\numberline {3.7.1.1}Requirement Traceability}{154}{paragraph.4.3.7.1.1}%
+\contentsline {paragraph}{\numberline {3.7.1.2}Preconditions}{154}{paragraph.4.3.7.1.2}%
+\contentsline {paragraph}{\numberline {3.7.1.3}Postconditions}{154}{paragraph.4.3.7.1.3}%
+\contentsline {paragraph}{\numberline {3.7.1.4}Main Processing Flow}{154}{paragraph.4.3.7.1.4}%
+\contentsline {paragraph}{\numberline {3.7.1.5}Alternative and Exception Flow}{155}{paragraph.4.3.7.1.5}%
+\contentsline {paragraph}{\numberline {3.7.1.6}Participating Components}{155}{paragraph.4.3.7.1.6}%
+\contentsline {paragraph}{\numberline {3.7.1.7}Class Diagram}{155}{paragraph.4.3.7.1.7}%
+\contentsline {paragraph}{\numberline {3.7.1.8}Sequence Diagram}{156}{paragraph.4.3.7.1.8}%
+\contentsline {subsubsection}{\numberline {3.7.2}UC37 Ask Career Questions}{156}{subsubsection.4.3.7.2}%
+\contentsline {paragraph}{\numberline {3.7.2.1}Requirement Traceability}{156}{paragraph.4.3.7.2.1}%
+\contentsline {paragraph}{\numberline {3.7.2.2}Preconditions}{156}{paragraph.4.3.7.2.2}%
+\contentsline {paragraph}{\numberline {3.7.2.3}Postconditions}{156}{paragraph.4.3.7.2.3}%
+\contentsline {paragraph}{\numberline {3.7.2.4}Main Processing Flow}{156}{paragraph.4.3.7.2.4}%
+\contentsline {paragraph}{\numberline {3.7.2.5}Alternative and Exception Flow}{157}{paragraph.4.3.7.2.5}%
+\contentsline {paragraph}{\numberline {3.7.2.6}Participating Components}{157}{paragraph.4.3.7.2.6}%
+\contentsline {paragraph}{\numberline {3.7.2.7}Class Diagram}{158}{paragraph.4.3.7.2.7}%
+\contentsline {paragraph}{\numberline {3.7.2.8}Sequence Diagram}{158}{paragraph.4.3.7.2.8}%
+\contentsline {subsubsection}{\numberline {3.7.3}UC38 Receive AI Feedback}{158}{subsubsection.4.3.7.3}%
+\contentsline {paragraph}{\numberline {3.7.3.1}Requirement Traceability}{158}{paragraph.4.3.7.3.1}%
+\contentsline {paragraph}{\numberline {3.7.3.2}Preconditions}{159}{paragraph.4.3.7.3.2}%
+\contentsline {paragraph}{\numberline {3.7.3.3}Postconditions}{159}{paragraph.4.3.7.3.3}%
+\contentsline {paragraph}{\numberline {3.7.3.4}Main Processing Flow}{159}{paragraph.4.3.7.3.4}%
+\contentsline {paragraph}{\numberline {3.7.3.5}Alternative and Exception Flow}{159}{paragraph.4.3.7.3.5}%
+\contentsline {paragraph}{\numberline {3.7.3.6}Participating Components}{159}{paragraph.4.3.7.3.6}%
+\contentsline {paragraph}{\numberline {3.7.3.7}Class Diagram}{160}{paragraph.4.3.7.3.7}%
+\contentsline {paragraph}{\numberline {3.7.3.8}Sequence Diagram}{160}{paragraph.4.3.7.3.8}%
+\contentsline {subsection}{\numberline {3.8}E-Portfolio and Mentor Review}{160}{subsection.4.3.8}%
+\contentsline {subsubsection}{\numberline {3.8.1}UC39 Generate E-Portfolio}{161}{subsubsection.4.3.8.1}%
+\contentsline {paragraph}{\numberline {3.8.1.1}Requirement Traceability}{161}{paragraph.4.3.8.1.1}%
+\contentsline {paragraph}{\numberline {3.8.1.2}Preconditions}{161}{paragraph.4.3.8.1.2}%
+\contentsline {paragraph}{\numberline {3.8.1.3}Postconditions}{161}{paragraph.4.3.8.1.3}%
+\contentsline {paragraph}{\numberline {3.8.1.4}Main Processing Flow}{161}{paragraph.4.3.8.1.4}%
+\contentsline {paragraph}{\numberline {3.8.1.5}Alternative and Exception Flow}{162}{paragraph.4.3.8.1.5}%
+\contentsline {paragraph}{\numberline {3.8.1.6}Participating Components}{162}{paragraph.4.3.8.1.6}%
+\contentsline {paragraph}{\numberline {3.8.1.7}Class Diagram}{162}{paragraph.4.3.8.1.7}%
+\contentsline {paragraph}{\numberline {3.8.1.8}Sequence Diagram}{163}{paragraph.4.3.8.1.8}%
+\contentsline {subsubsection}{\numberline {3.8.2}UC40 Share Portfolio}{163}{subsubsection.4.3.8.2}%
+\contentsline {paragraph}{\numberline {3.8.2.1}Requirement Traceability}{163}{paragraph.4.3.8.2.1}%
+\contentsline {paragraph}{\numberline {3.8.2.2}Preconditions}{163}{paragraph.4.3.8.2.2}%
+\contentsline {paragraph}{\numberline {3.8.2.3}Postconditions}{163}{paragraph.4.3.8.2.3}%
+\contentsline {paragraph}{\numberline {3.8.2.4}Main Processing Flow}{163}{paragraph.4.3.8.2.4}%
+\contentsline {paragraph}{\numberline {3.8.2.5}Alternative and Exception Flow}{164}{paragraph.4.3.8.2.5}%
+\contentsline {paragraph}{\numberline {3.8.2.6}Participating Components}{164}{paragraph.4.3.8.2.6}%
+\contentsline {paragraph}{\numberline {3.8.2.7}Class Diagram}{165}{paragraph.4.3.8.2.7}%
+\contentsline {paragraph}{\numberline {3.8.2.8}Sequence Diagram}{165}{paragraph.4.3.8.2.8}%
+\contentsline {subsection}{\numberline {3.9}Authentication and Account Access}{165}{subsection.4.3.9}%
+\contentsline {subsubsection}{\numberline {3.9.1}UC41 Login}{165}{subsubsection.4.3.9.1}%
+\contentsline {paragraph}{\numberline {3.9.1.1}Requirement Traceability}{165}{paragraph.4.3.9.1.1}%
+\contentsline {paragraph}{\numberline {3.9.1.2}Preconditions}{166}{paragraph.4.3.9.1.2}%
+\contentsline {paragraph}{\numberline {3.9.1.3}Postconditions}{166}{paragraph.4.3.9.1.3}%
+\contentsline {paragraph}{\numberline {3.9.1.4}Main Processing Flow}{166}{paragraph.4.3.9.1.4}%
+\contentsline {paragraph}{\numberline {3.9.1.5}Alternative and Exception Flow}{166}{paragraph.4.3.9.1.5}%
+\contentsline {paragraph}{\numberline {3.9.1.6}Participating Components}{167}{paragraph.4.3.9.1.6}%
+\contentsline {paragraph}{\numberline {3.9.1.7}Class Diagram}{167}{paragraph.4.3.9.1.7}%
+\contentsline {paragraph}{\numberline {3.9.1.8}Sequence Diagram}{167}{paragraph.4.3.9.1.8}%
+\contentsline {subsection}{\numberline {3.10}Consultation and Feedback Management}{168}{subsection.4.3.10}%
+\contentsline {subsubsection}{\numberline {3.10.1}UC42 View Student Profile}{168}{subsubsection.4.3.10.1}%
+\contentsline {paragraph}{\numberline {3.10.1.1}Requirement Traceability}{168}{paragraph.4.3.10.1.1}%
+\contentsline {paragraph}{\numberline {3.10.1.2}Preconditions}{168}{paragraph.4.3.10.1.2}%
+\contentsline {paragraph}{\numberline {3.10.1.3}Postconditions}{168}{paragraph.4.3.10.1.3}%
+\contentsline {paragraph}{\numberline {3.10.1.4}Main Processing Flow}{168}{paragraph.4.3.10.1.4}%
+\contentsline {paragraph}{\numberline {3.10.1.5}Alternative and Exception Flow}{169}{paragraph.4.3.10.1.5}%
+\contentsline {paragraph}{\numberline {3.10.1.6}Participating Components}{169}{paragraph.4.3.10.1.6}%
+\contentsline {paragraph}{\numberline {3.10.1.7}Class Diagram}{169}{paragraph.4.3.10.1.7}%
+\contentsline {paragraph}{\numberline {3.10.1.8}Sequence Diagram}{170}{paragraph.4.3.10.1.8}%
+\contentsline {subsubsection}{\numberline {3.10.2}UC43 Review Skill Gap}{170}{subsubsection.4.3.10.2}%
+\contentsline {paragraph}{\numberline {3.10.2.1}Requirement Traceability}{170}{paragraph.4.3.10.2.1}%
+\contentsline {paragraph}{\numberline {3.10.2.2}Preconditions}{170}{paragraph.4.3.10.2.2}%
+\contentsline {paragraph}{\numberline {3.10.2.3}Postconditions}{170}{paragraph.4.3.10.2.3}%
+\contentsline {paragraph}{\numberline {3.10.2.4}Main Processing Flow}{170}{paragraph.4.3.10.2.4}%
+\contentsline {paragraph}{\numberline {3.10.2.5}Alternative and Exception Flow}{171}{paragraph.4.3.10.2.5}%
+\contentsline {paragraph}{\numberline {3.10.2.6}Participating Components}{171}{paragraph.4.3.10.2.6}%
+\contentsline {paragraph}{\numberline {3.10.2.7}Class Diagram}{172}{paragraph.4.3.10.2.7}%
+\contentsline {paragraph}{\numberline {3.10.2.8}Sequence Diagram}{172}{paragraph.4.3.10.2.8}%
+\contentsline {subsubsection}{\numberline {3.10.3}UC44 Recommend Career Path}{172}{subsubsection.4.3.10.3}%
+\contentsline {paragraph}{\numberline {3.10.3.1}Requirement Traceability}{172}{paragraph.4.3.10.3.1}%
+\contentsline {paragraph}{\numberline {3.10.3.2}Preconditions}{173}{paragraph.4.3.10.3.2}%
+\contentsline {paragraph}{\numberline {3.10.3.3}Postconditions}{173}{paragraph.4.3.10.3.3}%
+\contentsline {paragraph}{\numberline {3.10.3.4}Main Processing Flow}{173}{paragraph.4.3.10.3.4}%
+\contentsline {paragraph}{\numberline {3.10.3.5}Alternative and Exception Flow}{173}{paragraph.4.3.10.3.5}%
+\contentsline {paragraph}{\numberline {3.10.3.6}Participating Components}{173}{paragraph.4.3.10.3.6}%
+\contentsline {paragraph}{\numberline {3.10.3.7}Class Diagram}{174}{paragraph.4.3.10.3.7}%
+\contentsline {paragraph}{\numberline {3.10.3.8}Sequence Diagram}{174}{paragraph.4.3.10.3.8}%
+\contentsline {subsubsection}{\numberline {3.10.4}UC45 Recommend Courses}{174}{subsubsection.4.3.10.4}%
+\contentsline {paragraph}{\numberline {3.10.4.1}Requirement Traceability}{174}{paragraph.4.3.10.4.1}%
+\contentsline {paragraph}{\numberline {3.10.4.2}Preconditions}{175}{paragraph.4.3.10.4.2}%
+\contentsline {paragraph}{\numberline {3.10.4.3}Postconditions}{175}{paragraph.4.3.10.4.3}%
+\contentsline {paragraph}{\numberline {3.10.4.4}Main Processing Flow}{175}{paragraph.4.3.10.4.4}%
+\contentsline {paragraph}{\numberline {3.10.4.5}Alternative and Exception Flow}{175}{paragraph.4.3.10.4.5}%
+\contentsline {paragraph}{\numberline {3.10.4.6}Participating Components}{176}{paragraph.4.3.10.4.6}%
+\contentsline {paragraph}{\numberline {3.10.4.7}Class Diagram}{176}{paragraph.4.3.10.4.7}%
+\contentsline {paragraph}{\numberline {3.10.4.8}Sequence Diagram}{176}{paragraph.4.3.10.4.8}%
+\contentsline {subsubsection}{\numberline {3.10.5}UC46 Track Student Progress}{177}{subsubsection.4.3.10.5}%
+\contentsline {paragraph}{\numberline {3.10.5.1}Requirement Traceability}{177}{paragraph.4.3.10.5.1}%
+\contentsline {paragraph}{\numberline {3.10.5.2}Preconditions}{177}{paragraph.4.3.10.5.2}%
+\contentsline {paragraph}{\numberline {3.10.5.3}Postconditions}{177}{paragraph.4.3.10.5.3}%
+\contentsline {paragraph}{\numberline {3.10.5.4}Main Processing Flow}{177}{paragraph.4.3.10.5.4}%
+\contentsline {paragraph}{\numberline {3.10.5.5}Alternative and Exception Flow}{177}{paragraph.4.3.10.5.5}%
+\contentsline {paragraph}{\numberline {3.10.5.6}Participating Components}{178}{paragraph.4.3.10.5.6}%
+\contentsline {paragraph}{\numberline {3.10.5.7}Class Diagram}{178}{paragraph.4.3.10.5.7}%
+\contentsline {paragraph}{\numberline {3.10.5.8}Sequence Diagram}{179}{paragraph.4.3.10.5.8}%
+\contentsline {subsubsection}{\numberline {3.10.6}UC47 Comment Learning Plan}{179}{subsubsection.4.3.10.6}%
+\contentsline {paragraph}{\numberline {3.10.6.1}Requirement Traceability}{179}{paragraph.4.3.10.6.1}%
+\contentsline {paragraph}{\numberline {3.10.6.2}Preconditions}{179}{paragraph.4.3.10.6.2}%
+\contentsline {paragraph}{\numberline {3.10.6.3}Postconditions}{179}{paragraph.4.3.10.6.3}%
+\contentsline {paragraph}{\numberline {3.10.6.4}Main Processing Flow}{179}{paragraph.4.3.10.6.4}%
+\contentsline {paragraph}{\numberline {3.10.6.5}Alternative and Exception Flow}{180}{paragraph.4.3.10.6.5}%
+\contentsline {paragraph}{\numberline {3.10.6.6}Participating Components}{180}{paragraph.4.3.10.6.6}%
+\contentsline {paragraph}{\numberline {3.10.6.7}Class Diagram}{181}{paragraph.4.3.10.6.7}%
+\contentsline {paragraph}{\numberline {3.10.6.8}Sequence Diagram}{181}{paragraph.4.3.10.6.8}%
+\contentsline {subsubsection}{\numberline {3.10.7}UC48 Schedule Consultation}{181}{subsubsection.4.3.10.7}%
+\contentsline {paragraph}{\numberline {3.10.7.1}Requirement Traceability}{181}{paragraph.4.3.10.7.1}%
+\contentsline {paragraph}{\numberline {3.10.7.2}Preconditions}{182}{paragraph.4.3.10.7.2}%
+\contentsline {paragraph}{\numberline {3.10.7.3}Postconditions}{182}{paragraph.4.3.10.7.3}%
+\contentsline {paragraph}{\numberline {3.10.7.4}Main Processing Flow}{182}{paragraph.4.3.10.7.4}%
+\contentsline {paragraph}{\numberline {3.10.7.5}Alternative and Exception Flow}{182}{paragraph.4.3.10.7.5}%
+\contentsline {paragraph}{\numberline {3.10.7.6}Participating Components}{182}{paragraph.4.3.10.7.6}%
+\contentsline {paragraph}{\numberline {3.10.7.7}Class Diagram}{183}{paragraph.4.3.10.7.7}%
+\contentsline {paragraph}{\numberline {3.10.7.8}Sequence Diagram}{183}{paragraph.4.3.10.7.8}%
+\contentsline {subsubsection}{\numberline {3.10.8}UC49 View Consultation History}{183}{subsubsection.4.3.10.8}%
+\contentsline {paragraph}{\numberline {3.10.8.1}Requirement Traceability}{183}{paragraph.4.3.10.8.1}%
+\contentsline {paragraph}{\numberline {3.10.8.2}Preconditions}{184}{paragraph.4.3.10.8.2}%
+\contentsline {paragraph}{\numberline {3.10.8.3}Postconditions}{184}{paragraph.4.3.10.8.3}%
+\contentsline {paragraph}{\numberline {3.10.8.4}Main Processing Flow}{184}{paragraph.4.3.10.8.4}%
+\contentsline {paragraph}{\numberline {3.10.8.5}Alternative and Exception Flow}{184}{paragraph.4.3.10.8.5}%
+\contentsline {paragraph}{\numberline {3.10.8.6}Participating Components}{185}{paragraph.4.3.10.8.6}%
+\contentsline {paragraph}{\numberline {3.10.8.7}Class Diagram}{185}{paragraph.4.3.10.8.7}%
+\contentsline {paragraph}{\numberline {3.10.8.8}Sequence Diagram}{185}{paragraph.4.3.10.8.8}%
+\contentsline {subsection}{\numberline {3.11}Authentication and Account Access}{186}{subsection.4.3.11}%
+\contentsline {subsubsection}{\numberline {3.11.1}UC50 Logout}{186}{subsubsection.4.3.11.1}%
+\contentsline {paragraph}{\numberline {3.11.1.1}Requirement Traceability}{186}{paragraph.4.3.11.1.1}%
+\contentsline {paragraph}{\numberline {3.11.1.2}Preconditions}{186}{paragraph.4.3.11.1.2}%
+\contentsline {paragraph}{\numberline {3.11.1.3}Postconditions}{186}{paragraph.4.3.11.1.3}%
+\contentsline {paragraph}{\numberline {3.11.1.4}Main Processing Flow}{186}{paragraph.4.3.11.1.4}%
+\contentsline {paragraph}{\numberline {3.11.1.5}Alternative and Exception Flow}{187}{paragraph.4.3.11.1.5}%
+\contentsline {paragraph}{\numberline {3.11.1.6}Participating Components}{187}{paragraph.4.3.11.1.6}%
+\contentsline {paragraph}{\numberline {3.11.1.7}Class Diagram}{187}{paragraph.4.3.11.1.7}%
+\contentsline {paragraph}{\numberline {3.11.1.8}Sequence Diagram}{188}{paragraph.4.3.11.1.8}%
+\contentsline {subsubsection}{\numberline {3.11.2}UC51 Login}{188}{subsubsection.4.3.11.2}%
+\contentsline {paragraph}{\numberline {3.11.2.1}Requirement Traceability}{188}{paragraph.4.3.11.2.1}%
+\contentsline {paragraph}{\numberline {3.11.2.2}Preconditions}{188}{paragraph.4.3.11.2.2}%
+\contentsline {paragraph}{\numberline {3.11.2.3}Postconditions}{188}{paragraph.4.3.11.2.3}%
+\contentsline {paragraph}{\numberline {3.11.2.4}Main Processing Flow}{188}{paragraph.4.3.11.2.4}%
+\contentsline {paragraph}{\numberline {3.11.2.5}Alternative and Exception Flow}{189}{paragraph.4.3.11.2.5}%
+\contentsline {paragraph}{\numberline {3.11.2.6}Participating Components}{189}{paragraph.4.3.11.2.6}%
+\contentsline {paragraph}{\numberline {3.11.2.7}Class Diagram}{190}{paragraph.4.3.11.2.7}%
+\contentsline {paragraph}{\numberline {3.11.2.8}Sequence Diagram}{190}{paragraph.4.3.11.2.8}%
+\contentsline {subsection}{\numberline {3.12}E-Portfolio and Mentor Review}{190}{subsection.4.3.12}%
+\contentsline {subsubsection}{\numberline {3.12.1}UC52 View Student Portfolio}{190}{subsubsection.4.3.12.1}%
+\contentsline {paragraph}{\numberline {3.12.1.1}Requirement Traceability}{190}{paragraph.4.3.12.1.1}%
+\contentsline {paragraph}{\numberline {3.12.1.2}Preconditions}{191}{paragraph.4.3.12.1.2}%
+\contentsline {paragraph}{\numberline {3.12.1.3}Postconditions}{191}{paragraph.4.3.12.1.3}%
+\contentsline {paragraph}{\numberline {3.12.1.4}Main Processing Flow}{191}{paragraph.4.3.12.1.4}%
+\contentsline {paragraph}{\numberline {3.12.1.5}Alternative and Exception Flow}{191}{paragraph.4.3.12.1.5}%
+\contentsline {paragraph}{\numberline {3.12.1.6}Participating Components}{192}{paragraph.4.3.12.1.6}%
+\contentsline {paragraph}{\numberline {3.12.1.7}Class Diagram}{192}{paragraph.4.3.12.1.7}%
+\contentsline {paragraph}{\numberline {3.12.1.8}Sequence Diagram}{193}{paragraph.4.3.12.1.8}%
+\contentsline {subsubsection}{\numberline {3.12.2}UC53 Review Projects}{193}{subsubsection.4.3.12.2}%
+\contentsline {paragraph}{\numberline {3.12.2.1}Requirement Traceability}{193}{paragraph.4.3.12.2.1}%
+\contentsline {paragraph}{\numberline {3.12.2.2}Preconditions}{193}{paragraph.4.3.12.2.2}%
+\contentsline {paragraph}{\numberline {3.12.2.3}Postconditions}{193}{paragraph.4.3.12.2.3}%
+\contentsline {paragraph}{\numberline {3.12.2.4}Main Processing Flow}{193}{paragraph.4.3.12.2.4}%
+\contentsline {paragraph}{\numberline {3.12.2.5}Alternative and Exception Flow}{194}{paragraph.4.3.12.2.5}%
+\contentsline {paragraph}{\numberline {3.12.2.6}Participating Components}{194}{paragraph.4.3.12.2.6}%
+\contentsline {paragraph}{\numberline {3.12.2.7}Class Diagram}{195}{paragraph.4.3.12.2.7}%
+\contentsline {paragraph}{\numberline {3.12.2.8}Sequence Diagram}{195}{paragraph.4.3.12.2.8}%
+\contentsline {subsubsection}{\numberline {3.12.3}UC54 Recommend Technologies}{195}{subsubsection.4.3.12.3}%
+\contentsline {paragraph}{\numberline {3.12.3.1}Requirement Traceability}{195}{paragraph.4.3.12.3.1}%
+\contentsline {paragraph}{\numberline {3.12.3.2}Preconditions}{196}{paragraph.4.3.12.3.2}%
+\contentsline {paragraph}{\numberline {3.12.3.3}Postconditions}{196}{paragraph.4.3.12.3.3}%
+\contentsline {paragraph}{\numberline {3.12.3.4}Main Processing Flow}{196}{paragraph.4.3.12.3.4}%
+\contentsline {paragraph}{\numberline {3.12.3.5}Alternative and Exception Flow}{196}{paragraph.4.3.12.3.5}%
+\contentsline {paragraph}{\numberline {3.12.3.6}Participating Components}{196}{paragraph.4.3.12.3.6}%
+\contentsline {paragraph}{\numberline {3.12.3.7}Class Diagram}{197}{paragraph.4.3.12.3.7}%
+\contentsline {paragraph}{\numberline {3.12.3.8}Sequence Diagram}{197}{paragraph.4.3.12.3.8}%
+\contentsline {subsubsection}{\numberline {3.12.4}UC55 Give Technical Advice}{197}{subsubsection.4.3.12.4}%
+\contentsline {paragraph}{\numberline {3.12.4.1}Requirement Traceability}{197}{paragraph.4.3.12.4.1}%
+\contentsline {paragraph}{\numberline {3.12.4.2}Preconditions}{198}{paragraph.4.3.12.4.2}%
+\contentsline {paragraph}{\numberline {3.12.4.3}Postconditions}{198}{paragraph.4.3.12.4.3}%
+\contentsline {paragraph}{\numberline {3.12.4.4}Main Processing Flow}{198}{paragraph.4.3.12.4.4}%
+\contentsline {paragraph}{\numberline {3.12.4.5}Alternative and Exception Flow}{198}{paragraph.4.3.12.4.5}%
+\contentsline {paragraph}{\numberline {3.12.4.6}Participating Components}{199}{paragraph.4.3.12.4.6}%
+\contentsline {paragraph}{\numberline {3.12.4.7}Class Diagram}{199}{paragraph.4.3.12.4.7}%
+\contentsline {paragraph}{\numberline {3.12.4.8}Sequence Diagram}{200}{paragraph.4.3.12.4.8}%
+\contentsline {subsubsection}{\numberline {3.12.5}UC56 Evaluate Progress}{200}{subsubsection.4.3.12.5}%
+\contentsline {paragraph}{\numberline {3.12.5.1}Requirement Traceability}{200}{paragraph.4.3.12.5.1}%
+\contentsline {paragraph}{\numberline {3.12.5.2}Preconditions}{200}{paragraph.4.3.12.5.2}%
+\contentsline {paragraph}{\numberline {3.12.5.3}Postconditions}{200}{paragraph.4.3.12.5.3}%
+\contentsline {paragraph}{\numberline {3.12.5.4}Main Processing Flow}{200}{paragraph.4.3.12.5.4}%
+\contentsline {paragraph}{\numberline {3.12.5.5}Alternative and Exception Flow}{201}{paragraph.4.3.12.5.5}%
+\contentsline {paragraph}{\numberline {3.12.5.6}Participating Components}{201}{paragraph.4.3.12.5.6}%
+\contentsline {paragraph}{\numberline {3.12.5.7}Class Diagram}{202}{paragraph.4.3.12.5.7}%
+\contentsline {paragraph}{\numberline {3.12.5.8}Sequence Diagram}{202}{paragraph.4.3.12.5.8}%
+\contentsline {subsubsection}{\numberline {3.12.6}UC57 Comment Projects}{202}{subsubsection.4.3.12.6}%
+\contentsline {paragraph}{\numberline {3.12.6.1}Requirement Traceability}{202}{paragraph.4.3.12.6.1}%
+\contentsline {paragraph}{\numberline {3.12.6.2}Preconditions}{203}{paragraph.4.3.12.6.2}%
+\contentsline {paragraph}{\numberline {3.12.6.3}Postconditions}{203}{paragraph.4.3.12.6.3}%
+\contentsline {paragraph}{\numberline {3.12.6.4}Main Processing Flow}{203}{paragraph.4.3.12.6.4}%
+\contentsline {paragraph}{\numberline {3.12.6.5}Alternative and Exception Flow}{203}{paragraph.4.3.12.6.5}%
+\contentsline {paragraph}{\numberline {3.12.6.6}Participating Components}{203}{paragraph.4.3.12.6.6}%
+\contentsline {paragraph}{\numberline {3.12.6.7}Class Diagram}{204}{paragraph.4.3.12.6.7}%
+\contentsline {paragraph}{\numberline {3.12.6.8}Sequence Diagram}{204}{paragraph.4.3.12.6.8}%
+\contentsline {subsubsection}{\numberline {3.12.7}UC58 Approve Portfolio}{204}{subsubsection.4.3.12.7}%
+\contentsline {paragraph}{\numberline {3.12.7.1}Requirement Traceability}{204}{paragraph.4.3.12.7.1}%
+\contentsline {paragraph}{\numberline {3.12.7.2}Preconditions}{205}{paragraph.4.3.12.7.2}%
+\contentsline {paragraph}{\numberline {3.12.7.3}Postconditions}{205}{paragraph.4.3.12.7.3}%
+\contentsline {paragraph}{\numberline {3.12.7.4}Main Processing Flow}{205}{paragraph.4.3.12.7.4}%
+\contentsline {paragraph}{\numberline {3.12.7.5}Alternative and Exception Flow}{205}{paragraph.4.3.12.7.5}%
+\contentsline {paragraph}{\numberline {3.12.7.6}Participating Components}{206}{paragraph.4.3.12.7.6}%
+\contentsline {paragraph}{\numberline {3.12.7.7}Class Diagram}{206}{paragraph.4.3.12.7.7}%
+\contentsline {paragraph}{\numberline {3.12.7.8}Sequence Diagram}{207}{paragraph.4.3.12.7.8}%
+\contentsline {subsubsection}{\numberline {3.12.8}UC59 Suggest Improvements}{207}{subsubsection.4.3.12.8}%
+\contentsline {paragraph}{\numberline {3.12.8.1}Requirement Traceability}{207}{paragraph.4.3.12.8.1}%
+\contentsline {paragraph}{\numberline {3.12.8.2}Preconditions}{207}{paragraph.4.3.12.8.2}%
+\contentsline {paragraph}{\numberline {3.12.8.3}Postconditions}{207}{paragraph.4.3.12.8.3}%
+\contentsline {paragraph}{\numberline {3.12.8.4}Main Processing Flow}{207}{paragraph.4.3.12.8.4}%
+\contentsline {paragraph}{\numberline {3.12.8.5}Alternative and Exception Flow}{208}{paragraph.4.3.12.8.5}%
+\contentsline {paragraph}{\numberline {3.12.8.6}Participating Components}{208}{paragraph.4.3.12.8.6}%
+\contentsline {paragraph}{\numberline {3.12.8.7}Class Diagram}{209}{paragraph.4.3.12.8.7}%
+\contentsline {paragraph}{\numberline {3.12.8.8}Sequence Diagram}{209}{paragraph.4.3.12.8.8}%
+\contentsline {subsection}{\numberline {3.13}Authentication and Account Access}{209}{subsection.4.3.13}%
+\contentsline {subsubsection}{\numberline {3.13.1}UC60 Logout}{209}{subsubsection.4.3.13.1}%
+\contentsline {paragraph}{\numberline {3.13.1.1}Requirement Traceability}{209}{paragraph.4.3.13.1.1}%
+\contentsline {paragraph}{\numberline {3.13.1.2}Preconditions}{210}{paragraph.4.3.13.1.2}%
+\contentsline {paragraph}{\numberline {3.13.1.3}Postconditions}{210}{paragraph.4.3.13.1.3}%
+\contentsline {paragraph}{\numberline {3.13.1.4}Main Processing Flow}{210}{paragraph.4.3.13.1.4}%
+\contentsline {paragraph}{\numberline {3.13.1.5}Alternative and Exception Flow}{210}{paragraph.4.3.13.1.5}%
+\contentsline {paragraph}{\numberline {3.13.1.6}Participating Components}{211}{paragraph.4.3.13.1.6}%
+\contentsline {paragraph}{\numberline {3.13.1.7}Class Diagram}{211}{paragraph.4.3.13.1.7}%
+\contentsline {paragraph}{\numberline {3.13.1.8}Sequence Diagram}{212}{paragraph.4.3.13.1.8}%
+\contentsline {subsubsection}{\numberline {3.13.2}UC61 Login}{212}{subsubsection.4.3.13.2}%
+\contentsline {paragraph}{\numberline {3.13.2.1}Requirement Traceability}{212}{paragraph.4.3.13.2.1}%
+\contentsline {paragraph}{\numberline {3.13.2.2}Preconditions}{212}{paragraph.4.3.13.2.2}%
+\contentsline {paragraph}{\numberline {3.13.2.3}Postconditions}{212}{paragraph.4.3.13.2.3}%
+\contentsline {paragraph}{\numberline {3.13.2.4}Main Processing Flow}{212}{paragraph.4.3.13.2.4}%
+\contentsline {paragraph}{\numberline {3.13.2.5}Alternative and Exception Flow}{213}{paragraph.4.3.13.2.5}%
+\contentsline {paragraph}{\numberline {3.13.2.6}Participating Components}{213}{paragraph.4.3.13.2.6}%
+\contentsline {paragraph}{\numberline {3.13.2.7}Class Diagram}{214}{paragraph.4.3.13.2.7}%
+\contentsline {paragraph}{\numberline {3.13.2.8}Sequence Diagram}{214}{paragraph.4.3.13.2.8}%
+\contentsline {subsection}{\numberline {3.14}Administration and Resource Management}{214}{subsection.4.3.14}%
+\contentsline {subsubsection}{\numberline {3.14.1}UC62 Manage Users}{214}{subsubsection.4.3.14.1}%
+\contentsline {paragraph}{\numberline {3.14.1.1}Requirement Traceability}{214}{paragraph.4.3.14.1.1}%
+\contentsline {paragraph}{\numberline {3.14.1.2}Preconditions}{215}{paragraph.4.3.14.1.2}%
+\contentsline {paragraph}{\numberline {3.14.1.3}Postconditions}{215}{paragraph.4.3.14.1.3}%
+\contentsline {paragraph}{\numberline {3.14.1.4}Main Processing Flow}{215}{paragraph.4.3.14.1.4}%
+\contentsline {paragraph}{\numberline {3.14.1.5}Alternative and Exception Flow}{215}{paragraph.4.3.14.1.5}%
+\contentsline {paragraph}{\numberline {3.14.1.6}Participating Components}{216}{paragraph.4.3.14.1.6}%
+\contentsline {paragraph}{\numberline {3.14.1.7}Class Diagram}{216}{paragraph.4.3.14.1.7}%
+\contentsline {paragraph}{\numberline {3.14.1.8}Sequence Diagram}{217}{paragraph.4.3.14.1.8}%
+\contentsline {subsection}{\numberline {3.15}Career Path and Skill Management}{217}{subsection.4.3.15}%
+\contentsline {subsubsection}{\numberline {3.15.1}UC63 Manage Career Roles}{217}{subsubsection.4.3.15.1}%
+\contentsline {paragraph}{\numberline {3.15.1.1}Requirement Traceability}{217}{paragraph.4.3.15.1.1}%
+\contentsline {paragraph}{\numberline {3.15.1.2}Preconditions}{217}{paragraph.4.3.15.1.2}%
+\contentsline {paragraph}{\numberline {3.15.1.3}Postconditions}{217}{paragraph.4.3.15.1.3}%
+\contentsline {paragraph}{\numberline {3.15.1.4}Main Processing Flow}{218}{paragraph.4.3.15.1.4}%
+\contentsline {paragraph}{\numberline {3.15.1.5}Alternative and Exception Flow}{218}{paragraph.4.3.15.1.5}%
+\contentsline {paragraph}{\numberline {3.15.1.6}Participating Components}{218}{paragraph.4.3.15.1.6}%
+\contentsline {paragraph}{\numberline {3.15.1.7}Class Diagram}{219}{paragraph.4.3.15.1.7}%
+\contentsline {paragraph}{\numberline {3.15.1.8}Sequence Diagram}{219}{paragraph.4.3.15.1.8}%
+\contentsline {subsubsection}{\numberline {3.15.2}UC64 Manage Skill Nodes}{219}{subsubsection.4.3.15.2}%
+\contentsline {paragraph}{\numberline {3.15.2.1}Requirement Traceability}{219}{paragraph.4.3.15.2.1}%
+\contentsline {paragraph}{\numberline {3.15.2.2}Preconditions}{220}{paragraph.4.3.15.2.2}%
+\contentsline {paragraph}{\numberline {3.15.2.3}Postconditions}{220}{paragraph.4.3.15.2.3}%
+\contentsline {paragraph}{\numberline {3.15.2.4}Main Processing Flow}{220}{paragraph.4.3.15.2.4}%
+\contentsline {paragraph}{\numberline {3.15.2.5}Alternative and Exception Flow}{220}{paragraph.4.3.15.2.5}%
+\contentsline {paragraph}{\numberline {3.15.2.6}Participating Components}{220}{paragraph.4.3.15.2.6}%
+\contentsline {paragraph}{\numberline {3.15.2.7}Class Diagram}{221}{paragraph.4.3.15.2.7}%
+\contentsline {paragraph}{\numberline {3.15.2.8}Sequence Diagram}{221}{paragraph.4.3.15.2.8}%
+\contentsline {subsection}{\numberline {3.16}Administration and Resource Management}{221}{subsection.4.3.16}%
+\contentsline {subsubsection}{\numberline {3.16.1}UC65 Manage Courses}{222}{subsubsection.4.3.16.1}%
+\contentsline {paragraph}{\numberline {3.16.1.1}Requirement Traceability}{222}{paragraph.4.3.16.1.1}%
+\contentsline {paragraph}{\numberline {3.16.1.2}Preconditions}{222}{paragraph.4.3.16.1.2}%
+\contentsline {paragraph}{\numberline {3.16.1.3}Postconditions}{222}{paragraph.4.3.16.1.3}%
+\contentsline {paragraph}{\numberline {3.16.1.4}Main Processing Flow}{222}{paragraph.4.3.16.1.4}%
+\contentsline {paragraph}{\numberline {3.16.1.5}Alternative and Exception Flow}{223}{paragraph.4.3.16.1.5}%
+\contentsline {paragraph}{\numberline {3.16.1.6}Participating Components}{223}{paragraph.4.3.16.1.6}%
+\contentsline {paragraph}{\numberline {3.16.1.7}Class Diagram}{223}{paragraph.4.3.16.1.7}%
+\contentsline {paragraph}{\numberline {3.16.1.8}Sequence Diagram}{224}{paragraph.4.3.16.1.8}%
+\contentsline {subsubsection}{\numberline {3.16.2}UC66 Manage Learning Resources}{224}{subsubsection.4.3.16.2}%
+\contentsline {paragraph}{\numberline {3.16.2.1}Requirement Traceability}{224}{paragraph.4.3.16.2.1}%
+\contentsline {paragraph}{\numberline {3.16.2.2}Preconditions}{224}{paragraph.4.3.16.2.2}%
+\contentsline {paragraph}{\numberline {3.16.2.3}Postconditions}{224}{paragraph.4.3.16.2.3}%
+\contentsline {paragraph}{\numberline {3.16.2.4}Main Processing Flow}{224}{paragraph.4.3.16.2.4}%
+\contentsline {paragraph}{\numberline {3.16.2.5}Alternative and Exception Flow}{225}{paragraph.4.3.16.2.5}%
+\contentsline {paragraph}{\numberline {3.16.2.6}Participating Components}{225}{paragraph.4.3.16.2.6}%
+\contentsline {paragraph}{\numberline {3.16.2.7}Class Diagram}{226}{paragraph.4.3.16.2.7}%
+\contentsline {paragraph}{\numberline {3.16.2.8}Sequence Diagram}{226}{paragraph.4.3.16.2.8}%
+\contentsline {subsection}{\numberline {3.17}Market Trend Management}{226}{subsection.4.3.17}%
+\contentsline {subsubsection}{\numberline {3.17.1}UC67 Manage Job Trend Data}{226}{subsubsection.4.3.17.1}%
+\contentsline {paragraph}{\numberline {3.17.1.1}Requirement Traceability}{226}{paragraph.4.3.17.1.1}%
+\contentsline {paragraph}{\numberline {3.17.1.2}Preconditions}{227}{paragraph.4.3.17.1.2}%
+\contentsline {paragraph}{\numberline {3.17.1.3}Postconditions}{227}{paragraph.4.3.17.1.3}%
+\contentsline {paragraph}{\numberline {3.17.1.4}Main Processing Flow}{227}{paragraph.4.3.17.1.4}%
+\contentsline {paragraph}{\numberline {3.17.1.5}Alternative and Exception Flow}{227}{paragraph.4.3.17.1.5}%
+\contentsline {paragraph}{\numberline {3.17.1.6}Participating Components}{228}{paragraph.4.3.17.1.6}%
+\contentsline {paragraph}{\numberline {3.17.1.7}Class Diagram}{228}{paragraph.4.3.17.1.7}%
+\contentsline {paragraph}{\numberline {3.17.1.8}Sequence Diagram}{229}{paragraph.4.3.17.1.8}%
+\contentsline {subsection}{\numberline {3.18}AI and Market Configuration}{229}{subsection.4.3.18}%
+\contentsline {subsubsection}{\numberline {3.18.1}UC68 Manage AI Configuration}{229}{subsubsection.4.3.18.1}%
+\contentsline {paragraph}{\numberline {3.18.1.1}Requirement Traceability}{229}{paragraph.4.3.18.1.1}%
+\contentsline {paragraph}{\numberline {3.18.1.2}Preconditions}{229}{paragraph.4.3.18.1.2}%
+\contentsline {paragraph}{\numberline {3.18.1.3}Postconditions}{229}{paragraph.4.3.18.1.3}%
+\contentsline {paragraph}{\numberline {3.18.1.4}Main Processing Flow}{230}{paragraph.4.3.18.1.4}%
+\contentsline {paragraph}{\numberline {3.18.1.5}Alternative and Exception Flow}{230}{paragraph.4.3.18.1.5}%
+\contentsline {paragraph}{\numberline {3.18.1.6}Participating Components}{230}{paragraph.4.3.18.1.6}%
+\contentsline {paragraph}{\numberline {3.18.1.7}Class Diagram}{231}{paragraph.4.3.18.1.7}%
+\contentsline {paragraph}{\numberline {3.18.1.8}Sequence Diagram}{231}{paragraph.4.3.18.1.8}%
+\contentsline {subsection}{\numberline {3.19}Administration and Resource Management}{231}{subsection.4.3.19}%
+\contentsline {subsubsection}{\numberline {3.19.1}UC69 Manage Reports}{231}{subsubsection.4.3.19.1}%
+\contentsline {paragraph}{\numberline {3.19.1.1}Requirement Traceability}{231}{paragraph.4.3.19.1.1}%
+\contentsline {paragraph}{\numberline {3.19.1.2}Preconditions}{232}{paragraph.4.3.19.1.2}%
+\contentsline {paragraph}{\numberline {3.19.1.3}Postconditions}{232}{paragraph.4.3.19.1.3}%
+\contentsline {paragraph}{\numberline {3.19.1.4}Main Processing Flow}{232}{paragraph.4.3.19.1.4}%
+\contentsline {paragraph}{\numberline {3.19.1.5}Alternative and Exception Flow}{232}{paragraph.4.3.19.1.5}%
+\contentsline {paragraph}{\numberline {3.19.1.6}Participating Components}{233}{paragraph.4.3.19.1.6}%
+\contentsline {paragraph}{\numberline {3.19.1.7}Class Diagram}{233}{paragraph.4.3.19.1.7}%
+\contentsline {paragraph}{\numberline {3.19.1.8}Sequence Diagram}{234}{paragraph.4.3.19.1.8}%
+\contentsline {subsection}{\numberline {3.20}Authentication and Account Access}{234}{subsection.4.3.20}%
+\contentsline {subsubsection}{\numberline {3.20.1}UC70 Logout}{234}{subsubsection.4.3.20.1}%
+\contentsline {paragraph}{\numberline {3.20.1.1}Requirement Traceability}{234}{paragraph.4.3.20.1.1}%
+\contentsline {paragraph}{\numberline {3.20.1.2}Preconditions}{234}{paragraph.4.3.20.1.2}%
+\contentsline {paragraph}{\numberline {3.20.1.3}Postconditions}{234}{paragraph.4.3.20.1.3}%
+\contentsline {paragraph}{\numberline {3.20.1.4}Main Processing Flow}{235}{paragraph.4.3.20.1.4}%
+\contentsline {paragraph}{\numberline {3.20.1.5}Alternative and Exception Flow}{235}{paragraph.4.3.20.1.5}%
+\contentsline {paragraph}{\numberline {3.20.1.6}Participating Components}{235}{paragraph.4.3.20.1.6}%
+\contentsline {paragraph}{\numberline {3.20.1.7}Class Diagram}{236}{paragraph.4.3.20.1.7}%
+\contentsline {paragraph}{\numberline {3.20.1.8}Sequence Diagram}{236}{paragraph.4.3.20.1.8}%
+\contentsline {subsection}{\numberline {3.21}AI Mentor and Analysis Logging}{236}{subsection.4.3.21}%
+\contentsline {subsubsection}{\numberline {3.21.1}UC71 Analyze Transcript}{236}{subsubsection.4.3.21.1}%
+\contentsline {paragraph}{\numberline {3.21.1.1}Requirement Traceability}{236}{paragraph.4.3.21.1.1}%
+\contentsline {paragraph}{\numberline {3.21.1.2}Preconditions}{237}{paragraph.4.3.21.1.2}%
+\contentsline {paragraph}{\numberline {3.21.1.3}Postconditions}{237}{paragraph.4.3.21.1.3}%
+\contentsline {paragraph}{\numberline {3.21.1.4}Main Processing Flow}{237}{paragraph.4.3.21.1.4}%
+\contentsline {paragraph}{\numberline {3.21.1.5}Alternative and Exception Flow}{237}{paragraph.4.3.21.1.5}%
+\contentsline {paragraph}{\numberline {3.21.1.6}Participating Components}{238}{paragraph.4.3.21.1.6}%
+\contentsline {paragraph}{\numberline {3.21.1.7}Class Diagram}{238}{paragraph.4.3.21.1.7}%
+\contentsline {paragraph}{\numberline {3.21.1.8}Sequence Diagram}{238}{paragraph.4.3.21.1.8}%
+\contentsline {subsubsection}{\numberline {3.21.2}UC72 Analyze GitHub Repository}{239}{subsubsection.4.3.21.2}%
+\contentsline {paragraph}{\numberline {3.21.2.1}Requirement Traceability}{239}{paragraph.4.3.21.2.1}%
+\contentsline {paragraph}{\numberline {3.21.2.2}Preconditions}{239}{paragraph.4.3.21.2.2}%
+\contentsline {paragraph}{\numberline {3.21.2.3}Postconditions}{239}{paragraph.4.3.21.2.3}%
+\contentsline {paragraph}{\numberline {3.21.2.4}Main Processing Flow}{239}{paragraph.4.3.21.2.4}%
+\contentsline {paragraph}{\numberline {3.21.2.5}Alternative and Exception Flow}{239}{paragraph.4.3.21.2.5}%
+\contentsline {paragraph}{\numberline {3.21.2.6}Participating Components}{240}{paragraph.4.3.21.2.6}%
+\contentsline {paragraph}{\numberline {3.21.2.7}Class Diagram}{240}{paragraph.4.3.21.2.7}%
+\contentsline {paragraph}{\numberline {3.21.2.8}Sequence Diagram}{241}{paragraph.4.3.21.2.8}%
+\contentsline {subsection}{\numberline {3.22}Learning Roadmap and Course Management}{241}{subsection.4.3.22}%
+\contentsline {subsubsection}{\numberline {3.22.1}UC73 Generate Personalized Roadmap}{241}{subsubsection.4.3.22.1}%
+\contentsline {paragraph}{\numberline {3.22.1.1}Requirement Traceability}{241}{paragraph.4.3.22.1.1}%
+\contentsline {paragraph}{\numberline {3.22.1.2}Preconditions}{241}{paragraph.4.3.22.1.2}%
+\contentsline {paragraph}{\numberline {3.22.1.3}Postconditions}{241}{paragraph.4.3.22.1.3}%
+\contentsline {paragraph}{\numberline {3.22.1.4}Main Processing Flow}{242}{paragraph.4.3.22.1.4}%
+\contentsline {paragraph}{\numberline {3.22.1.5}Alternative and Exception Flow}{242}{paragraph.4.3.22.1.5}%
+\contentsline {paragraph}{\numberline {3.22.1.6}Participating Components}{242}{paragraph.4.3.22.1.6}%
+\contentsline {paragraph}{\numberline {3.22.1.7}Class Diagram}{243}{paragraph.4.3.22.1.7}%
+\contentsline {paragraph}{\numberline {3.22.1.8}Sequence Diagram}{243}{paragraph.4.3.22.1.8}%
+\contentsline {subsubsection}{\numberline {3.22.2}UC74 Analyze Skill Gap}{243}{subsubsection.4.3.22.2}%
+\contentsline {paragraph}{\numberline {3.22.2.1}Requirement Traceability}{243}{paragraph.4.3.22.2.1}%
+\contentsline {paragraph}{\numberline {3.22.2.2}Preconditions}{244}{paragraph.4.3.22.2.2}%
+\contentsline {paragraph}{\numberline {3.22.2.3}Postconditions}{244}{paragraph.4.3.22.2.3}%
+\contentsline {paragraph}{\numberline {3.22.2.4}Main Processing Flow}{244}{paragraph.4.3.22.2.4}%
+\contentsline {paragraph}{\numberline {3.22.2.5}Alternative and Exception Flow}{244}{paragraph.4.3.22.2.5}%
+\contentsline {paragraph}{\numberline {3.22.2.6}Participating Components}{244}{paragraph.4.3.22.2.6}%
+\contentsline {paragraph}{\numberline {3.22.2.7}Class Diagram}{245}{paragraph.4.3.22.2.7}%
+\contentsline {paragraph}{\numberline {3.22.2.8}Sequence Diagram}{245}{paragraph.4.3.22.2.8}%
+\contentsline {subsubsection}{\numberline {3.22.3}UC75 Recommend Courses}{245}{subsubsection.4.3.22.3}%
+\contentsline {paragraph}{\numberline {3.22.3.1}Requirement Traceability}{245}{paragraph.4.3.22.3.1}%
+\contentsline {paragraph}{\numberline {3.22.3.2}Preconditions}{246}{paragraph.4.3.22.3.2}%
+\contentsline {paragraph}{\numberline {3.22.3.3}Postconditions}{246}{paragraph.4.3.22.3.3}%
+\contentsline {paragraph}{\numberline {3.22.3.4}Main Processing Flow}{246}{paragraph.4.3.22.3.4}%
+\contentsline {paragraph}{\numberline {3.22.3.5}Alternative and Exception Flow}{246}{paragraph.4.3.22.3.5}%
+\contentsline {paragraph}{\numberline {3.22.3.6}Participating Components}{247}{paragraph.4.3.22.3.6}%
+\contentsline {paragraph}{\numberline {3.22.3.7}Class Diagram}{247}{paragraph.4.3.22.3.7}%
+\contentsline {paragraph}{\numberline {3.22.3.8}Sequence Diagram}{247}{paragraph.4.3.22.3.8}%
+\contentsline {subsection}{\numberline {3.23}AI Mentor and Analysis Logging}{248}{subsection.4.3.23}%
+\contentsline {subsubsection}{\numberline {3.23.1}UC76 Generate Portfolio Summary}{248}{subsubsection.4.3.23.1}%
+\contentsline {paragraph}{\numberline {3.23.1.1}Requirement Traceability}{248}{paragraph.4.3.23.1.1}%
+\contentsline {paragraph}{\numberline {3.23.1.2}Preconditions}{248}{paragraph.4.3.23.1.2}%
+\contentsline {paragraph}{\numberline {3.23.1.3}Postconditions}{248}{paragraph.4.3.23.1.3}%
+\contentsline {paragraph}{\numberline {3.23.1.4}Main Processing Flow}{248}{paragraph.4.3.23.1.4}%
+\contentsline {paragraph}{\numberline {3.23.1.5}Alternative and Exception Flow}{249}{paragraph.4.3.23.1.5}%
+\contentsline {paragraph}{\numberline {3.23.1.6}Participating Components}{249}{paragraph.4.3.23.1.6}%
+\contentsline {paragraph}{\numberline {3.23.1.7}Class Diagram}{249}{paragraph.4.3.23.1.7}%
+\contentsline {paragraph}{\numberline {3.23.1.8}Sequence Diagram}{250}{paragraph.4.3.23.1.8}%
+\contentsline {subsection}{\numberline {3.24}Authentication and Account Access}{250}{subsection.4.3.24}%
+\contentsline {subsubsection}{\numberline {3.24.1}UC77 Authenticate User}{250}{subsubsection.4.3.24.1}%
+\contentsline {paragraph}{\numberline {3.24.1.1}Requirement Traceability}{250}{paragraph.4.3.24.1.1}%
+\contentsline {paragraph}{\numberline {3.24.1.2}Preconditions}{250}{paragraph.4.3.24.1.2}%
+\contentsline {paragraph}{\numberline {3.24.1.3}Postconditions}{250}{paragraph.4.3.24.1.3}%
+\contentsline {paragraph}{\numberline {3.24.1.4}Main Processing Flow}{251}{paragraph.4.3.24.1.4}%
+\contentsline {paragraph}{\numberline {3.24.1.5}Alternative and Exception Flow}{251}{paragraph.4.3.24.1.5}%
+\contentsline {paragraph}{\numberline {3.24.1.6}Participating Components}{251}{paragraph.4.3.24.1.6}%
+\contentsline {paragraph}{\numberline {3.24.1.7}Class Diagram}{252}{paragraph.4.3.24.1.7}%
+\contentsline {paragraph}{\numberline {3.24.1.8}Sequence Diagram}{252}{paragraph.4.3.24.1.8}%
+\contentsline {subsection}{\numberline {3.25}Student Profile and GitHub Integration}{252}{subsection.4.3.25}%
+\contentsline {subsubsection}{\numberline {3.25.1}UC78 Retrieve Repository}{252}{subsubsection.4.3.25.1}%
+\contentsline {paragraph}{\numberline {3.25.1.1}Requirement Traceability}{252}{paragraph.4.3.25.1.1}%
+\contentsline {paragraph}{\numberline {3.25.1.2}Preconditions}{253}{paragraph.4.3.25.1.2}%
+\contentsline {paragraph}{\numberline {3.25.1.3}Postconditions}{253}{paragraph.4.3.25.1.3}%
+\contentsline {paragraph}{\numberline {3.25.1.4}Main Processing Flow}{253}{paragraph.4.3.25.1.4}%
+\contentsline {paragraph}{\numberline {3.25.1.5}Alternative and Exception Flow}{253}{paragraph.4.3.25.1.5}%
+\contentsline {paragraph}{\numberline {3.25.1.6}Participating Components}{254}{paragraph.4.3.25.1.6}%
+\contentsline {paragraph}{\numberline {3.25.1.7}Class Diagram}{254}{paragraph.4.3.25.1.7}%
+\contentsline {paragraph}{\numberline {3.25.1.8}Sequence Diagram}{255}{paragraph.4.3.25.1.8}%
+\contentsline {subsubsection}{\numberline {3.25.2}UC79 Retrieve README}{255}{subsubsection.4.3.25.2}%
+\contentsline {paragraph}{\numberline {3.25.2.1}Requirement Traceability}{255}{paragraph.4.3.25.2.1}%
+\contentsline {paragraph}{\numberline {3.25.2.2}Preconditions}{255}{paragraph.4.3.25.2.2}%
+\contentsline {paragraph}{\numberline {3.25.2.3}Postconditions}{255}{paragraph.4.3.25.2.3}%
+\contentsline {paragraph}{\numberline {3.25.2.4}Main Processing Flow}{255}{paragraph.4.3.25.2.4}%
+\contentsline {paragraph}{\numberline {3.25.2.5}Alternative and Exception Flow}{256}{paragraph.4.3.25.2.5}%
+\contentsline {paragraph}{\numberline {3.25.2.6}Participating Components}{256}{paragraph.4.3.25.2.6}%
+\contentsline {paragraph}{\numberline {3.25.2.7}Class Diagram}{257}{paragraph.4.3.25.2.7}%
+\contentsline {paragraph}{\numberline {3.25.2.8}Sequence Diagram}{257}{paragraph.4.3.25.2.8}%
+\contentsline {subsubsection}{\numberline {3.25.3}UC80 Retrieve Tech Stack}{257}{subsubsection.4.3.25.3}%
+\contentsline {paragraph}{\numberline {3.25.3.1}Requirement Traceability}{257}{paragraph.4.3.25.3.1}%
+\contentsline {paragraph}{\numberline {3.25.3.2}Preconditions}{258}{paragraph.4.3.25.3.2}%
+\contentsline {paragraph}{\numberline {3.25.3.3}Postconditions}{258}{paragraph.4.3.25.3.3}%
+\contentsline {paragraph}{\numberline {3.25.3.4}Main Processing Flow}{258}{paragraph.4.3.25.3.4}%
+\contentsline {paragraph}{\numberline {3.25.3.5}Alternative and Exception Flow}{258}{paragraph.4.3.25.3.5}%
+\contentsline {paragraph}{\numberline {3.25.3.6}Participating Components}{258}{paragraph.4.3.25.3.6}%
+\contentsline {paragraph}{\numberline {3.25.3.7}Class Diagram}{259}{paragraph.4.3.25.3.7}%
+\contentsline {paragraph}{\numberline {3.25.3.8}Sequence Diagram}{259}{paragraph.4.3.25.3.8}%
+\contentsline {subsection}{\numberline {3.26}Market Trend Management}{259}{subsection.4.3.26}%
+\contentsline {subsubsection}{\numberline {3.26.1}UC81 Retrieve Job Data}{260}{subsubsection.4.3.26.1}%
+\contentsline {paragraph}{\numberline {3.26.1.1}Requirement Traceability}{260}{paragraph.4.3.26.1.1}%
+\contentsline {paragraph}{\numberline {3.26.1.2}Preconditions}{260}{paragraph.4.3.26.1.2}%
+\contentsline {paragraph}{\numberline {3.26.1.3}Postconditions}{260}{paragraph.4.3.26.1.3}%
+\contentsline {paragraph}{\numberline {3.26.1.4}Main Processing Flow}{260}{paragraph.4.3.26.1.4}%
+\contentsline {paragraph}{\numberline {3.26.1.5}Alternative and Exception Flow}{261}{paragraph.4.3.26.1.5}%
+\contentsline {paragraph}{\numberline {3.26.1.6}Participating Components}{261}{paragraph.4.3.26.1.6}%
+\contentsline {paragraph}{\numberline {3.26.1.7}Class Diagram}{261}{paragraph.4.3.26.1.7}%
+\contentsline {paragraph}{\numberline {3.26.1.8}Sequence Diagram}{262}{paragraph.4.3.26.1.8}%
+\contentsline {subsubsection}{\numberline {3.26.2}UC82 Analyze Market Trends}{262}{subsubsection.4.3.26.2}%
+\contentsline {paragraph}{\numberline {3.26.2.1}Requirement Traceability}{262}{paragraph.4.3.26.2.1}%
+\contentsline {paragraph}{\numberline {3.26.2.2}Preconditions}{262}{paragraph.4.3.26.2.2}%
+\contentsline {paragraph}{\numberline {3.26.2.3}Postconditions}{262}{paragraph.4.3.26.2.3}%
+\contentsline {paragraph}{\numberline {3.26.2.4}Main Processing Flow}{262}{paragraph.4.3.26.2.4}%
+\contentsline {paragraph}{\numberline {3.26.2.5}Alternative and Exception Flow}{263}{paragraph.4.3.26.2.5}%
+\contentsline {paragraph}{\numberline {3.26.2.6}Participating Components}{263}{paragraph.4.3.26.2.6}%
+\contentsline {paragraph}{\numberline {3.26.2.7}Class Diagram}{264}{paragraph.4.3.26.2.7}%
+\contentsline {paragraph}{\numberline {3.26.2.8}Sequence Diagram}{264}{paragraph.4.3.26.2.8}%
+\contentsline {subsubsection}{\numberline {3.26.3}UC83 Analyze Market Trends}{264}{subsubsection.4.3.26.3}%
+\contentsline {paragraph}{\numberline {3.26.3.1}Requirement Traceability}{264}{paragraph.4.3.26.3.1}%
+\contentsline {paragraph}{\numberline {3.26.3.2}Preconditions}{265}{paragraph.4.3.26.3.2}%
+\contentsline {paragraph}{\numberline {3.26.3.3}Postconditions}{265}{paragraph.4.3.26.3.3}%
+\contentsline {paragraph}{\numberline {3.26.3.4}Main Processing Flow}{265}{paragraph.4.3.26.3.4}%
+\contentsline {paragraph}{\numberline {3.26.3.5}Alternative and Exception Flow}{265}{paragraph.4.3.26.3.5}%
+\contentsline {paragraph}{\numberline {3.26.3.6}Participating Components}{265}{paragraph.4.3.26.3.6}%
+\contentsline {paragraph}{\numberline {3.26.3.7}Class Diagram}{266}{paragraph.4.3.26.3.7}%
+\contentsline {paragraph}{\numberline {3.26.3.8}Sequence Diagram}{266}{paragraph.4.3.26.3.8}%
+\contentsline {subsubsection}{\numberline {3.26.4}UC84 Retrieve Salary Statistics}{266}{subsubsection.4.3.26.4}%
+\contentsline {paragraph}{\numberline {3.26.4.1}Requirement Traceability}{266}{paragraph.4.3.26.4.1}%
+\contentsline {paragraph}{\numberline {3.26.4.2}Preconditions}{267}{paragraph.4.3.26.4.2}%
+\contentsline {paragraph}{\numberline {3.26.4.3}Postconditions}{267}{paragraph.4.3.26.4.3}%
+\contentsline {paragraph}{\numberline {3.26.4.4}Main Processing Flow}{267}{paragraph.4.3.26.4.4}%
+\contentsline {paragraph}{\numberline {3.26.4.5}Alternative and Exception Flow}{267}{paragraph.4.3.26.4.5}%
+\contentsline {paragraph}{\numberline {3.26.4.6}Participating Components}{268}{paragraph.4.3.26.4.6}%
+\contentsline {paragraph}{\numberline {3.26.4.7}Class Diagram}{268}{paragraph.4.3.26.4.7}%
+\contentsline {paragraph}{\numberline {3.26.4.8}Sequence Diagram}{269}{paragraph.4.3.26.4.8}%
+\contentsline {chapter}{\numberline {V}Requirement Appendix}{270}{chapter.5}%
+\contentsline {section}{\numberline {1}Business Rules}{270}{section.5.1}%
+\contentsline {section}{\numberline {2}Assumptions and Dependencies}{271}{section.5.2}%
+\contentsline {subsection}{\numberline {2.1}Assumptions}{271}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {2.2}Dependencies}{272}{subsection.5.2.2}%
+\contentsline {section}{\numberline {3}Data Dictionary}{272}{section.5.3}%
+\contentsline {subsection}{\numberline {3.1}Student Profile}{272}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {3.2}Tech Path}{272}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {3.3}Skill Node}{273}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {3.4}Course Repository}{273}{subsection.5.3.4}%
+\contentsline {subsection}{\numberline {3.5}Job Trend}{273}{subsection.5.3.5}%
+\contentsline {section}{\numberline {4}Glossary}{274}{section.5.4}%
+\contentsline {section}{\numberline {5}Requirement Traceability Matrix}{274}{section.5.5}%
+\contentsline {chapter}{\numberline {VI}Release Package \& User Guides}{275}{chapter.6}%
+\contentsline {section}{\numberline {1}Deliverable Package}{275}{section.6.1}%
+\contentsline {section}{\numberline {2}Installation Guides}{276}{section.6.2}%
+\contentsline {subsection}{\numberline {2.1}System Requirements}{276}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {2.2}Installation Instructions}{277}{subsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Option 1 — Access the Online Demo}{277}{subsubsection.6.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Option 2 — Run the Project Locally}{277}{subsubsection.6.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Deployment}{278}{subsubsection.6.2.2.3}%
+\contentsline {section}{\numberline {3}User Manual}{278}{section.6.3}%
+\contentsline {subsection}{\numberline {3.1}Overview}{278}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {3.2}Guideline}{278}{subsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Login}{278}{subsubsection.6.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Chat with the AI Virtual Mentor (FR1)}{280}{subsubsection.6.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}View and Update the Dynamic Learning Roadmap (FR2)}{280}{subsubsection.6.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Run a Skill Gap Analysis (FR3)}{281}{subsubsection.6.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Check Market Pulse (FR4)}{281}{subsubsection.6.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.6}Build and Share an E-Portfolio (FR5)}{281}{subsubsection.6.3.2.6}%
+\contentsline {subsubsection}{\numberline {3.2.7}Academic Counselor — Review a Student}{281}{subsubsection.6.3.2.7}%
+\contentsline {subsubsection}{\numberline {3.2.8}Industry Mentor — Evaluate a Portfolio}{281}{subsubsection.6.3.2.8}%
