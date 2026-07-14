@@ -8,7 +8,7 @@ The context diagram below illustrates the external entities and system interface
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/context_diagram.png}
+    \includegraphics[width=\textwidth]{images/context-diagram.png}
     \caption{Context Diagram}
     \label{fig:context_diagram}
 \end{figure}
@@ -66,7 +66,7 @@ Represents experienced professionals from the software industry who provide prac
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/usecase_diagram.png}
+    \includegraphics[width=\textwidth]{images/usecase-diagram.png}
     \caption{Use Case Diagram of the Personalized Career Orientation and Learning Roadmap Platform}
     \label{fig:usecase}
 \end{figure}
@@ -695,7 +695,7 @@ Retrieve salary data.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/administrator_screenflow.png}
+    \includegraphics[width=\textwidth]{images/administrator-screenflow.png}
     \caption{Administrator Screen Flow}
     \label{fig:administrator_screenflow}
 \end{figure}
@@ -706,7 +706,7 @@ Retrieve salary data.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/student_screenflow.png}
+    \includegraphics[width=\textwidth]{images/student-screenflow.png}
     \caption{Student Screen Flow}
     \label{fig:student_screenflow}
 \end{figure}
@@ -715,7 +715,7 @@ Retrieve salary data.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/academiccounselor_screenflow.png}
+    \includegraphics[width=\textwidth]{images/academiccounselor-screenflow.png}
     \caption{Academic Counselor Screen Flow}
     \label{fig:academiccounselor_screenflow}
 \end{figure}
@@ -726,7 +726,7 @@ Retrieve salary data.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/industrymentor_screenflow.png}
+    \includegraphics[width=\textwidth]{images/industrymentor-screenflow.png}
     \caption{Industry Mentor Screen Flow}
     \label{fig:industrymentor_screenflow}
 \end{figure}
@@ -1874,6 +1874,58 @@ Records user activities, API requests, AI execution logs and system errors for m
 
 \subsubsection{Entity Relationship Diagram}
 
+The ERD contains the following major entities:
+
+\begin{itemize}
+    \item \textbf{Users}: Stores authentication information and user roles including Student, Academic Counselor, Industry Mentor, and Administrator.
+    
+    \item \textbf{StudentProfiles}: Maintains personal information, academic transcripts, avatars, and career goals of students.
+    
+    \item \textbf{CareerRoles}: Defines software engineering career paths such as Backend Developer, Frontend Developer, Full Stack Developer, DevOps Engineer, Data Engineer, AI Engineer, and Software Tester.
+    
+    \item \textbf{Skills}: Stores technical and soft skills required by each career role.
+    
+    \item \textbf{CareerRoleSkills}: Represents the many-to-many relationship between career roles and required skills.
+    
+    \item \textbf{LearningRoadmaps}: Stores personalized learning roadmaps generated for each student.
+    
+    \item \textbf{RoadmapProgress}: Records students' completion progress for roadmap milestones and learning activities.
+    
+    \item \textbf{LearningResources}: Stores recommended learning materials, online courses, books, videos, and documentation.
+    
+    \item \textbf{GitHubRepositories}: Stores linked GitHub repositories and project information for portfolio analysis.
+    
+    \item \textbf{Portfolios}: Stores generated student portfolios including projects, achievements, skills, and GitHub information.
+    
+    \item \textbf{JobMarketData}: Stores recruitment trends, salary statistics, demanded technologies, and labor market information collected from external job portals.
+    
+    \item \textbf{Consultations}: Records consultation sessions between students and academic counselors or industry mentors.
+    
+    \item \textbf{Feedback}: Stores comments and recommendations provided by counselors and mentors.
+    
+    \item \textbf{Notifications}: Stores system notifications delivered to users.
+    
+    \item \textbf{AIRecommendations}: Stores historical AI-generated recommendations including career suggestions, roadmap generation, skill gap analysis, and course recommendations.
+\end{itemize}
+
+The relationships among entities are summarized as follows:
+
+\begin{itemize}
+    \item One User owns one Student Profile.
+    \item One Student Profile can have multiple Learning Roadmaps.
+    \item One Learning Roadmap contains multiple Roadmap Progress records.
+    \item One Career Role requires multiple Skills through the CareerRoleSkills relationship.
+    \item One Student can connect multiple GitHub Repositories.
+    \item One Student owns one Portfolio that may contain multiple GitHub projects.
+    \item One Student can receive multiple AI Recommendations.
+    \item One Student can participate in multiple Consultation sessions.
+    \item One Consultation may produce multiple Feedback records.
+    \item One User may receive multiple Notifications.
+    \item Job Market Data is referenced by the AI recommendation engine to generate personalized career suggestions.
+    \item Learning Resources are associated with both Skills and Career Roles to support personalized learning roadmaps.
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Functional Requirements}
 
@@ -2340,10 +2392,6 @@ Student submits a mentorship request $\rightarrow$ system stores the request and
 \textbf{Abnormal Case:}
 
 Duplicate request or mentor unavailable $\rightarrow$ display an error message.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Mentor Review Request}
