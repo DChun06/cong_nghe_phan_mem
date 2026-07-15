@@ -2,7 +2,7 @@ const STORAGE_KEY = "seCareerCompassState";
 const BACKEND_TOKEN_KEY = "seCareerCompassApiToken";
 const API_BASE = "";
 
-const roles = {
+let roles = {
   "Cloud Architect": {
     focus: "Cloud infrastructure, distributed systems, security, and cost-aware architecture.",
     requiredSkills: [
@@ -230,25 +230,28 @@ const defaultPortfolio = [
     url: "https://github.com/sample/internship-roadmap-api",
     language: "Java",
     summary: "REST API that stores student skill assessments, roadmap progress, mentor chat history, and portfolio links.",
-    stack: ["Spring Boot", "PostgreSQL", "JWT"]
+    stack: ["Spring Boot", "PostgreSQL", "JWT"],
+    source: "demo"
   },
   {
     name: "cloud-notes-deploy",
     url: "https://github.com/sample/cloud-notes-deploy",
     language: "TypeScript",
     summary: "Containerized notes app with CI/CD deployment and monitoring evidence for cloud or DevOps roles.",
-    stack: ["Docker", "GitHub Actions", "AWS"]
+    stack: ["Docker", "GitHub Actions", "AWS"],
+    source: "demo"
   },
   {
     name: "portfolio-story-builder",
     url: "https://github.com/sample/portfolio-story-builder",
     language: "JavaScript",
     summary: "Frontend app that turns GitHub README files into employer-facing project summaries.",
-    stack: ["JavaScript", "GitHub API", "UI"]
+    stack: ["JavaScript", "GitHub API", "UI"],
+    source: "demo"
   }
 ];
 
-const marketData = [
+let marketData = [
   { skill: "Kubernetes", LinkedIn: 56, TopCV: 28, growth: 22 },
   { skill: "AWS", LinkedIn: 64, TopCV: 33, growth: 18 },
   { skill: "Docker", LinkedIn: 61, TopCV: 36, growth: 12 },
@@ -284,7 +287,7 @@ const defaultNotes = [
   { author: "Industry Mentor", text: "Portfolio needs a deployed project with README screenshots and trade-offs.", date: "2026-07-04" }
 ];
 
-const resourceCatalog = [
+let resourceCatalog = [
   resource("Linux Journey", "Linux", "Foundation", "Cloud Architect", "Documentation", "https://linuxjourney.com/", "Practical Linux basics for cloud and DevOps foundations."),
   resource("Docker Get Started", "Docker", "Foundation", "DevOps Engineer", "Documentation", "https://docs.docker.com/get-started/", "Official container learning path with exercises."),
   resource("Kubernetes Docs", "Kubernetes", "Intermediate", "Cloud Architect", "Documentation", "https://kubernetes.io/docs/home/", "Core concepts, workloads, services, and cluster operations."),
@@ -321,12 +324,12 @@ const traceabilityItems = [
 ];
 
 const nfrItems = [
-  ["Usability", "Students can reach all main workflows from the sidebar; desktop and mobile layouts were checked."],
-  ["Performance", "Static SPA backed by lightweight JSON APIs; chart and roadmap update instantly for classroom demo scale."],
-  ["Reliability", "State is saved through backend APIs with localStorage cache fallback for offline classroom demo use."],
-  ["Security", "Password login uses backend hashing and session tokens; production deployment should replace local JSON storage with a managed database and real Google OAuth 2.0."],
-  ["Scalability", "Data structures separate role, skill node, portfolio, and market trend entities for backend migration."],
-  ["Maintainability", "Feature rendering functions are grouped by module in app.js."]
+  ["Usability", "Target: every core workflow is keyboard reachable and usable at 390 px without page-level horizontal overflow; verify by responsive and keyboard QA."],
+  ["Performance", "Target: local API health under 500 ms and view transitions under 100 ms for the classroom dataset; verify with browser timings."],
+  ["Reliability", "Target: roadmap, skills, chat, bookmarks and portfolio survive refresh; verify through API persistence plus local-cache fallback."],
+  ["Security", "Target: protected /api/me routes return 401 without a session, passwords are hashed, redirects are allowlisted and private files return 404."],
+  ["Accessibility", "Target: named form controls, aria-current navigation, visible focus and readable data alternatives for interactive charts."],
+  ["Maintainability", "Target: one backend catalog feeds roadmap/resources while feature renderers remain isolated and syntax checks pass."]
 ];
 
 const businessRules = [
@@ -346,8 +349,56 @@ const entityModel = [
   ["Skill Node", "A roadmap item with priority, phase, duration, required skills, completion state, and resources."],
   ["Course Repo", "Curated learning resource linked to skill, role, level, and provider."],
   ["Job Trend", "Aggregated keyword frequency and growth signal from simulated job portals."],
-  ["Mentor Session", "Counselor or industry mentor advising item with topic, owner, status, and notes."]
+  ["Mentor Session", "Counselor or industry mentor advising item with topic, owner, status, and notes."],
+  ["Student Skill Progress", "Links Student Profile and Skill Node with evidence, completion state, and assessment history."]
 ];
+
+const architectureStages = [
+  ["Frontend", "HTML, CSS and JavaScript SPA", "Browser UI, local cache, responsive views"],
+  ["Backend API", "Node.js built-in HTTP server", "Authentication, roadmap, mentor, portfolio and resources"],
+  ["Persistence", "Local JSON database", "Accounts, sessions and personalized student records"],
+  ["External services", "GitHub public API + future adapters", "Repository metadata; LLM and job data remain replaceable adapters"]
+];
+
+const acceptanceTests = [
+  ["AT-01", "Authentication", "Demo account signs in and protected dashboard opens.", "Automated"],
+  ["AT-02", "Roadmap", "Role change refreshes nodes and completion persists.", "Automated"],
+  ["AT-03", "Skill Gap", "Skill changes recalculate missing priorities and printable report.", "Automated"],
+  ["AT-04", "AI Mentor", "Question uses role, gaps, GPA and portfolio context.", "Demo-ready"],
+  ["AT-05", "Portfolio", "Copied public URL returns a recruiter-facing portfolio page.", "Automated"],
+  ["AT-06", "Responsive UI", "Core workflows remain usable at 390 px and 1440 px.", "Visual QA"]
+];
+
+const apiInventory = [
+  "GET /api/health",
+  "GET /api/roles",
+  "GET /api/roadmap",
+  "GET /api/resources",
+  "GET /api/market/trends",
+  "GET /api/portfolio/:userId",
+  "POST /api/auth/login",
+  "GET/PUT /api/me/profile",
+  "GET/PUT /api/me/roadmap",
+  "GET/PUT /api/me/skills",
+  "GET/POST/DELETE /api/me/chat",
+  "GET /api/me/portfolio + POST /api/me/portfolio/sync",
+  "GET/POST /api/me/bookmarks",
+  "GET/PUT /api/me/resource-progress",
+  "GET/POST/PATCH /api/me/mentor-sessions"
+];
+
+const sectionLabels = {
+  dashboard: "Dashboard",
+  mentor: "AI Mentor",
+  roadmap: "Roadmap",
+  gap: "Skill Gap",
+  market: "Market Pulse",
+  portfolio: "E-Portfolio",
+  workspace: "Workspace",
+  resources: "Resources",
+  spec: "System Spec",
+  users: "Users"
+};
 
 const DEMO_ACCOUNT = {
   id: "acct-demo-student",
@@ -358,6 +409,7 @@ const DEMO_ACCOUNT = {
 };
 
 let state = loadState();
+let mentorBusy = false;
 
 function node(id, phase, title, priority, duration, skills, resources) {
   return { id, phase, title, priority, duration, skills, resources };
@@ -413,6 +465,7 @@ function loadState() {
     notes: defaultNotes,
     sessions,
     bookmarks: [],
+    completedResources: [],
     actorMode: "student"
   };
 
@@ -481,6 +534,10 @@ function normalizeState(raw) {
   normalized.portfolio = normalizePortfolioProjects(normalized.portfolio);
   normalized.sessions = Array.isArray(normalized.sessions) ? normalized.sessions : sessions;
   normalized.bookmarks = Array.isArray(normalized.bookmarks) ? normalized.bookmarks : [];
+  normalized.completedResources = Array.isArray(normalized.completedResources) ? normalized.completedResources : [];
+  normalized.tasks = Array.isArray(normalized.tasks) ? normalized.tasks : defaultTasks;
+  normalized.notes = Array.isArray(normalized.notes) ? normalized.notes : defaultNotes;
+  normalized.notifications = Array.isArray(normalized.notifications) ? normalized.notifications : defaultNotifications;
   normalized.backendRecords = Array.isArray(normalized.backendRecords) ? normalized.backendRecords : [];
   return normalized;
 }
@@ -673,6 +730,65 @@ async function apiOptional(path, options = {}) {
   }
 }
 
+function aggregateMarketTrends(trends) {
+  const grouped = new Map();
+  (Array.isArray(trends) ? trends : []).forEach((trend) => {
+    const key = normalize(trend.skill);
+    if (!key) return;
+    const current = grouped.get(key) || {
+      skill: trend.skill,
+      LinkedIn: 0,
+      TopCV: 0,
+      growthValues: []
+    };
+    if (trend.source === "LinkedIn" || trend.source === "TopCV") {
+      current[trend.source] = Number(trend.frequency || 0);
+    }
+    current.growthValues.push(Number(trend.growth || 0));
+    grouped.set(key, current);
+  });
+  return [...grouped.values()].map((item) => ({
+    skill: item.skill,
+    LinkedIn: item.LinkedIn,
+    TopCV: item.TopCV,
+    growth: Math.round(item.growthValues.reduce((sum, value) => sum + value, 0) / Math.max(1, item.growthValues.length))
+  }));
+}
+
+async function hydratePublicCatalogs() {
+  const roleNames = Object.keys(roles);
+  const roadmapRequests = roleNames.map(async (roleName) => {
+    try {
+      const payload = await apiRequest(`/roadmap?role=${encodeURIComponent(roleName)}`);
+      if (payload && Array.isArray(payload.nodes) && payload.nodes.length) {
+        roles[payload.role || roleName] = {
+          focus: payload.focus || roles[roleName].focus,
+          requiredSkills: payload.requiredSkills || roles[roleName].requiredSkills,
+          nodes: payload.nodes
+        };
+      }
+    } catch {
+      // The bundled catalogs remain available when the local backend is offline.
+    }
+  });
+
+  const resourcesRequest = apiRequest("/resources")
+    .then((payload) => {
+      if (Array.isArray(payload.resources) && payload.resources.length) resourceCatalog = payload.resources;
+    })
+    .catch(() => {});
+
+  const marketRequest = apiRequest("/market/trends")
+    .then((payload) => {
+      const aggregated = aggregateMarketTrends(payload.trends);
+      if (aggregated.length) marketData = aggregated;
+      if (payload.lastScan) state.lastScan = new Date(payload.lastScan).toLocaleString();
+    })
+    .catch(() => {});
+
+  await Promise.all([...roadmapRequests, resourcesRequest, marketRequest]);
+}
+
 function accountFromBackendUser(user) {
   return {
     id: user.id || accountIdFromEmail(user.email),
@@ -729,7 +845,10 @@ function normalizePortfolioProject(project) {
     url: project.url || "#",
     language: project.language || stack[0] || "Code",
     summary: project.summary || project.description || "Portfolio evidence aligned with the selected career role.",
-    stack: stack.filter(Boolean)
+    stack: stack.filter(Boolean),
+    source:
+      project.source ||
+      (/github\.com\/(?:sample|example)\//i.test(project.url || "") ? "demo" : project.url ? "github" : "manual")
   };
 }
 
@@ -754,14 +873,16 @@ async function hydrateFromBackend() {
   if (!auth || !auth.user) return false;
   applyBackendUser(auth.user);
 
-  const [profileRes, roadmapRes, skillsRes, chatRes, portfolioRes, sessionsRes, recordsRes] = await Promise.all([
+  const [profileRes, roadmapRes, skillsRes, chatRes, portfolioRes, sessionsRes, recordsRes, bookmarksRes, resourceProgressRes] = await Promise.all([
     apiOptional("/me/profile"),
     apiOptional("/me/roadmap"),
     apiOptional("/me/skills"),
     apiOptional("/me/chat"),
     apiOptional("/me/portfolio"),
     apiOptional("/me/mentor-sessions"),
-    apiOptional("/me/records")
+    apiOptional("/me/records"),
+    apiOptional("/me/bookmarks"),
+    apiOptional("/me/resource-progress")
   ]);
 
   const profile = profileRes && profileRes.profile;
@@ -791,14 +912,22 @@ async function hydrateFromBackend() {
   }
   if (sessionsRes && Array.isArray(sessionsRes.sessions) && sessionsRes.sessions.length) {
     state.sessions = sessionsRes.sessions.map((session) => ({
+      id: session.id,
       role: session.role,
       topic: session.topic,
       status: session.status,
+      owner: session.owner,
       createdAt: session.createdAt
     }));
   }
   if (recordsRes && recordsRes.records) {
     state.backendRecords = recordsRes.records;
+  }
+  if (bookmarksRes && Array.isArray(bookmarksRes.bookmarks)) {
+    state.bookmarks = bookmarksRes.bookmarks;
+  }
+  if (resourceProgressRes && Array.isArray(resourceProgressRes.completedResources)) {
+    state.completedResources = resourceProgressRes.completedResources;
   }
 
   saveState();
@@ -834,12 +963,13 @@ async function syncRoadmapToBackend() {
   return payload;
 }
 
-async function syncSkillsToBackend() {
+async function syncSkillsToBackend(createSnapshot = false) {
   const payload = await apiOptional("/me/skills", {
     method: "PUT",
     body: {
       targetRole: state.role,
-      skills: state.skills
+      skills: state.skills,
+      createSnapshot
     }
   });
   if (payload && Array.isArray(payload.skills)) {
@@ -861,6 +991,28 @@ function currentRole() {
 
 function normalize(value) {
   return String(value || "").trim().toLowerCase();
+}
+
+function safeExternalUrl(value) {
+  try {
+    const url = new URL(String(value || ""), window.location.origin);
+    if (!["http:", "https:"].includes(url.protocol)) return "#";
+    return escapeHtml(url.href);
+  } catch {
+    return "#";
+  }
+}
+
+function formatGrowth(value) {
+  const number = Number(value || 0);
+  return `${number > 0 ? "+" : ""}${number}%`;
+}
+
+function compactDateTime(value) {
+  if (!value) return "Not run";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return String(value).split(",")[0] || "Not run";
+  return date.toLocaleString([], { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
 }
 
 function escapeHtml(value) {
@@ -904,6 +1056,7 @@ function priorityRank(priority) {
 
 async function init() {
   if (!ensureAppAccess()) return;
+  await hydratePublicCatalogs();
   await hydrateFromBackend();
   setupNavigation();
   setupRoleSelect();
@@ -927,6 +1080,10 @@ async function init() {
       activateSection(sectionId, false);
     }
   });
+  window.addEventListener("popstate", () => {
+    const sectionId = sectionFromHash();
+    if (sectionId && document.getElementById(sectionId)) activateSection(sectionId, false);
+  });
   refreshIcons();
 }
 
@@ -941,6 +1098,9 @@ function ensureAppAccess() {
 
 function setupNavigation() {
   document.querySelectorAll(".nav-item").forEach((button) => {
+    const label = button.querySelector("span")?.textContent.trim() || sectionLabels[button.dataset.section] || "Section";
+    button.setAttribute("aria-label", label);
+    button.title = label;
     button.addEventListener("click", () => activateSection(button.dataset.section));
   });
 
@@ -961,20 +1121,48 @@ function sectionFromHash() {
 }
 
 function activateSection(sectionId, updateHash = true) {
+  const activeView = document.getElementById(sectionId);
+  if (!activeView || !activeView.classList.contains("view")) return;
+  let activeNav = null;
   document.querySelectorAll(".nav-item").forEach((item) => {
-    item.classList.toggle("active", item.dataset.section === sectionId);
+    const active = item.dataset.section === sectionId;
+    item.classList.toggle("active", active);
+    if (active) {
+      item.setAttribute("aria-current", "page");
+      activeNav = item;
+    } else {
+      item.removeAttribute("aria-current");
+    }
   });
   document.querySelectorAll(".view").forEach((view) => {
     view.classList.toggle("active", view.id === sectionId);
   });
   const routeHash = `#view-${sectionId}`;
   if (updateHash && window.location.hash !== routeHash) {
-    window.history.replaceState(null, "", routeHash);
+    window.history.pushState({ sectionId }, "", routeHash);
   }
   if (sectionId === "market") {
     renderMarket();
   }
-  window.scrollTo(0, 0);
+  document.title = `${sectionLabels[sectionId] || "Workspace"} - SE Career Compass`;
+  if (activeNav && window.innerWidth <= 1180) {
+    const navList = activeNav.closest(".nav-list");
+    if (navList) {
+      navList.scrollTo({ left: Math.max(0, activeNav.offsetLeft - navList.clientWidth / 2 + activeNav.clientWidth / 2), behavior: "smooth" });
+    }
+  }
+  window.requestAnimationFrame(() => {
+    if (sectionId === "dashboard") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    activeView.scrollIntoView({ block: "start", behavior: "smooth" });
+    const heading = activeView.querySelector("h2");
+    if (heading) {
+      heading.tabIndex = -1;
+      heading.focus({ preventScroll: true });
+    }
+  });
   refreshIcons();
 }
 
@@ -1004,16 +1192,29 @@ function setupMentor() {
     button.addEventListener("click", () => sendMentorQuestion(button.dataset.prompt));
   });
 
-  document.getElementById("clearChat").addEventListener("click", () => {
-    state.chat = [{ from: "mentor", text: advisorWelcomeMessage() }];
+  document.getElementById("clearChat").addEventListener("click", async () => {
+    if (!window.confirm("Clear the mentor conversation history?")) return;
+    const button = document.getElementById("clearChat");
+    button.disabled = true;
+    await apiOptional("/me/chat", { method: "DELETE" });
+    state.chat = [{ from: "mentor", text: advisorWelcomeMessage(), createdAt: new Date().toISOString() }];
     saveState();
     renderChat();
     renderUsers();
+    button.disabled = false;
+    toast("Mentor conversation cleared.");
   });
 
   document.getElementById("transcriptFile").addEventListener("change", (event) => {
     const file = event.target.files[0];
     if (!file) return;
+    const extension = file.name.split(".").pop()?.toLowerCase();
+    if (!["txt", "csv"].includes(extension) || file.size > 2 * 1024 * 1024) {
+      event.target.value = "";
+      document.getElementById("transcriptStatus").textContent = "Use a TXT or CSV file no larger than 2 MB.";
+      toast("Transcript was not accepted. Use TXT or CSV up to 2 MB.");
+      return;
+    }
     state.transcript.fileName = file.name;
     const reader = new FileReader();
     reader.onload = () => {
@@ -1051,15 +1252,24 @@ function setupMentor() {
   });
 }
 
-function sendMentorQuestion(rawQuestion) {
+async function sendMentorQuestion(rawQuestion) {
   const input = document.getElementById("chatInput");
   const question = String(rawQuestion || "").trim();
   if (!question) return;
-  state.chat.push({ from: "user", text: question });
+  if (mentorBusy) {
+    toast("The advisor is finishing the previous answer.");
+    return;
+  }
+  mentorBusy = true;
+  const sendButton = document.querySelector("#chatForm button[type='submit']");
+  input.disabled = true;
+  sendButton.disabled = true;
+  state.chat.push({ from: "user", text: question, createdAt: new Date().toISOString() });
   if (input) input.value = "";
   renderChat(true);
 
-  window.setTimeout(async () => {
+  await new Promise((resolve) => window.setTimeout(resolve, Math.min(900, 350 + question.length * 8)));
+  try {
     const payload = await apiOptional("/me/chat", {
       method: "POST",
       body: { message: question }
@@ -1067,12 +1277,18 @@ function sendMentorQuestion(rawQuestion) {
     if (payload && Array.isArray(payload.history)) {
       state.chat = normalizeChatMessages(payload.history);
     } else {
-      state.chat.push({ from: "mentor", text: mentorReply(question) });
+      state.chat.push({ from: "mentor", text: mentorReply(question), createdAt: new Date().toISOString() });
+      if (apiToken()) toast("Backend advisor unavailable; local personalized advisor used.");
     }
     saveState();
     renderChat();
     renderUsers();
-  }, Math.min(900, 350 + question.length * 8));
+  } finally {
+    mentorBusy = false;
+    input.disabled = false;
+    sendButton.disabled = false;
+    input.focus();
+  }
 }
 
 function inferTranscriptSignals(text) {
@@ -1318,7 +1534,10 @@ function generalAdvisorReply() {
 }
 
 function setupRoadmapActions() {
+  document.getElementById("roadmapSearch").addEventListener("input", renderRoadmap);
+  document.getElementById("roadmapStatusFilter").addEventListener("change", renderRoadmap);
   document.getElementById("resetRoadmap").addEventListener("click", async () => {
+    if (!window.confirm(`Reset roadmap progress for ${state.role}?`)) return;
     currentRole().nodes.forEach((item) => delete state.completed[item.id]);
     saveState();
     renderRoadmap();
@@ -1329,7 +1548,10 @@ function setupRoadmapActions() {
   });
 
   document.getElementById("completeFirstPriority").addEventListener("click", async () => {
-    const first = currentRole().nodes.find((item) => !state.completed[item.id]);
+    const urgent = getUrgentSkills()
+      .filter((item) => !state.completed[item.id])
+      .sort((a, b) => priorityRank(a.priority) - priorityRank(b.priority));
+    const first = urgent[0] || currentRole().nodes.find((item) => !state.completed[item.id]);
     if (first) {
       state.completed[first.id] = true;
       saveState();
@@ -1344,6 +1566,8 @@ function setupRoadmapActions() {
 }
 
 function setupGap() {
+  document.getElementById("skillSearch").addEventListener("input", renderGap);
+  document.getElementById("gapStatusFilter").addEventListener("change", renderGap);
   document.getElementById("addSkillForm").addEventListener("submit", async (event) => {
     event.preventDefault();
     const input = document.getElementById("customSkill");
@@ -1360,27 +1584,50 @@ function setupGap() {
     renderUsers();
   });
 
+  document.getElementById("saveSkillAssessment").addEventListener("click", async () => {
+    const button = document.getElementById("saveSkillAssessment");
+    button.disabled = true;
+    const payload = await syncSkillsToBackend(true);
+    button.disabled = false;
+    toast(payload ? "Skill assessment snapshot saved." : "Assessment saved to the local demo cache.");
+  });
   document.getElementById("exportGapReport").addEventListener("click", exportGapReport);
 }
 
 function setupMarket() {
   document.getElementById("marketSource").addEventListener("change", renderMarket);
+  document.getElementById("marketScope").addEventListener("change", renderMarket);
   document.getElementById("simulateScrape").addEventListener("click", async () => {
-    const scan = await apiOptional("/market/scan", { method: "POST", body: { role: state.role } });
-    if (scan && Array.isArray(scan.trends)) {
-      applyMarketScan(scan);
-    } else {
-      marketData.forEach((item) => {
-        item.LinkedIn += Math.round(Math.random() * 4);
-        item.TopCV += Math.round(Math.random() * 3);
-        item.growth += Math.round(Math.random() * 4 - 1);
-      });
-      state.lastScan = new Date().toLocaleString();
+    const button = document.getElementById("simulateScrape");
+    button.disabled = true;
+    button.innerHTML = '<i data-lucide="loader-circle"></i> Scanning...';
+    refreshIcons();
+    try {
+      const scan = await apiOptional("/market/scan", { method: "POST", body: { role: state.role } });
+      if (scan && Array.isArray(scan.trends)) {
+        applyMarketScan(scan);
+      } else {
+        marketData.forEach((item) => {
+          item.LinkedIn += Math.round(Math.random() * 4);
+          item.TopCV += Math.round(Math.random() * 3);
+          item.growth += Math.round(Math.random() * 4 - 1);
+        });
+        state.lastScan = new Date().toLocaleString();
+      }
+      state.notifications = [
+        { type: "Market Pulse", text: `Market scan refreshed for ${state.role}.`, time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) },
+        ...(state.notifications || [])
+      ].slice(0, 8);
+      saveState();
+      renderMarket();
+      renderDashboard();
+      renderUsers();
+      toast(apiToken() ? "Daily market scan completed through backend." : "Daily market scan completed with demo data.");
+    } finally {
+      button.disabled = false;
+      button.innerHTML = '<i data-lucide="calendar-sync"></i> Run daily scan';
+      refreshIcons();
     }
-    saveState();
-    renderMarket();
-    renderUsers();
-    toast(apiToken() ? "Daily job portal scan completed through backend." : "Daily job portal scan completed.");
   });
   window.addEventListener("resize", () => {
     if (document.getElementById("market").classList.contains("active")) renderMarket();
@@ -1393,6 +1640,10 @@ function setupPortfolio() {
 
   document.getElementById("syncGithub").addEventListener("click", async () => {
     const username = document.getElementById("githubUsername").value.trim();
+    if (username && !/^[a-z\d](?:[a-z\d-]{0,37}[a-z\d])?$/i.test(username)) {
+      toast("Enter a valid GitHub username.");
+      return;
+    }
     state.github = username;
     document.getElementById("githubInputMentor").value = username;
     if (!username) {
@@ -1403,6 +1654,38 @@ function setupPortfolio() {
       return;
     }
     await syncGitHub(username);
+  });
+
+  document.getElementById("portfolioFilter").addEventListener("change", renderPortfolio);
+
+  document.getElementById("manualProjectForm").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const name = document.getElementById("manualProjectName").value.trim();
+    const summary = document.getElementById("manualProjectSummary").value.trim();
+    const url = document.getElementById("manualProjectUrl").value.trim();
+    const stack = document.getElementById("manualProjectStack").value.split(",").map((item) => item.trim()).filter(Boolean);
+    if (!name || !summary || !stack.length) return;
+    state.portfolio = [
+      {
+        id: `manual-${Date.now()}`,
+        name,
+        url: url || "#",
+        language: stack[0],
+        summary,
+        stack,
+        source: "manual"
+      },
+      ...normalizePortfolioProjects(state.portfolio)
+    ].slice(0, 12);
+    event.target.reset();
+    saveState();
+    renderPortfolio();
+    renderDashboard();
+    await apiOptional("/me/portfolio/sync", {
+      method: "POST",
+      body: { github: state.github, projects: state.portfolio }
+    });
+    toast("Manual project evidence added.");
   });
 
   document.getElementById("copyPortfolioUrl").addEventListener("click", async () => {
@@ -1422,6 +1705,31 @@ function setupWorkspace() {
     state.actorMode = event.target.value;
     saveState();
     renderWorkspace();
+  });
+
+  document.getElementById("taskForm").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const titleInput = document.getElementById("taskTitleInput");
+    const dueInput = document.getElementById("taskDueInput");
+    const title = titleInput.value.trim();
+    if (!title) return;
+    state.tasks = [
+      {
+        id: `task-${Date.now()}`,
+        lane: document.getElementById("taskLaneInput").value,
+        actor: state.actorMode || "student",
+        title,
+        due: dueInput.value.trim() || "No due date",
+        tag: "CUSTOM"
+      },
+      ...(state.tasks || [])
+    ];
+    titleInput.value = "";
+    dueInput.value = "";
+    saveState();
+    renderWorkspace();
+    renderDashboard();
+    toast("Career action added to the workspace.");
   });
 
   document.getElementById("createMentorSession").addEventListener("click", async () => {
@@ -1447,9 +1755,11 @@ function setupWorkspace() {
     });
     if (payload && payload.session) {
       state.sessions = payload.sessions.map((item) => ({
+        id: item.id,
         role: item.role,
         topic: item.topic,
         status: item.status,
+        owner: item.owner,
         createdAt: item.createdAt
       }));
       saveState();
@@ -1476,6 +1786,15 @@ function setupWorkspace() {
 function setupResources() {
   document.getElementById("resourceSearch").addEventListener("input", renderResources);
   document.getElementById("resourceLevel").addEventListener("change", renderResources);
+  document.getElementById("resourceProvider").addEventListener("change", renderResources);
+  document.getElementById("savedResourcesOnly").addEventListener("change", renderResources);
+  document.getElementById("resetResourceFilters").addEventListener("click", () => {
+    document.getElementById("resourceSearch").value = "";
+    document.getElementById("resourceLevel").value = "all";
+    document.getElementById("resourceProvider").value = "all";
+    document.getElementById("savedResourcesOnly").checked = false;
+    renderResources();
+  });
 }
 
 function setupSpec() {
@@ -1522,100 +1841,17 @@ function renderAll() {
   refreshIcons();
 }
 
-function renderDashboard() {
-  const completion = getCompletion();
-  const gap = getGap();
-  const readiness = getReadinessScore();
-  document.getElementById("dashboardRoleTitle").textContent = `${state.role} readiness plan`;
-  document.getElementById("dashboardLead").textContent = currentRole().focus;
-  document.getElementById("metricProgress").textContent = `${completion.percent}%`;
-  document.getElementById("metricProgressBar").style.width = `${completion.percent}%`;
-  document.getElementById("metricMatched").textContent = `${gap.matched.length}/${gap.required.length}`;
-  document.getElementById("metricMatchedLabel").textContent =
-    gap.missing.length === 0 ? "Target role requirements covered" : `${gap.missing.length} skills missing`;
-  document.getElementById("metricPortfolio").textContent = `${state.portfolio.length} projects`;
-  document.getElementById("metricMentorActions").textContent = String(openActionCount());
-  document.getElementById("gpaSignal").textContent = gpaLabel();
-  document.getElementById("githubSignal").textContent = state.github ? `github.com/${state.github}` : "Not linked";
-  document.getElementById("insightRole").textContent = state.role;
-  document.getElementById("insightNextAction").textContent = nextBestAction();
-  document.getElementById("insightDemoReadiness").textContent = readiness >= 70 ? "Presentation-ready" : readiness >= 40 ? "Demo-ready" : "Needs evidence";
-  document.getElementById("readinessScore").textContent = `${readiness}%`;
-  const circle = document.getElementById("readinessCircle");
-  if (circle) {
-    const circumference = 2 * Math.PI * 48;
-    circle.style.strokeDasharray = `${circumference}`;
-    circle.style.strokeDashoffset = `${circumference - (readiness / 100) * circumference}`;
-  }
-  renderDashboardNotifications();
-  renderDashboardSprint();
-}
 
-function gpaLabel() {
-  const gpa = Number(state.transcript.gpa || 0);
-  if (gpa >= 3.5) return "Strong academic signal";
-  if (gpa >= 3.0) return "Good foundation";
-  if (gpa > 0) return "Needs stronger portfolio evidence";
-  return "Not provided";
-}
-
-function openActionCount() {
-  const taskCount = (state.tasks || []).filter((task) => task.lane !== "Done").length;
-  const sessionCount = (state.sessions || []).filter((session) => session.status !== "Completed").length;
-  return taskCount + sessionCount;
-}
-
-function getReadinessScore() {
-  const completion = getCompletion().percent;
-  const gap = getGap();
-  const skillScore = Math.round((gap.matched.length / gap.required.length) * 100);
-  const portfolioScore = Math.min(100, state.portfolio.length * 25 + (state.github ? 25 : 0));
-  return Math.round(completion * 0.4 + skillScore * 0.4 + portfolioScore * 0.2);
-}
-
-function nextBestAction() {
-  const urgent = getUrgentSkills()[0];
-  if (urgent && !state.completed[urgent.id]) return urgent.title;
-  if (!state.github) return "Link GitHub profile";
-  if (getCompletion().percent < 50) return "Complete more roadmap nodes";
-  return "Print skill gap report";
-}
-
-function renderDashboardNotifications() {
-  const items = (state.notifications || []).slice(0, 4);
-  document.getElementById("dashboardNotifications").innerHTML = items
-    .map((item) => `
-      <div class="notification-row">
-        <strong>${escapeHtml(item.type)}</strong>
-        <span>${escapeHtml(item.text)}</span>
-        <small>${escapeHtml(item.time)}</small>
-      </div>
-    `)
-    .join("");
-}
-
-function renderDashboardSprint() {
-  const urgent = getUrgentSkills();
-  const items = urgent.length ? urgent.slice(0, 4) : currentRole().nodes.slice(0, 4);
-  document.getElementById("dashboardSprint").innerHTML = items
-    .map((item, index) => `
-      <div class="sprint-row">
-        <span>${index + 1}</span>
-        <div>
-          <strong>${escapeHtml(item.title)}</strong>
-          <small>${escapeHtml(item.duration)} - ${escapeHtml(item.priority)} priority</small>
-        </div>
-      </div>
-    `)
-    .join("");
-}
 
 function renderChat(showTyping = false) {
   const feed = document.getElementById("chatFeed");
   const messages = state.chat
     .map((message) => {
       const label = message.from === "user" ? "Bạn" : "AI Advisor";
-      return `<div class="message ${message.from}"><strong>${label}</strong>${renderMessageText(message.text)}</div>`;
+      const timestamp = message.createdAt
+        ? new Date(message.createdAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+        : "";
+      return `<div class="message ${message.from}"><div class="message-head"><strong>${label}</strong><time>${escapeHtml(timestamp)}</time></div>${renderMessageText(message.text)}</div>`;
     })
     .join("");
   const typing = showTyping
@@ -1658,25 +1894,45 @@ function renderMentorContext() {
 
 function renderRoadmap() {
   const completion = getCompletion();
+  const query = normalize(document.getElementById("roadmapSearch")?.value);
+  const status = document.getElementById("roadmapStatusFilter")?.value || "all";
   document.getElementById("roadmapPercent").textContent = `${completion.percent}%`;
   document.getElementById("roadmapProgressBar").style.width = `${completion.percent}%`;
 
+  const remainingNodes = currentRole().nodes.filter((item) => !state.completed[item.id]);
+  const remainingWeeks = remainingNodes.reduce((sum, item) => sum + (Number.parseInt(item.duration, 10) || 0), 0);
+  document.getElementById("roadmapMeta").innerHTML = `<strong>${remainingNodes.length}</strong> milestones remaining · about <strong>${remainingWeeks}</strong> learning weeks`;
+  const priorityButton = document.getElementById("completeFirstPriority");
+  priorityButton.disabled = remainingNodes.length === 0;
+  priorityButton.innerHTML = remainingNodes.length
+    ? '<i data-lucide="check-check"></i> Mark first priority'
+    : '<i data-lucide="badge-check"></i> Roadmap complete';
+
   const phases = [...new Set(currentRole().nodes.map((item) => item.phase))];
-  document.getElementById("roadmapTree").innerHTML = phases
+  const phaseMarkup = phases
     .map((phase) => {
-      const nodes = currentRole().nodes.filter((item) => item.phase === phase);
+      const allPhaseNodes = currentRole().nodes.filter((item) => item.phase === phase);
+      const nodes = allPhaseNodes.filter((item) => {
+        const complete = Boolean(state.completed[item.id]);
+        const matchesStatus = status === "all" || (status === "complete" ? complete : !complete);
+        const searchable = normalize(`${item.title} ${item.skills.join(" ")} ${item.priority} ${item.phase}`);
+        return matchesStatus && (!query || searchable.includes(query));
+      });
+      if (!nodes.length) return "";
       const highCount = nodes.filter((item) => item.priority === "High").length;
+      const doneCount = allPhaseNodes.filter((item) => state.completed[item.id]).length;
       return `
         <div class="roadmap-phase">
           <div class="phase-title">
             <h3>${escapeHtml(phase)}</h3>
-            <span class="priority-badge">${highCount} high</span>
+            <span class="priority-badge">${doneCount}/${allPhaseNodes.length} done · ${highCount} high</span>
           </div>
           ${nodes.map(renderRoadmapNode).join("")}
         </div>
       `;
     })
     .join("");
+  document.getElementById("roadmapTree").innerHTML = phaseMarkup || '<div class="empty-state"><i data-lucide="search-x"></i><strong>No roadmap milestone matched</strong><span>Clear the search or change the status filter.</span></div>';
 
   document.querySelectorAll("[data-node-id]").forEach((checkbox) => {
     checkbox.addEventListener("change", async () => {
@@ -1689,13 +1945,17 @@ function renderRoadmap() {
       renderUsers();
     });
   });
+  refreshIcons();
 }
 
 function renderRoadmapNode(item) {
   const complete = Boolean(state.completed[item.id]);
   const priorityClass = normalize(item.priority);
+  const missing = new Set(getGap().missing.map(normalize));
+  const gapSkills = item.skills.filter((skill) => missing.has(normalize(skill)));
+  const reason = gapSkills.length ? `Closes gap: ${gapSkills.join(", ")}` : "Builds role evidence";
   const resources = item.resources
-    .map(([label, url]) => `<a href="${url}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`)
+    .map(([label, url]) => `<a href="${safeExternalUrl(url)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`)
     .join("");
   return `
     <article class="skill-node ${complete ? "complete" : ""} ${priorityClass}">
@@ -1704,6 +1964,7 @@ function renderRoadmapNode(item) {
         <div>
           <p class="node-title">${escapeHtml(item.title)}</p>
           <div class="node-meta">${escapeHtml(item.priority)} priority - ${escapeHtml(item.duration)} - ${escapeHtml(item.skills.join(", "))}</div>
+          <div class="node-reason"><i data-lucide="sparkles"></i> ${escapeHtml(reason)}</div>
         </div>
       </div>
       <div class="resource-links">${resources}</div>
@@ -1716,12 +1977,17 @@ function renderGap() {
   const gap = getGap();
   const percent = Math.round((gap.matched.length / gap.required.length) * 100);
   const missingByNode = getUrgentSkills();
-  const rows = gap.required
+  const reportFilter = document.getElementById("gapStatusFilter")?.value || "all";
+  const visibleSkills = gap.required.filter((skill) => {
+    const matched = gap.matched.includes(skill);
+    return reportFilter === "all" || (reportFilter === "matched" ? matched : !matched);
+  });
+  const rows = visibleSkills
     .map((skill) => {
       const matched = gap.matched.includes(skill);
       return {
         skill,
-        percent: matched ? 100 : 28,
+        percent: matched ? 100 : 0,
         color: matched ? "var(--green)" : "var(--red)"
       };
     })
@@ -1734,23 +2000,38 @@ function renderGap() {
     `)
     .join("");
 
+  const nextPriority = missingByNode.find((item) => !state.completed[item.id]);
+  document.getElementById("gapOverview").innerHTML = `
+    <article class="section-kpi"><span>Skill coverage</span><strong>${percent}%</strong><small>${gap.matched.length} of ${gap.required.length} role skills</small></article>
+    <article class="section-kpi"><span>Critical gaps</span><strong>${gap.missing.length}</strong><small>Skills still requiring evidence</small></article>
+    <article class="section-kpi"><span>Next learning action</span><strong>${escapeHtml(nextPriority?.title || "Build evidence")}</strong><small>${escapeHtml(nextPriority?.duration || "Portfolio review")}</small></article>
+  `;
+
   document.getElementById("gapReport").innerHTML = `
     <div class="gap-score">
-      <div class="score-box"><span>Readiness</span><strong>${percent}%</strong></div>
+      <div class="score-box"><span>Skill coverage</span><strong>${percent}%</strong></div>
       <div class="score-box"><span>Matched</span><strong>${gap.matched.length}</strong></div>
       <div class="score-box"><span>Missing</span><strong>${gap.missing.length}</strong></div>
     </div>
-    <div class="gap-bars">${rows}</div>
+    <div class="gap-bars">${rows || '<p class="empty-text">No skills match this report filter.</p>'}</div>
     <ol class="urgent-list">
       ${missingByNode.map((item) => `<li><strong>${escapeHtml(item.title)}</strong> - ${escapeHtml(item.skills.join(", "))}</li>`).join("") || "<li>No urgent missing skills for this role.</li>"}
     </ol>
   `;
+  document.getElementById("gapActionPlan").innerHTML = nextPriority
+    ? `<div><span>Recommended next</span><strong>${escapeHtml(nextPriority.title)}</strong><small>${escapeHtml(nextPriority.skills.join(", "))} · ${escapeHtml(nextPriority.duration)}</small></div><button class="primary-action" type="button" data-gap-open-roadmap><i data-lucide="arrow-right"></i> Continue in Roadmap</button>`
+    : `<div><span>Gap status</span><strong>Core skill requirements covered</strong><small>Use E-Portfolio to prove these skills with real project evidence.</small></div><button class="secondary-action" type="button" data-gap-open-portfolio><i data-lucide="briefcase-business"></i> Build evidence</button>`;
+  document.querySelector("[data-gap-open-roadmap]")?.addEventListener("click", () => activateSection("roadmap"));
+  document.querySelector("[data-gap-open-portfolio]")?.addEventListener("click", () => activateSection("portfolio"));
+  refreshIcons();
 }
 
 function renderSkillPicker() {
   const combined = [...new Set([...predefinedSkills, ...state.skills, ...currentRole().requiredSkills])];
   const owned = new Set(state.skills.map(normalize));
+  const query = normalize(document.getElementById("skillSearch")?.value);
   document.getElementById("skillPicker").innerHTML = combined
+    .filter((skill) => !query || normalize(skill).includes(query))
     .sort((a, b) => a.localeCompare(b))
     .map((skill) => `
       <label class="skill-pill">
@@ -1758,7 +2039,7 @@ function renderSkillPicker() {
         ${escapeHtml(skill)}
       </label>
     `)
-    .join("");
+    .join("") || '<p class="empty-text">No skill matched your search.</p>';
 
   document.querySelectorAll("#skillPicker input").forEach((checkbox) => {
     checkbox.addEventListener("change", async () => {
@@ -1780,71 +2061,80 @@ function renderSkillPicker() {
 }
 
 function applyMarketScan(scan) {
-  const bySkill = new Map(marketData.map((item) => [normalize(item.skill), item]));
-  scan.trends.forEach((trend) => {
-    const key = normalize(trend.skill);
-    const item = bySkill.get(key) || {
-      skill: trend.skill,
-      LinkedIn: 0,
-      TopCV: 0,
-      growth: 0
-    };
-    if (trend.source === "TopCV") item.TopCV = trend.frequency;
-    else item.LinkedIn = trend.frequency;
-    item.growth = trend.growth;
-    if (!bySkill.has(key)) {
-      marketData.push(item);
-      bySkill.set(key, item);
-    }
-  });
+  const aggregated = aggregateMarketTrends(scan.trends);
+  if (aggregated.length) marketData = aggregated;
   state.lastScan = scan.createdAt ? new Date(scan.createdAt).toLocaleString() : new Date().toLocaleString();
 }
 
 function renderMarket() {
   const select = document.getElementById("marketSource");
   const source = select.value || "all";
-  const data = marketData
+  const scope = document.getElementById("marketScope")?.value || "all";
+  const roleSkills = new Set(currentRole().requiredSkills.map(normalize));
+  const allData = marketData
     .map((item) => ({
       ...item,
       count: source === "all" ? item.LinkedIn + item.TopCV : item[source]
     }))
     .sort((a, b) => b.count - a.count);
+  const data = scope === "role" ? allData.filter((item) => roleSkills.has(normalize(item.skill))) : allData;
+  const totalMentions = data.reduce((sum, item) => sum + Number(item.count || 0), 0);
+  const allMentions = allData.reduce((sum, item) => sum + Number(item.count || 0), 0);
+  const roleMentions = allData.filter((item) => roleSkills.has(normalize(item.skill))).reduce((sum, item) => sum + Number(item.count || 0), 0);
+  document.getElementById("marketTotalMentions").textContent = totalMentions.toLocaleString();
+  document.getElementById("marketTopSkill").textContent = data[0]?.skill || "No matching skill";
+  document.getElementById("marketRoleMatch").textContent = `${Math.round((roleMentions / Math.max(1, allMentions)) * 100)}%`;
+  document.getElementById("marketLastScan").textContent = compactDateTime(state.lastScan);
 
   renderTrendCanvas(data, source);
   document.getElementById("trendList").innerHTML = data
     .map((item) => `
       <div class="trend-item">
-        <strong>${escapeHtml(item.skill)} <span>+${item.growth}%</span></strong>
+        <strong>${escapeHtml(item.skill)} <span class="${item.growth >= 0 ? "growth-up" : "growth-down"}">${formatGrowth(item.growth)}</span></strong>
         <span>${item.count} mentions from ${source === "all" ? "LinkedIn and TopCV" : source}</span>
       </div>
     `)
-    .join("");
+    .join("") || '<div class="empty-state compact"><i data-lucide="chart-no-axes-column-decreasing"></i><strong>No target-role trend yet</strong><span>Switch to Full market or run another demo scan.</span></div>';
+  refreshIcons();
 }
 
 function renderTrendCanvas(data, source) {
   const canvas = document.getElementById("trendChart");
   const rect = canvas.getBoundingClientRect();
   const ratio = window.devicePixelRatio || 1;
-  const width = Math.max(640, Math.floor(rect.width || 900));
-  const height = Math.max(360, Math.floor(rect.height || 420));
+  const width = Math.max(320, Math.floor(rect.width || 900));
+  const height = Math.max(width < 520 ? 320 : 360, Math.floor(rect.height || 420));
+  const css = getComputedStyle(document.documentElement);
+  const color = (name, fallback) => css.getPropertyValue(name).trim() || fallback;
+  const palette = {
+    surface: color("--surface", "#ffffff"),
+    line: color("--line", "#d9e3f2"),
+    ink: color("--ink", "#0b1f44"),
+    muted: color("--muted", "#687892"),
+    blue: color("--blue", "#155eef"),
+    green: color("--green", "#0c9b73"),
+    orange: color("--orange", "#ff7a1a"),
+    violet: color("--violet", "#7457e8")
+  };
   canvas.width = width * ratio;
   canvas.height = height * ratio;
   const ctx = canvas.getContext("2d");
   ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
   ctx.clearRect(0, 0, width, height);
-  ctx.fillStyle = "#fcfdff";
+  ctx.fillStyle = palette.surface;
   ctx.fillRect(0, 0, width, height);
 
-  const left = 66;
-  const right = 24;
+  const compact = width < 520;
+  const left = compact ? 44 : 66;
+  const right = compact ? 14 : 24;
   const top = 38;
-  const bottom = 68;
+  const bottom = compact ? 76 : 68;
   const chartWidth = width - left - right;
   const chartHeight = height - top - bottom;
   const max = Math.max(...data.map((item) => item.count), 1);
-  const barWidth = chartWidth / data.length - 16;
+  const barWidth = Math.max(12, chartWidth / data.length - (compact ? 8 : 16));
 
-  ctx.strokeStyle = "#d9e0ea";
+  ctx.strokeStyle = palette.line;
   ctx.lineWidth = 1;
   ctx.beginPath();
   ctx.moveTo(left, top);
@@ -1852,30 +2142,30 @@ function renderTrendCanvas(data, source) {
   ctx.lineTo(left + chartWidth, top + chartHeight);
   ctx.stroke();
 
-  ctx.fillStyle = "#172033";
-  ctx.font = "700 16px Segoe UI, Arial";
+  ctx.fillStyle = palette.ink;
+  ctx.font = `700 ${compact ? 14 : 16}px Segoe UI, Arial`;
   ctx.fillText(`Keyword frequency - ${source === "all" ? "all portals" : source}`, left, 22);
 
   data.forEach((item, index) => {
     const x = left + index * (chartWidth / data.length) + 8;
     const barHeight = (item.count / max) * (chartHeight - 16);
     const y = top + chartHeight - barHeight;
-    const color = index % 4 === 0 ? "#2563eb" : index % 4 === 1 ? "#0f8a5f" : index % 4 === 2 ? "#b7791f" : "#6d5bd0";
+    const barColor = index % 4 === 0 ? palette.blue : index % 4 === 1 ? palette.green : index % 4 === 2 ? palette.orange : palette.violet;
 
-    ctx.fillStyle = color;
+    ctx.fillStyle = barColor;
     roundRect(ctx, x, y, barWidth, barHeight, 7);
     ctx.fill();
 
-    ctx.fillStyle = "#172033";
-    ctx.font = "700 13px Segoe UI, Arial";
+    ctx.fillStyle = palette.ink;
+    ctx.font = `700 ${compact ? 11 : 13}px Segoe UI, Arial`;
     ctx.textAlign = "center";
     ctx.fillText(item.count, x + barWidth / 2, y - 8);
 
     ctx.save();
     ctx.translate(x + barWidth / 2, top + chartHeight + 14);
     ctx.rotate(-Math.PI / 5);
-    ctx.font = "12px Segoe UI, Arial";
-    ctx.fillStyle = "#475569";
+    ctx.font = `${compact ? 10 : 12}px Segoe UI, Arial`;
+    ctx.fillStyle = palette.muted;
     ctx.fillText(item.skill, 0, 0);
     ctx.restore();
   });
@@ -1918,7 +2208,8 @@ async function syncGitHub(username) {
           url: repo.html_url,
           language: repo.language || "Code",
           summary: summarizeRepo(repo, readme),
-          stack: detectStack(repo, readme)
+          stack: detectStack(repo, readme),
+          source: "github"
         };
       })
     );
@@ -2017,30 +2308,92 @@ function detectStack(repo, readme) {
   return stack.length ? stack.slice(0, 5) : ["README analysis"];
 }
 
+function portfolioAssessment(project) {
+  const text = normalize(`${project.name} ${project.summary} ${(project.stack || []).join(" ")}`);
+  const matchedSkills = currentRole().requiredSkills.filter((skill) => text.includes(normalize(skill)));
+  const evidence = [
+    ["Clear project story", String(project.summary || "").length >= 70],
+    ["Repository or demo link", Boolean(project.url && project.url !== "#")],
+    ["Testing evidence", /test|quality|coverage|detox|junit/i.test(text)],
+    ["Deployment evidence", /deploy|cloud|aws|firebase|docker|kubernetes|release/i.test(text)]
+  ];
+  const score = Math.min(
+    100,
+    matchedSkills.length * 14 +
+      (evidence[0][1] ? 20 : 8) +
+      (evidence[1][1] ? 15 : 0) +
+      (evidence[2][1] ? 12 : 0) +
+      (evidence[3][1] ? 12 : 0)
+  );
+  return {
+    score,
+    aligned: matchedSkills.length > 0 && score >= 45,
+    matchedSkills,
+    evidence,
+    missingEvidence: evidence.filter(([, done]) => !done).map(([label]) => label)
+  };
+}
+
 function renderPortfolio() {
   document.getElementById("githubUsername").value = state.github || "";
   document.getElementById("githubInputMentor").value = state.github || "";
   document.getElementById("portfolioUrl").textContent = portfolioUrl();
-  document.getElementById("portfolioGrid").innerHTML = normalizePortfolioProjects(state.portfolio)
-    .map((repo) => `
-      <article class="repo-card">
-        <h3>${escapeHtml(repo.name)}</h3>
-        <p>${escapeHtml(repo.summary)}</p>
-        <div class="repo-meta">
-          ${repo.stack.map((item) => `<span class="tech-pill">${escapeHtml(item)}</span>`).join("")}
+  const projects = normalizePortfolioProjects(state.portfolio);
+  const assessments = projects.map((project) => ({ project, assessment: portfolioAssessment(project) }));
+  const filter = document.getElementById("portfolioFilter")?.value || "all";
+  const filtered = assessments.filter(({ assessment }) => filter === "all" || (filter === "aligned" ? assessment.aligned : !assessment.aligned));
+  const verified = assessments.filter(({ project }) => project.source !== "demo");
+  const aligned = verified.filter(({ assessment }) => assessment.aligned);
+  const average = verified.length ? Math.round(verified.reduce((sum, item) => sum + item.assessment.score, 0) / verified.length) : 0;
+  document.getElementById("portfolioOverview").innerHTML = `
+    <article class="section-kpi"><span>Verified projects</span><strong>${verified.length}</strong><small>${projects.length - verified.length} demo placeholders excluded</small></article>
+    <article class="section-kpi"><span>Role-aligned</span><strong>${aligned.length}</strong><small>Projects matching ${escapeHtml(state.role)}</small></article>
+    <article class="section-kpi"><span>Evidence score</span><strong>${average}%</strong><small>Average verified project quality</small></article>
+  `;
+  document.getElementById("portfolioGrid").innerHTML = filtered
+    .map(({ project, assessment }) => `
+      <article class="repo-card ${project.source === "demo" ? "demo-project" : ""}">
+        <div class="repo-card-head">
+          <span class="source-badge ${escapeHtml(project.source)}">${escapeHtml(project.source === "github" ? "GitHub synced" : project.source === "manual" ? "Manual evidence" : "Demo placeholder")}</span>
+          <strong>${assessment.score}% match</strong>
         </div>
-        <a href="${repo.url}" target="_blank" rel="noreferrer">Open repository</a>
+        <h3>${escapeHtml(project.name)}</h3>
+        <p>${escapeHtml(project.summary)}</p>
+        <div class="repo-score"><span style="width:${assessment.score}%"></span></div>
+        <div class="repo-meta">
+          ${project.stack.map((item) => `<span class="tech-pill">${escapeHtml(item)}</span>`).join("")}
+        </div>
+        <div class="evidence-mini-list">
+          ${assessment.evidence.map(([label, done]) => `<span class="${done ? "done" : "missing"}"><i data-lucide="${done ? "check" : "minus"}"></i>${escapeHtml(label)}</span>`).join("")}
+        </div>
+        <div class="repo-actions">
+          ${project.url && project.url !== "#" ? `<a href="${safeExternalUrl(project.url)}" target="_blank" rel="noreferrer">Open repository</a>` : '<span class="muted-link">No repository link</span>'}
+          ${project.source === "manual" ? `<button class="mini-button danger" type="button" data-remove-project="${escapeHtml(project.id || project.name)}">Remove</button>` : ""}
+        </div>
       </article>
     `)
-    .join("");
+    .join("") || '<div class="empty-state"><i data-lucide="folder-search"></i><strong>No project matched this filter</strong><span>Add evidence manually or change the portfolio quality filter.</span></div>';
+
+  document.querySelectorAll("[data-remove-project]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      state.portfolio = normalizePortfolioProjects(state.portfolio).filter((project) => String(project.id || project.name) !== button.dataset.removeProject);
+      saveState();
+      renderPortfolio();
+      renderDashboard();
+      await apiOptional("/me/portfolio/sync", { method: "POST", body: { github: state.github, projects: state.portfolio } });
+      toast("Manual project removed.");
+    });
+  });
+  refreshIcons();
 }
 
 function portfolioUrl() {
   if (state.portfolioShareUrl) {
-    return state.portfolioShareUrl.startsWith("http") ? state.portfolioShareUrl : `https://${state.portfolioShareUrl}`;
+    if (state.portfolioShareUrl.startsWith("http")) return state.portfolioShareUrl;
+    if (state.portfolioShareUrl.startsWith("/")) return `${window.location.origin}${state.portfolioShareUrl}`;
   }
-  const handle = state.github || "anndh2";
-  return `https://se-career-compass.local/u/${encodeURIComponent(handle)}`;
+  const userId = state.user?.id || "acct-demo-student";
+  return `${window.location.origin}/portfolio.html?user=${encodeURIComponent(userId)}`;
 }
 
 function renderWorkspace() {
@@ -2052,6 +2405,15 @@ function renderWorkspace() {
     mentor: "Industry mentor portfolio board"
   };
   document.getElementById("workspaceTitle").textContent = labels[mode];
+  const visibleTasks = (state.tasks || []).filter((task) => mode === "student" || task.actor === mode || task.actor === "student");
+  const openTasks = visibleTasks.filter((task) => task.lane !== "Done").length;
+  const reviewTasks = visibleTasks.filter((task) => task.lane === "Review").length;
+  const openSessions = (state.sessions || []).filter((session) => session.status !== "Completed").length;
+  document.getElementById("workspaceOverview").innerHTML = `
+    <article class="section-kpi"><span>Open actions</span><strong>${openTasks}</strong><small>Visible in ${escapeHtml(labels[mode])}</small></article>
+    <article class="section-kpi"><span>Awaiting review</span><strong>${reviewTasks}</strong><small>Tasks ready for feedback</small></article>
+    <article class="section-kpi"><span>Mentor sessions</span><strong>${openSessions}</strong><small>Scheduled, active or pending notes</small></article>
+  `;
   renderTaskBoard(mode);
   renderNotes();
   renderWorkspaceSessions();
@@ -2085,9 +2447,19 @@ function renderTaskBoard(mode) {
       renderUsers();
     });
   });
+  document.querySelectorAll("[data-task-delete]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.tasks = (state.tasks || []).filter((task) => task.id !== button.dataset.taskDelete);
+      saveState();
+      renderWorkspace();
+      renderDashboard();
+      toast("Workspace task removed.");
+    });
+  });
 }
 
 function renderTaskCard(task) {
+  const next = nextLane(task.lane);
   return `
     <article class="task-card">
       <strong>${escapeHtml(task.title)}</strong>
@@ -2095,9 +2467,12 @@ function renderTaskCard(task) {
         <span>${escapeHtml(task.tag)}</span>
         <span>${escapeHtml(task.due)}</span>
       </div>
-      <button class="mini-button" data-task-move="${escapeHtml(task.id)}">
-        ${task.lane === "Done" ? "Reopen" : "Move"}
-      </button>
+      <div class="task-actions">
+        <button class="mini-button" data-task-move="${escapeHtml(task.id)}" aria-label="Move ${escapeHtml(task.title)} to ${escapeHtml(next)}">
+          ${task.lane === "Done" ? "Reopen" : `Move to ${escapeHtml(next)}`}
+        </button>
+        ${task.tag === "CUSTOM" ? `<button class="mini-button danger" data-task-delete="${escapeHtml(task.id)}" aria-label="Delete ${escapeHtml(task.title)}">Delete</button>` : ""}
+      </div>
     </article>
   `;
 }
@@ -2128,7 +2503,7 @@ function renderWorkspaceSessions() {
           <strong>${escapeHtml(session.role)}</strong>
           <span>${escapeHtml(session.topic)}</span>
         </div>
-        <select data-session-status="${index}">
+        <select data-session-status="${index}" data-session-id="${escapeHtml(session.id || "")}" aria-label="Status for ${escapeHtml(session.topic)}">
           ${["Scheduled", "Active", "Pending notes", "Completed"].map((status) => `<option value="${status}" ${session.status === status ? "selected" : ""}>${status}</option>`).join("")}
         </select>
       </div>
@@ -2136,13 +2511,19 @@ function renderWorkspaceSessions() {
     .join("");
 
   document.querySelectorAll("[data-session-status]").forEach((select) => {
-    select.addEventListener("change", () => {
+    select.addEventListener("change", async () => {
       const index = Number(select.dataset.sessionStatus);
       state.sessions[index].status = select.value;
       saveState();
       renderWorkspace();
       renderDashboard();
       renderUsers();
+      if (select.dataset.sessionId) {
+        await apiOptional(`/me/mentor-sessions/${encodeURIComponent(select.dataset.sessionId)}`, {
+          method: "PATCH",
+          body: { status: select.value }
+        });
+      }
     });
   });
 }
@@ -2170,27 +2551,46 @@ function renderPortfolioChecklist() {
 function renderResources() {
   const query = normalize(document.getElementById("resourceSearch").value);
   const level = document.getElementById("resourceLevel").value;
+  const provider = document.getElementById("resourceProvider").value;
+  const savedOnly = document.getElementById("savedResourcesOnly").checked;
   const role = state.role;
+  const missing = new Set(getGap().missing.map(normalize));
+  const bookmarks = new Set(state.bookmarks || []);
+  const completed = new Set(state.completedResources || []);
   const filtered = resourceCatalog.filter((item) => {
     const matchesRole = item.role === role || currentRole().requiredSkills.includes(item.skill);
     const matchesLevel = level === "all" || item.level === level;
+    const matchesProvider = provider === "all" || item.provider === provider;
+    const matchesSaved = !savedOnly || bookmarks.has(item.id);
     const text = normalize(`${item.title} ${item.skill} ${item.provider} ${item.description} ${item.role}`);
-    return matchesRole && matchesLevel && (!query || text.includes(query));
+    return matchesRole && matchesLevel && matchesProvider && matchesSaved && (!query || text.includes(query));
+  }).sort((a, b) => {
+    const aRecommended = missing.has(normalize(a.skill)) ? 1 : 0;
+    const bRecommended = missing.has(normalize(b.skill)) ? 1 : 0;
+    if (aRecommended !== bRecommended) return bRecommended - aRecommended;
+    const aSaved = bookmarks.has(a.id) ? 1 : 0;
+    const bSaved = bookmarks.has(b.id) ? 1 : 0;
+    return bSaved - aSaved || a.title.localeCompare(b.title);
   });
+
+  const savedInResults = filtered.filter((item) => bookmarks.has(item.id)).length;
+  const completeInResults = filtered.filter((item) => completed.has(item.id)).length;
 
   document.getElementById("resourceSummary").innerHTML = `
     <strong>${filtered.length}</strong> resources matched for <strong>${escapeHtml(role)}</strong>.
-    <span>${(state.bookmarks || []).length} bookmarked for this student.</span>
+    <span>${savedInResults} saved · ${completeInResults} completed · gap-first recommendations</span>
   `;
 
   document.getElementById("resourceGrid").innerHTML = filtered
     .map((item) => {
       const bookmarked = (state.bookmarks || []).includes(item.id);
+      const isCompleted = completed.has(item.id);
+      const recommended = missing.has(normalize(item.skill));
       return `
-        <article class="resource-card">
+        <article class="resource-card ${isCompleted ? "completed" : ""} ${recommended ? "recommended" : ""}">
           <div class="resource-head">
-            <span>${escapeHtml(item.level)}</span>
-            <button class="mini-button ${bookmarked ? "selected" : ""}" data-bookmark="${escapeHtml(item.id)}">
+            <div class="resource-badges"><span>${escapeHtml(item.level)}</span>${recommended ? '<span class="recommended-badge">Recommended gap</span>' : ""}</div>
+            <button class="mini-button ${bookmarked ? "selected" : ""}" data-bookmark="${escapeHtml(item.id)}" aria-pressed="${bookmarked}">
               ${bookmarked ? "Saved" : "Save"}
             </button>
           </div>
@@ -2200,11 +2600,16 @@ function renderResources() {
             <span class="tech-pill">${escapeHtml(item.skill)}</span>
             <span class="tech-pill">${escapeHtml(item.provider)}</span>
           </div>
-          <a href="${item.url}" target="_blank" rel="noreferrer">Open resource</a>
+          <div class="resource-actions">
+            <a href="${safeExternalUrl(item.url)}" target="_blank" rel="noreferrer">Open resource</a>
+            <button class="mini-button ${isCompleted ? "selected" : ""}" type="button" data-resource-complete="${escapeHtml(item.id)}">${isCompleted ? "Completed" : "Mark complete"}</button>
+          </div>
         </article>
       `;
     })
-    .join("");
+    .join("") || '<div class="empty-state"><i data-lucide="book-open-check"></i><strong>No learning resource matched</strong><span>Clear filters or choose another level/resource type.</span><button class="secondary-action" type="button" data-clear-resource-filters>Clear filters</button></div>';
+
+  document.querySelector("[data-clear-resource-filters]")?.addEventListener("click", () => document.getElementById("resetResourceFilters").click());
 
   document.querySelectorAll("[data-bookmark]").forEach((button) => {
     button.addEventListener("click", async () => {
@@ -2226,12 +2631,46 @@ function renderResources() {
         saveState();
         renderResources();
         renderUsers();
+      } else {
+        toast("Bookmark saved in the local demo cache.");
       }
     });
   });
+
+  document.querySelectorAll("[data-resource-complete]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const id = button.dataset.resourceComplete;
+      const next = new Set(state.completedResources || []);
+      const isCompleted = !next.has(id);
+      if (isCompleted) next.add(id);
+      else next.delete(id);
+      state.completedResources = [...next];
+      saveState();
+      renderResources();
+      const payload = await apiOptional("/me/resource-progress", {
+        method: "PUT",
+        body: { resourceId: id, completed: isCompleted }
+      });
+      if (payload && Array.isArray(payload.completedResources)) {
+        state.completedResources = payload.completedResources;
+        saveState();
+        renderResources();
+      }
+    });
+  });
+  refreshIcons();
 }
 
 function renderSpec() {
+  const implemented = traceabilityItems.filter((item) => item.status === "Implemented").length;
+  const prototype = traceabilityItems.filter((item) => item.status === "Prototype").length;
+  const coverage = Math.round((implemented / Math.max(1, traceabilityItems.length)) * 100);
+  document.getElementById("specOverview").innerHTML = `
+    <article class="section-kpi"><span>Requirement coverage</span><strong>${coverage}%</strong><small>${implemented} of ${traceabilityItems.length} marked implemented</small></article>
+    <article class="section-kpi"><span>Prototype adapters</span><strong>${prototype}</strong><small>LLM, README analysis and market data</small></article>
+    <article class="section-kpi"><span>Backend endpoints</span><strong>${apiInventory.length}</strong><small>Public and authenticated API groups</small></article>
+    <article class="section-kpi"><span>Acceptance tests</span><strong>${acceptanceTests.length}</strong><small>Core demo flows and responsive QA</small></article>
+  `;
   document.getElementById("frMatrix").innerHTML = `
     <table>
       <thead><tr><th>ID</th><th>Requirement</th><th>Demo surface</th><th>Status</th></tr></thead>
@@ -2256,6 +2695,25 @@ function renderSpec() {
   document.getElementById("modelMap").innerHTML = entityModel.map(([entity, text]) => `
     <div class="model-row"><strong>${escapeHtml(entity)}</strong><span>${escapeHtml(text)}</span></div>
   `).join("");
+  document.getElementById("specArchitecture").innerHTML = architectureStages
+    .map(([label, stack, responsibility], index) => `
+      <div class="architecture-node">
+        <span>${String(index + 1).padStart(2, "0")}</span>
+        <div><strong>${escapeHtml(label)}</strong><b>${escapeHtml(stack)}</b><small>${escapeHtml(responsibility)}</small></div>
+      </div>
+      ${index < architectureStages.length - 1 ? '<i class="architecture-arrow" data-lucide="arrow-down"></i>' : ""}
+    `)
+    .join("");
+  document.getElementById("acceptanceMatrix").innerHTML = acceptanceTests
+    .map(([id, feature, criterion, status]) => `
+      <div class="acceptance-item">
+        <span>${escapeHtml(id)}</span>
+        <div><strong>${escapeHtml(feature)}</strong><small>${escapeHtml(criterion)}</small></div>
+        <b>${escapeHtml(status)}</b>
+      </div>
+    `)
+    .join("");
+  refreshIcons();
 }
 
 function renderUsers() {
@@ -2341,10 +2799,14 @@ function renderUsers() {
     .join("");
 }
 
-function exportGapReport() {
-  const gap = getGap();
+async function exportGapReport() {
+  const payload = await apiOptional("/me/skill-gap/report", {
+    method: "POST",
+    body: { targetRole: state.role, skills: state.skills }
+  });
+  const gap = payload?.gap || getGap();
   const completion = getCompletion();
-  const urgent = getUrgentSkills();
+  const urgent = payload?.urgentPriorities || getUrgentSkills();
   const report = window.open("", "_blank", "width=900,height=720");
   if (!report) {
     toast("Popup blocked. Use browser print on the Skill Gap page.");
@@ -2367,7 +2829,7 @@ function exportGapReport() {
       </head>
       <body>
         <h1>Skill Gap Report</h1>
-        <p>Student: AnNDH2 | Target role: ${escapeHtml(state.role)} | Generated: ${new Date().toLocaleString()}</p>
+        <p>Student: ${escapeHtml(state.user?.name || "SE Student")} | Target role: ${escapeHtml(state.role)} | Generated: ${new Date(payload?.generatedAt || Date.now()).toLocaleString()}</p>
         <div class="metric"><strong>${completion.percent}%</strong><br>Roadmap progress</div>
         <div class="metric"><strong>${gap.matched.length}</strong><br>Matched skills</div>
         <div class="metric"><strong>${gap.missing.length}</strong><br>Missing skills</div>
@@ -2378,7 +2840,7 @@ function exportGapReport() {
         </table>
         <h2>Urgent Learning Priority</h2>
         <ol>
-          ${urgent.map((item) => `<li>${escapeHtml(item.title)} - ${escapeHtml(item.duration)}</li>`).join("")}
+          ${urgent.map((item) => `<li>${escapeHtml(item.title || item.skill || "Learning priority")} - ${escapeHtml(item.duration || item.priority || "Review roadmap")}</li>`).join("")}
         </ol>
       </body>
     </html>
@@ -2425,6 +2887,13 @@ function exportSpec() {
         <table>
           <tr><th>Entity</th><th>Description</th></tr>
           ${entityModel.map(([entity, text]) => `<tr><td>${escapeHtml(entity)}</td><td>${escapeHtml(text)}</td></tr>`).join("")}
+        </table>
+        <h2>Runtime Architecture</h2>
+        <ol>${architectureStages.map(([label, stack, responsibility]) => `<li><strong>${escapeHtml(label)}:</strong> ${escapeHtml(stack)} - ${escapeHtml(responsibility)}</li>`).join("")}</ol>
+        <h2>Acceptance Checklist</h2>
+        <table>
+          <tr><th>ID</th><th>Feature</th><th>Acceptance criterion</th><th>Status</th></tr>
+          ${acceptanceTests.map(([id, feature, criterion, status]) => `<tr><td>${escapeHtml(id)}</td><td>${escapeHtml(feature)}</td><td>${escapeHtml(criterion)}</td><td>${escapeHtml(status)}</td></tr>`).join("")}
         </table>
       </body>
     </html>

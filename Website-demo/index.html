@@ -71,14 +71,32 @@
       </aside>
 
       <main class="workspace">
+        <section class="career-success-banner" aria-label="Career success learning sprint">
+          <div class="success-banner-copy">
+            <span class="success-banner-kicker">Career Success 2026</span>
+            <strong>Turn every learning milestone into internship-ready evidence.</strong>
+            <span>Assess your gaps, follow a focused roadmap, and tell a stronger portfolio story.</span>
+          </div>
+          <div class="success-banner-steps" aria-label="Three-step learning journey">
+            <span><b>01</b> Assess</span>
+            <span><b>02</b> Learn</span>
+            <span><b>03</b> Prove</span>
+          </div>
+          <button class="success-banner-action" type="button" data-jump="roadmap">
+            Start my roadmap
+            <i data-lucide="arrow-up-right"></i>
+          </button>
+        </section>
+
         <header class="topbar">
           <div>
-            <p class="eyebrow">Submitted by AnNDH2</p>
-            <h1>Personalized Career Orientation & Learning Roadmap Platform</h1>
+            <p class="eyebrow">Personalized career learning platform</p>
+            <h1>Build your software engineering career, one milestone at a time.</h1>
+            <p class="topbar-subtitle">A personalized career orientation and learning roadmap workspace for Software Engineering students.</p>
             <div class="topbar-meta">
-              <span><i data-lucide="shield-check"></i> Demo build</span>
-              <span><i data-lucide="database-zap"></i> Local persistence</span>
-              <span><i data-lucide="sparkles"></i> AI-ready flows</span>
+              <span><i data-lucide="route"></i> Personalized roadmap</span>
+              <span><i data-lucide="chart-no-axes-combined"></i> Progress tracking</span>
+              <span><i data-lucide="sparkles"></i> AI mentor support</span>
             </div>
           </div>
           <div class="profile-controls">
@@ -109,7 +127,7 @@
           <div class="dashboard-grid">
             <article class="hero-panel">
               <div class="hero-copy">
-                <p class="eyebrow">Student workspace</p>
+                <p class="eyebrow">Your career command center</p>
                 <h2 id="dashboardRoleTitle">Cloud Architect readiness plan</h2>
                 <p id="dashboardLead">
                   A focused path from current skills to internship-ready evidence.
@@ -156,9 +174,9 @@
               <small>Evidence aligned to target role</small>
             </article>
             <article class="metric-card">
-              <span>Mentor actions</span>
+              <span>Open actions</span>
               <strong id="metricMentorActions">0</strong>
-              <small>Open review and counseling items</small>
+              <small>Learning tasks and review sessions</small>
             </article>
           </div>
 
@@ -178,29 +196,18 @@
 
             <article class="panel">
               <div class="panel-title">
-                <i data-lucide="handshake"></i>
-                <h3>Actors</h3>
+                <i data-lucide="gauge"></i>
+                <h3>Career Momentum</h3>
               </div>
-              <div class="actor-list">
-                <div><img src="assets/student-avatar.png" alt="Student" /><span>SE Student</span></div>
-                <div><img src="assets/counselor-avatar.png" alt="Academic counselor" /><span>Academic Counselor</span></div>
-                <div><img src="assets/mentor-avatar.png" alt="Industry mentor" /><span>Industry Mentor</span></div>
-              </div>
+              <div class="dashboard-signal-list" id="dashboardMomentum"></div>
             </article>
 
             <article class="panel">
               <div class="panel-title">
-                <i data-lucide="database"></i>
-                <h3>Main Entities</h3>
+                <i data-lucide="briefcase-business"></i>
+                <h3>Evidence Health</h3>
               </div>
-              <div class="entity-cloud">
-                <span>Student Profile</span>
-                <span>Tech Path</span>
-                <span>Skill Node</span>
-                <span>Course Repo</span>
-                <span>Job Trend</span>
-                <span>Mentor Session</span>
-              </div>
+              <div class="dashboard-signal-list" id="dashboardEvidence"></div>
             </article>
           </div>
 
@@ -267,7 +274,7 @@
               </div>
               <div class="chat-feed" id="chatFeed" aria-live="polite"></div>
               <form class="chat-form" id="chatForm">
-                <input id="chatInput" type="text" placeholder="Nhập câu hỏi: lộ trình, kỹ năng thiếu, portfolio, thực tập..." autocomplete="off" />
+                <input id="chatInput" type="text" placeholder="Nhập câu hỏi: lộ trình, kỹ năng thiếu, portfolio, thực tập..." autocomplete="off" aria-label="Câu hỏi dành cho AI Mentor" />
                 <button class="primary-action" type="submit">
                   <i data-lucide="send"></i>
                   Send
@@ -278,7 +285,8 @@
             <aside class="context-panel">
               <h3>Personalization sources</h3>
               <label class="field-label" for="transcriptFile">Transcript file</label>
-              <input id="transcriptFile" type="file" accept=".txt,.csv,.pdf,.doc,.docx" />
+              <input id="transcriptFile" type="file" accept=".txt,.csv,text/plain,text/csv" />
+              <small class="field-help">TXT or CSV, maximum 2 MB. PDF/DOCX parsing requires a dedicated backend parser.</small>
               <div class="mini-status" id="transcriptStatus">No transcript uploaded</div>
 
               <label class="field-label" for="gpaInput">Current GPA</label>
@@ -313,6 +321,21 @@
               </button>
             </div>
           </div>
+          <div class="feature-toolbar" aria-label="Roadmap filters">
+            <label class="compact-field" for="roadmapSearch">
+              <span>Find a milestone</span>
+              <input id="roadmapSearch" type="search" placeholder="Search skill or milestone" />
+            </label>
+            <label class="compact-field" for="roadmapStatusFilter">
+              <span>Status</span>
+              <select id="roadmapStatusFilter">
+                <option value="all">All milestones</option>
+                <option value="open">To do</option>
+                <option value="complete">Completed</option>
+              </select>
+            </label>
+            <div class="toolbar-summary" id="roadmapMeta">0 milestones remaining</div>
+          </div>
           <div class="roadmap-summary">
             <div>
               <span>Overall completion</span>
@@ -329,18 +352,44 @@
               <p class="eyebrow">FR3 Skill Gap Analysis</p>
               <h2>Current skills vs target role</h2>
             </div>
-            <button class="primary-action" id="exportGapReport">
-              <i data-lucide="file-down"></i>
-              Save PDF report
+            <div class="inline-actions">
+              <button class="secondary-action" id="saveSkillAssessment">
+                <i data-lucide="save"></i>
+                Save assessment
+              </button>
+              <button class="primary-action" id="exportGapReport">
+                <i data-lucide="printer"></i>
+                Print / Save as PDF
+              </button>
+            </div>
+          </div>
+
+          <div class="feature-toolbar" aria-label="Skill gap filters">
+            <label class="compact-field" for="skillSearch">
+              <span>Find a skill</span>
+              <input id="skillSearch" type="search" placeholder="Search current or required skill" />
+            </label>
+            <label class="compact-field" for="gapStatusFilter">
+              <span>Report view</span>
+              <select id="gapStatusFilter">
+                <option value="all">All required skills</option>
+                <option value="missing">Missing only</option>
+                <option value="matched">Matched only</option>
+              </select>
+            </label>
+            <button class="secondary-action toolbar-action" type="button" data-jump="roadmap">
+              <i data-lucide="route"></i>
+              Open learning plan
             </button>
           </div>
+          <div class="section-kpi-grid" id="gapOverview"></div>
 
           <div class="gap-layout">
             <article class="panel">
               <h3>Current technical skills</h3>
               <div class="skill-picker" id="skillPicker"></div>
               <form class="add-skill" id="addSkillForm">
-                <input id="customSkill" type="text" placeholder="Add another skill" />
+                <input id="customSkill" type="text" placeholder="Add another skill" aria-label="Add another technical skill" />
                 <button class="secondary-action" type="submit">
                   <i data-lucide="plus"></i>
                   Add
@@ -350,6 +399,7 @@
             <article class="panel">
               <h3>Gap report</h3>
               <div id="gapReport"></div>
+              <div class="action-plan" id="gapActionPlan"></div>
             </article>
           </div>
         </section>
@@ -366,17 +416,31 @@
             </button>
           </div>
 
+          <div class="section-kpi-grid market-kpis" aria-label="Market pulse summary">
+            <article class="section-kpi"><span>Total mentions</span><strong id="marketTotalMentions">0</strong><small>Current filtered dataset</small></article>
+            <article class="section-kpi"><span>Top market skill</span><strong id="marketTopSkill">-</strong><small>Highest current demand</small></article>
+            <article class="section-kpi"><span>Role relevance</span><strong id="marketRoleMatch">0%</strong><small>Trends matching your role</small></article>
+            <article class="section-kpi"><span>Last scan</span><strong id="marketLastScan">Not run</strong><small>Simulated LinkedIn + TopCV data</small></article>
+          </div>
+
           <div class="market-grid">
             <article class="panel chart-panel">
               <div class="chart-header">
                 <h3>Keyword frequency</h3>
-                <select id="marketSource">
-                  <option value="all">All portals</option>
-                  <option value="LinkedIn">LinkedIn</option>
-                  <option value="TopCV">TopCV</option>
-                </select>
+                <div class="chart-filters">
+                  <select id="marketScope" aria-label="Market skill scope">
+                    <option value="all">Full market</option>
+                    <option value="role">Target role only</option>
+                  </select>
+                  <select id="marketSource" aria-label="Job portal source">
+                    <option value="all">All portals</option>
+                    <option value="LinkedIn">LinkedIn</option>
+                    <option value="TopCV">TopCV</option>
+                  </select>
+                </div>
               </div>
-              <canvas id="trendChart" width="900" height="420" aria-label="Skill trend chart"></canvas>
+              <canvas id="trendChart" width="900" height="420" aria-label="Skill trend chart" aria-describedby="marketDataNote"></canvas>
+              <p class="data-disclaimer" id="marketDataNote">Demo intelligence dataset. The trending technologies list provides the same values in text; production should connect approved job-market APIs or scheduled data pipelines.</p>
             </article>
             <article class="panel">
               <h3>Trending technologies</h3>
@@ -397,6 +461,8 @@
             </button>
           </div>
 
+          <div class="section-kpi-grid" id="portfolioOverview"></div>
+
           <div class="portfolio-tools">
             <label for="githubUsername">GitHub username</label>
             <input id="githubUsername" type="text" placeholder="octocat" />
@@ -406,6 +472,27 @@
             </button>
             <span id="portfolioUrl">se-career-compass.local/u/student</span>
           </div>
+          <div class="feature-toolbar portfolio-filter-bar">
+            <label class="compact-field" for="portfolioFilter">
+              <span>Portfolio quality</span>
+              <select id="portfolioFilter">
+                <option value="all">All projects</option>
+                <option value="aligned">Role-aligned</option>
+                <option value="needs-evidence">Needs evidence</option>
+              </select>
+            </label>
+            <div class="toolbar-summary">Each project is scored against the selected role and evidence quality.</div>
+          </div>
+          <details class="manual-project-panel">
+            <summary><i data-lucide="plus-circle"></i> Add a project manually</summary>
+            <form class="manual-project-form" id="manualProjectForm">
+              <input id="manualProjectName" type="text" placeholder="Project name" required />
+              <input id="manualProjectStack" type="text" placeholder="Stack, comma separated" required />
+              <input id="manualProjectUrl" type="url" placeholder="https://github.com/... (optional)" />
+              <input id="manualProjectSummary" type="text" placeholder="What problem did this project solve?" required />
+              <button class="primary-action" type="submit"><i data-lucide="plus"></i> Add evidence</button>
+            </form>
+          </details>
           <div class="portfolio-grid" id="portfolioGrid"></div>
         </section>
 
@@ -416,7 +503,7 @@
               <h2>Student, counselor, and mentor operations</h2>
             </div>
             <div class="inline-actions">
-              <select id="actorMode">
+              <select id="actorMode" aria-label="Preview workspace as actor">
                 <option value="student">SE Student</option>
                 <option value="counselor">Academic Counselor</option>
                 <option value="mentor">Industry Mentor</option>
@@ -428,15 +515,27 @@
             </div>
           </div>
 
+          <div class="section-kpi-grid" id="workspaceOverview"></div>
+
           <div class="workspace-grid">
             <article class="panel">
               <h3 id="workspaceTitle">Student action board</h3>
+              <form class="task-create-form" id="taskForm">
+                <input id="taskTitleInput" type="text" placeholder="Add a concrete career action" required />
+                <select id="taskLaneInput" aria-label="Initial task lane">
+                  <option value="To do">To do</option>
+                  <option value="Doing">Doing</option>
+                  <option value="Review">Review</option>
+                </select>
+                <input id="taskDueInput" type="text" placeholder="Due: e.g. Friday" />
+                <button class="secondary-action" type="submit"><i data-lucide="plus"></i> Add task</button>
+              </form>
               <div class="kanban-board" id="taskBoard"></div>
             </article>
             <article class="panel">
               <h3>Advising notes</h3>
               <form class="note-form" id="noteForm">
-                <input id="noteInput" type="text" placeholder="Add advising note" />
+                <input id="noteInput" type="text" placeholder="Add advising note" aria-label="New advising note" />
                 <button class="secondary-action" type="submit">
                   <i data-lucide="plus"></i>
                   Add note
@@ -465,13 +564,24 @@
               <h2>Curated learning resources</h2>
             </div>
             <div class="resource-controls">
-              <input id="resourceSearch" type="search" placeholder="Search resource, skill, provider" />
-              <select id="resourceLevel">
+              <input id="resourceSearch" type="search" placeholder="Search resource, skill, provider" aria-label="Search learning resources" />
+              <select id="resourceLevel" aria-label="Resource level">
                 <option value="all">All levels</option>
                 <option value="Foundation">Foundation</option>
                 <option value="Intermediate">Intermediate</option>
                 <option value="Portfolio">Portfolio</option>
               </select>
+              <select id="resourceProvider" aria-label="Resource type">
+                <option value="all">All resource types</option>
+                <option value="Course">Courses</option>
+                <option value="Documentation">Documentation</option>
+                <option value="GitHub">GitHub repositories</option>
+              </select>
+              <label class="inline-check" for="savedResourcesOnly">
+                <input id="savedResourcesOnly" type="checkbox" />
+                Saved only
+              </label>
+              <button class="secondary-action" id="resetResourceFilters" type="button">Reset</button>
             </div>
           </div>
           <div class="resource-summary" id="resourceSummary"></div>
@@ -489,6 +599,8 @@
               Print spec
             </button>
           </div>
+
+          <div class="section-kpi-grid" id="specOverview"></div>
 
           <div class="spec-grid">
             <article class="panel">
@@ -509,6 +621,17 @@
             <article class="panel">
               <h3>Logical data model</h3>
               <div class="model-map" id="modelMap"></div>
+            </article>
+          </div>
+
+          <div class="content-grid two">
+            <article class="panel">
+              <div class="panel-title"><i data-lucide="network"></i><h3>Runtime architecture</h3></div>
+              <div class="architecture-flow" id="specArchitecture"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-title"><i data-lucide="list-checks"></i><h3>Acceptance checklist</h3></div>
+              <div class="acceptance-grid" id="acceptanceMatrix"></div>
             </article>
           </div>
         </section>
@@ -578,7 +701,8 @@
       </main>
     </div>
 
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="assets/lucide.min.js"></script>
     <script src="app.js"></script>
+    <script src="dashboard.js"></script>
   </body>
 </html>
