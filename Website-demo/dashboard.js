@@ -1,10 +1,3 @@
-// dashboard.js
-// Tách từ app.js: toàn bộ logic render Dashboard (trang tổng quan) của SE Career Compass.
-// File này phụ thuộc vào các biến/hàm dùng chung khai báo trong app.js:
-//   state, getCompletion, getGap, normalizePortfolioProjects, portfolioAssessment,
-//   activateSection, getUrgentSkills, escapeHtml, refreshIcons, currentRole, normalize
-// => Phải nạp SAU app.js (hoặc bất kỳ file định nghĩa các hàm/biến trên) trong index.html.
-
 function renderDashboard() {
   const completion = getCompletion();
   const gap = getGap();

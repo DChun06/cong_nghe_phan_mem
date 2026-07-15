@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "check": "node --check server.js && node --check app.js && node --check login.js"
+    "check": "node --check server.js && node --check app.js && node --check login.js && node --check portfolio-public.js"
   },
   "engines": {
     "node": ">=18"
@@ -16,9 +16,5 @@
     "nodejs",
     "student-portfolio"
   ],
-  "license": "MIT",
-  "dependencies": {
-    "cors": "^2.8.6",
-    "express": "^5.2.1"
-  }
+  "license": "MIT"
 }

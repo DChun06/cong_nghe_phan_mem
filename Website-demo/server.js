@@ -3,29 +3,14 @@ const fs = require("fs/promises");
 const http = require("http");
 const path = require("path");
 const { URL } = require("url");
-const express = require("express");
-const cors = require("cors");
 
 
 const HOST = process.env.HOST || (process.env.PORT ? "0.0.0.0" : "127.0.0.1");
-const PORT = Number(process.env.PORT || 3000);
+const PORT = Number(process.env.PORT || 4173);
 const ROOT_DIR = __dirname;
 const DATA_DIR = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : path.join(ROOT_DIR, "data");
 const DB_FILE = process.env.DB_FILE ? path.resolve(process.env.DB_FILE) : path.join(DATA_DIR, "db.json");
 const SESSION_TTL_MS = 1000 * 60 * 60 * 24 * 7;
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-app.get("/api/health", (req, res) => {
-  res.json({
-    ok: true,
-    message: "Backend is running on Vercel"
-  });
-});
-
-// API login/register/user của bạn đặt ở đây
 
 // API login/register/user của bạn đặt ở đây
 const DEMO_ACCOUNT = {
@@ -56,15 +41,15 @@ const CONTENT_TYPES = {
   ".css": "text/css; charset=utf-8",
   ".html": "text/html; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
-  ".json": "application/json; charset=utf-8",
   ".png": "image/png",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
   ".svg": "image/svg+xml",
-  ".ico": "image/x-icon",
-  ".bat": "text/plain; charset=utf-8",
-  ".md": "text/markdown; charset=utf-8"
+  ".ico": "image/x-icon"
 };
+
+const STATIC_FILES = new Set(["login.html", "index.html", "portfolio.html", "styles.css", "app.js", "login.js", "portfolio-public.js"]);
+const STATIC_ASSET_TYPES = new Set([".js", ".png", ".jpg", ".jpeg", ".svg", ".ico"]);
 
 const TOPIC_SPEC = {
   projectName: "Personalized Career Orientation & Learning Roadmap Platform for Software Engineering Students",
@@ -294,10 +279,12 @@ function defaultStudentState(user) {
         name: "student-roadmap-api",
         techStack: ["Node.js", "REST API", "JSON DB"],
         summary: "Backend API demonstrating authentication, roadmap state, and portfolio records.",
-        url: "https://github.com/example/student-roadmap-api"
+        url: "https://github.com/example/student-roadmap-api",
+        source: "demo"
       }
     ],
     bookmarks: [],
+    completedResources: [],
     mentorSessions: [
       {
         id: "session-counselor-1",
@@ -328,6 +315,14 @@ function ensureStudentState(db, user) {
     state = defaultStudentState(user);
     db.studentStates.push(state);
   }
+  state.bookmarks = Array.isArray(state.bookmarks) ? state.bookmarks : [];
+  state.completedResources = Array.isArray(state.completedResources) ? state.completedResources : [];
+  state.chatHistory = Array.isArray(state.chatHistory) ? state.chatHistory : [];
+  state.portfolio = (Array.isArray(state.portfolio) ? state.portfolio : []).map((project) => ({
+    ...project,
+    source: project.source || (/github\.com\/(?:sample|example)\//i.test(project.url || "") ? "demo" : project.url ? "github" : "manual")
+  }));
+  state.mentorSessions = Array.isArray(state.mentorSessions) ? state.mentorSessions : [];
   return state;
 }
 
@@ -372,17 +367,32 @@ function getUrgentPriorities(role, missingSkills) {
 function buildMentorReply(state, question) {
   const role = state.profile.targetRole;
   const gap = getSkillGap(role, state.skills);
-  const priorities = getUrgentPriorities(role, gap.missing)
-    .slice(0, 3)
-    .map((item) => item.title)
-    .join(", ");
-  return [
-    `For ${role}, your strongest current evidence is ${gap.matched.length}/${gap.required.length} required skills.`,
-    gap.missing.length
-      ? `Focus next on: ${priorities || gap.missing.slice(0, 3).join(", ")}.`
-      : "You currently match the core skill baseline; shift effort toward portfolio proof.",
-    `Question received: ${question}`
-  ].join(" ");
+  const priorities = getUrgentPriorities(role, gap.missing).slice(0, 4);
+  const completion = getCompletion(role, state.completedNodes);
+  const key = String(question || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+  const hasAny = (terms) => terms.some((term) => key.includes(term));
+  const missingText = gap.missing.slice(0, 4).join(", ") || "không còn skill gap nền tảng";
+  const priorityText = priorities.map((item, index) => `${index + 1}. ${item.title} (${item.duration})`).join("; ") || "chuyển trọng tâm sang portfolio evidence";
+  const verifiedProjects = state.portfolio.filter((project) => project.source !== "demo").length;
+  const gpa = Number(state.profile.gpa || 0).toFixed(2);
+
+  if (hasAny(["portfolio", "du an", "project", "readme"])) {
+    return `Với target **${role}**, bạn đang có **${verifiedProjects} project đã xác minh**. Hãy ưu tiên một project chứng minh ${missingText}. README nên có problem, kiến trúc, lựa chọn công nghệ, test/deployment evidence và phần reflection về trade-off.`;
+  }
+  if (hasAny(["lo trinh", "roadmap", "4 tuan", "hoc gi", "ke hoach"])) {
+    return `Roadmap **${role}** hiện hoàn thành **${completion.percent}%**. Kế hoạch ưu tiên: ${priorityText}. Mỗi tuần chỉ chọn một milestone và kết thúc bằng commit, README, screenshot hoặc demo link.`;
+  }
+  if (hasAny(["thieu", "skill gap", "ky nang", "uu tien"])) {
+    return `Bạn đang match **${gap.matched.length}/${gap.required.length}** kỹ năng của **${role}**. Gap chính: **${missingText}**. Hành động kế tiếp: ${priorityText}. Hãy lưu một assessment snapshot sau khi cập nhật bằng chứng kỹ năng.`;
+  }
+  if (hasAny(["github", "cv", "thuc tap", "intern", "phong van", "viec lam"])) {
+    const githubState = state.profile.github ? `đã liên kết GitHub **${state.profile.github}**` : "chưa liên kết GitHub";
+    return `Để chuẩn bị thực tập **${role}**, bạn ${githubState}, GPA hiện tại **${gpa}**. Ưu tiên đóng 2-3 gap (${missingText}), pin 2-3 repo đúng role, viết CV theo kết quả đo được và chuẩn bị câu chuyện về lỗi khó nhất cùng cách xử lý.`;
+  }
+  return `Snapshot hiện tại cho **${role}**: roadmap **${completion.percent}%**, skill match **${gap.matched.length}/${gap.required.length}**, GPA **${gpa}**, portfolio xác minh **${verifiedProjects} project**. Việc nên làm tiếp theo là ${priorityText}. Bạn có thể hỏi sâu hơn về lộ trình 4 tuần, skill gap, portfolio hoặc thực tập.`;
 }
 
 function getAuthenticatedUser(db, req) {
@@ -400,19 +410,22 @@ function requireAuthenticatedUser(db, req, res) {
   return user;
 }
 
-async function ensureDatabase() {
-  await fs.mkdir(DATA_DIR, { recursive: true });
-  let db;
-  try {
-    db = JSON.parse(await fs.readFile(DB_FILE, "utf8"));
-  } catch {
-    db = { users: [], sessions: [] };
-  }
-
+function normalizeDatabase(db = {}) {
   db.users = Array.isArray(db.users) ? db.users : [];
   db.sessions = Array.isArray(db.sessions) ? db.sessions : [];
   db.studentStates = Array.isArray(db.studentStates) ? db.studentStates : [];
   db.marketScans = Array.isArray(db.marketScans) ? db.marketScans : [];
+  return db;
+}
+
+async function ensureDatabase() {
+  await fs.mkdir(DATA_DIR, { recursive: true });
+  let db;
+  try {
+    db = normalizeDatabase(JSON.parse(await fs.readFile(DB_FILE, "utf8")));
+  } catch {
+    db = normalizeDatabase();
+  }
 
   const demoEmail = normalizeEmail(DEMO_ACCOUNT.email);
   if (!db.users.some((user) => normalizeEmail(user.email) === demoEmail)) {
@@ -431,7 +444,12 @@ async function ensureDatabase() {
 }
 
 async function readDatabase() {
-  return ensureDatabase();
+  try {
+    return normalizeDatabase(JSON.parse(await fs.readFile(DB_FILE, "utf8")));
+  } catch (error) {
+    if (error?.code === "ENOENT") return ensureDatabase();
+    throw error;
+  }
 }
 
 async function writeDatabase(db) {
@@ -548,10 +566,34 @@ async function handleApi(req, res, pathname) {
 
   if (req.method === "GET" && pathname === "/api/market/trends") {
     const source = requestUrl.searchParams.get("source") || "all";
-    const trends = MARKET_TRENDS.filter((item) => source === "all" || item.source === source);
+    const activeTrends = db.marketScans[0]?.trends || MARKET_TRENDS;
+    const trends = activeTrends.filter((item) => source === "all" || item.source === source);
     sendJson(res, 200, {
       lastScan: db.marketScans[0]?.createdAt || new Date().toISOString(),
       trends
+    });
+    return;
+  }
+
+  if (req.method === "GET" && pathname.startsWith("/api/portfolio/")) {
+    const userId = decodeURIComponent(pathname.slice("/api/portfolio/".length));
+    const portfolioOwner = db.users.find((item) => item.id === userId);
+    const publicState = db.studentStates.find((item) => item.userId === userId);
+    if (!portfolioOwner || !publicState) {
+      sendJson(res, 404, { message: "Public portfolio not found." });
+      return;
+    }
+    sendJson(res, 200, {
+      student: {
+        name: publicState.profile.fullName || portfolioOwner.name,
+        targetRole: publicState.profile.targetRole,
+        github: publicState.profile.github || ""
+      },
+      projects: (publicState.portfolio || []).map((project) => ({
+        ...project,
+        source: project.source || (/github\.com\/(?:sample|example)\//i.test(project.url || "") ? "demo" : project.url ? "github" : "manual")
+      })),
+      generatedAt: publicState.profile.updatedAt || new Date().toISOString()
     });
     return;
   }
@@ -799,13 +841,16 @@ async function handleApi(req, res, pathname) {
       const role = body.targetRole && ROLE_CATALOG[body.targetRole] ? body.targetRole : studentState.profile.targetRole;
       studentState.profile.targetRole = role;
       const gap = getSkillGap(role, studentState.skills);
-      studentState.skillAssessments.unshift({
-        id: `assessment-${Date.now()}`,
-        role,
-        matched: gap.matched,
-        missing: gap.missing,
-        createdAt: new Date().toISOString()
-      });
+      if (body.createSnapshot === true) {
+        studentState.skillAssessments.unshift({
+          id: `assessment-${Date.now()}`,
+          role,
+          matched: gap.matched,
+          missing: gap.missing,
+          createdAt: new Date().toISOString()
+        });
+        studentState.skillAssessments = studentState.skillAssessments.slice(0, 30);
+      }
       await writeDatabase(db);
       sendJson(res, 200, {
         skills: studentState.skills,
@@ -835,6 +880,13 @@ async function handleApi(req, res, pathname) {
       return;
     }
 
+    if (req.method === "DELETE" && pathname === "/api/me/chat") {
+      studentState.chatHistory = [];
+      await writeDatabase(db);
+      sendJson(res, 200, { messages: [] });
+      return;
+    }
+
     if (req.method === "POST" && pathname === "/api/me/chat") {
       const body = await parseBody(req);
       const question = String(body.message || "").trim();
@@ -854,7 +906,7 @@ async function handleApi(req, res, pathname) {
     if (req.method === "GET" && pathname === "/api/me/portfolio") {
       sendJson(res, 200, {
         github: studentState.profile.github,
-        shareUrl: `se-career-compass.local/u/${user.id}`,
+        shareUrl: `/portfolio.html?user=${encodeURIComponent(user.id)}`,
         projects: studentState.portfolio
       });
       return;
@@ -862,10 +914,11 @@ async function handleApi(req, res, pathname) {
 
     if (req.method === "POST" && pathname === "/api/me/portfolio/sync") {
       const body = await parseBody(req);
-      const github = String(body.github || studentState.profile.github || "").trim();
+      const github = String(Object.prototype.hasOwnProperty.call(body, "github") ? body.github || "" : studentState.profile.github || "").trim();
       studentState.profile.github = github;
       const role = studentState.profile.targetRole;
-      const submittedProjects = Array.isArray(body.projects)
+      const hasSubmittedProjects = Array.isArray(body.projects);
+      const submittedProjects = hasSubmittedProjects
         ? body.projects
             .filter((item) => item && item.name)
             .map((item, index) => ({
@@ -873,25 +926,32 @@ async function handleApi(req, res, pathname) {
               name: String(item.name).trim(),
               techStack: Array.isArray(item.stack) ? item.stack : Array.isArray(item.techStack) ? item.techStack : [item.language || "Code"],
               summary: item.summary || item.description || `Repository evidence aligned with ${role}.`,
-              url: item.url || `https://github.com/${github || "student"}`
+              url: item.url || (github ? `https://github.com/${github}` : "#"),
+              source: item.source || (github ? "github" : "manual")
             }))
         : [];
-      studentState.portfolio = submittedProjects.length
-        ? submittedProjects.slice(0, 6)
-        : [
+      if (hasSubmittedProjects) {
+        studentState.portfolio = submittedProjects.slice(0, 12);
+      } else if (github) {
+        studentState.portfolio = [
             {
               id: `repo-${github || "student"}-roadmap`,
               name: `${github || "student"}-${role.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-portfolio`,
               techStack: getRoleConfig(role).requiredSkills.slice(0, 4),
               summary: `Portfolio repository aligned with ${role}: README story, technical stack, and role-specific evidence.`,
-              url: `https://github.com/${github || "student"}/career-portfolio`
+              url: `https://github.com/${github || "student"}/career-portfolio`,
+              source: "github"
             },
-            ...studentState.portfolio.filter((item) => !item.id.startsWith(`repo-${github || "student"}-roadmap`))
-          ].slice(0, 6);
+            ...studentState.portfolio.filter((item) => !String(item.id || "").startsWith(`repo-${github || "student"}-roadmap`))
+          ].slice(0, 12);
+      } else {
+        studentState.portfolio = studentState.portfolio.filter((item) => item.source === "manual");
+      }
+      studentState.profile.updatedAt = new Date().toISOString();
       await writeDatabase(db);
       sendJson(res, 200, {
         github,
-        shareUrl: `se-career-compass.local/u/${user.id}`,
+        shareUrl: `/portfolio.html?user=${encodeURIComponent(user.id)}`,
         projects: studentState.portfolio
       });
       return;
@@ -899,6 +959,23 @@ async function handleApi(req, res, pathname) {
 
     if (req.method === "GET" && pathname === "/api/me/mentor-sessions") {
       sendJson(res, 200, { sessions: studentState.mentorSessions });
+      return;
+    }
+
+    if (req.method === "PATCH" && pathname.startsWith("/api/me/mentor-sessions/")) {
+      const sessionId = decodeURIComponent(pathname.slice("/api/me/mentor-sessions/".length));
+      const session = studentState.mentorSessions.find((item) => item.id === sessionId);
+      if (!session) {
+        sendJson(res, 404, { message: "Mentor session not found." });
+        return;
+      }
+      const body = await parseBody(req);
+      const allowedStatuses = new Set(["Scheduled", "Active", "Pending notes", "Completed"]);
+      if (body.status && allowedStatuses.has(body.status)) session.status = body.status;
+      if (body.topic) session.topic = String(body.topic).trim();
+      session.updatedAt = new Date().toISOString();
+      await writeDatabase(db);
+      sendJson(res, 200, { session, sessions: studentState.mentorSessions });
       return;
     }
 
@@ -915,6 +992,32 @@ async function handleApi(req, res, pathname) {
       studentState.mentorSessions.unshift(session);
       await writeDatabase(db);
       sendJson(res, 201, { session, sessions: studentState.mentorSessions });
+      return;
+    }
+
+    if (req.method === "GET" && pathname === "/api/me/bookmarks") {
+      sendJson(res, 200, { bookmarks: studentState.bookmarks });
+      return;
+    }
+
+    if (req.method === "GET" && pathname === "/api/me/resource-progress") {
+      sendJson(res, 200, { completedResources: studentState.completedResources });
+      return;
+    }
+
+    if (req.method === "PUT" && pathname === "/api/me/resource-progress") {
+      const body = await parseBody(req);
+      const resourceId = String(body.resourceId || "").trim();
+      if (!resourceId) {
+        sendJson(res, 400, { message: "Resource id is required." });
+        return;
+      }
+      const completedResources = new Set(studentState.completedResources);
+      if (body.completed === false) completedResources.delete(resourceId);
+      else completedResources.add(resourceId);
+      studentState.completedResources = [...completedResources];
+      await writeDatabase(db);
+      sendJson(res, 200, { completedResources: studentState.completedResources });
       return;
     }
 
@@ -936,11 +1039,24 @@ async function handleApi(req, res, pathname) {
   }
 
   if (req.method === "POST" && pathname === "/api/market/scan") {
+    const body = await parseBody(req);
+    const role = body.role && ROLE_CATALOG[body.role] ? body.role : "Cloud Architect";
+    const existingSkills = new Set(MARKET_TRENDS.map((item) => item.skill.toLowerCase()));
+    const roleSignals = getRoleConfig(role).requiredSkills
+      .filter((skill) => !existingSkills.has(skill.toLowerCase()))
+      .slice(0, 4)
+      .map((skill, index) => ({
+        skill,
+        frequency: 48 - index * 5,
+        growth: 16 - index * 2,
+        source: index % 2 === 0 ? "LinkedIn" : "TopCV"
+      }));
     const scan = {
       id: `scan-${Date.now()}`,
       createdAt: new Date().toISOString(),
       sources: ["LinkedIn", "TopCV"],
-      trends: MARKET_TRENDS
+      role,
+      trends: [...MARKET_TRENDS, ...roleSignals]
     };
     db.marketScans.unshift(scan);
     db.marketScans = db.marketScans.slice(0, 20);
@@ -957,12 +1073,23 @@ async function handleApi(req, res, pathname) {
 }
 
 async function serveStatic(req, res, pathname) {
-  const requested = pathname === "/" ? "/login.html" : decodeURIComponent(pathname);
-  const filePath = path.normalize(path.join(ROOT_DIR, requested));
+  const requested = pathname === "/" ? "login.html" : decodeURIComponent(pathname).replace(/^\/+/, "");
+  const filePath = path.resolve(ROOT_DIR, requested);
+  const relative = path.relative(ROOT_DIR, filePath);
+  const publicPath = relative.split(path.sep).join("/");
+  const ext = path.extname(filePath).toLowerCase();
+  const isRootFrontendFile = STATIC_FILES.has(publicPath);
+  const isFrontendAsset = publicPath.startsWith("assets/") && STATIC_ASSET_TYPES.has(ext);
 
-  if (!filePath.startsWith(ROOT_DIR)) {
+  if (relative.startsWith("..") || path.isAbsolute(relative)) {
     res.writeHead(403, { "Content-Type": "text/plain; charset=utf-8" });
     res.end("Forbidden");
+    return;
+  }
+
+  if (!isRootFrontendFile && !isFrontendAsset) {
+    res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
+    res.end("Not found");
     return;
   }
 
@@ -973,7 +1100,6 @@ async function serveStatic(req, res, pathname) {
       res.end();
       return;
     }
-    const ext = path.extname(filePath).toLowerCase();
     res.writeHead(200, {
       "Content-Type": CONTENT_TYPES[ext] || "application/octet-stream",
       "Cache-Control": "no-cache"
@@ -998,10 +1124,20 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-ensureDatabase().then(() => {
-  server.listen(PORT, HOST, () => {
-    const displayHost = HOST === "0.0.0.0" ? "127.0.0.1" : HOST;
-    console.log(`SE Career Compass running at http://${displayHost}:${PORT}/login.html`);
-    console.log(`API health check: http://${displayHost}:${PORT}/api/health`);
-  });
+server.on("error", (error) => {
+  console.error(`Unable to start SE Career Compass: ${error.message}`);
+  process.exitCode = 1;
 });
+
+ensureDatabase()
+  .then(() => {
+    server.listen(PORT, HOST, () => {
+      const displayHost = HOST === "0.0.0.0" ? "127.0.0.1" : HOST;
+      console.log(`SE Career Compass running at http://${displayHost}:${PORT}/login.html`);
+      console.log(`API health check: http://${displayHost}:${PORT}/api/health`);
+    });
+  })
+  .catch((error) => {
+    console.error(`Unable to initialize the local database: ${error.message}`);
+    process.exitCode = 1;
+  });

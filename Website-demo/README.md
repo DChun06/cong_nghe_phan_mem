@@ -6,21 +6,23 @@ Submitted by: AnNDH2
 
 ## What This Demo Covers
 
-This is a complete frontend prototype for the Software Engineering course project. It demonstrates the main workflows from the submitted topic:
+This is a local full-stack prototype for the Software Engineering course project. It demonstrates the main workflows from the submitted topic:
 
-- AI Virtual Mentor: chat interface, GPA input, transcript upload signal extraction, GitHub context.
-- Dynamic Roadmap: target role selection, generated skill tree, resource links, completion tracking.
-- Skill Gap Analysis: current skill selection, mapping to role requirements, visual gap report, print-to-PDF flow.
-- Market Pulse: simulated daily job portal scan, keyword frequency analysis, interactive chart.
-- E-Portfolio: GitHub public repository sync, README/stack summarization, shareable portfolio URL.
-- Actor Workspace: student, academic counselor, and industry mentor action boards.
-- Course Repo: curated learning resources with search, level filter, and bookmarks.
-- System Spec: functional requirement traceability, NFRs, business rules, and logical data model.
+- AI Virtual Mentor: role-aware advice, persistent chat, transcript signal extraction, and GitHub context.
+- Dynamic Roadmap: target role selection, searchable skill tree, gap-first priorities, resource links, and completion tracking.
+- Skill Gap Analysis: current skill selection, assessment snapshots, role coverage, action plan, and printable report.
+- Market Pulse: persistent simulated scans, source/scope controls, KPI summaries, and an accessible trend chart.
+- E-Portfolio: GitHub/manual projects, evidence scoring, filters, and a real public recruiter view.
+- Actor Workspace: action/task board plus counselor and mentor session status tracking.
+- Course Repo: backend-curated resources with search, level/type/provider filters, bookmarks, and completion progress.
+- System Spec: requirement traceability, measurable NFRs, runtime architecture, acceptance checks, and logical data model.
 - User Management: backend email/password login, simulated Google OAuth flow, session token, and persistent account records.
 
 ## How To Run
 
-Recommended option: run the Node.js backend and static server:
+Recommended on Windows: double-click `start-demo.bat`. It waits for the local server and then opens the login page automatically. No `npm install` step is required.
+
+Or run the Node.js backend and static server from PowerShell:
 
 ```powershell
 node server.js
@@ -30,12 +32,6 @@ Then open:
 
 ```text
 http://127.0.0.1:4173/login.html
-```
-
-Shortcut on Windows:
-
-```powershell
-.\start-demo.bat
 ```
 
 Frontend-only fallback: open `login.html` directly in a browser, or run a static server:
@@ -66,6 +62,7 @@ FR1 AI Virtual Mentor:
 
 - `GET /api/me/chat` returns the authenticated student's mentor chat history.
 - `POST /api/me/chat` stores a student question and returns a personalized mentor response based on target role and skill gap.
+- `DELETE /api/me/chat` clears the authenticated student's persisted chat history.
 
 FR2 Dynamic Roadmap:
 
@@ -76,7 +73,7 @@ FR2 Dynamic Roadmap:
 FR3 Skill Gap Analysis:
 
 - `GET /api/me/skills` returns current skills, predefined skills, gap mapping, and urgent priorities.
-- `PUT /api/me/skills` saves current skills and creates a skill assessment snapshot.
+- `PUT /api/me/skills` saves current skills; pass `createSnapshot: true` when the student explicitly saves an assessment.
 - `POST /api/me/skill-gap/report` generates a role-based skill gap report payload.
 
 FR4 Market Pulse:
@@ -88,8 +85,11 @@ FR5 E-Portfolio Management:
 
 - `GET /api/me/portfolio` returns stored portfolio projects and share URL.
 - `POST /api/me/portfolio/sync` simulates GitHub repository synchronization and README/stack summarization.
+- `GET /api/portfolio/:userId` serves the data used by the public recruiter portfolio page.
 - `GET /api/resources` returns curated learning resources by role, level, and query.
-- `POST /api/me/bookmarks` stores saved course resources.
+- `GET`/`POST /api/me/bookmarks` loads and updates saved resources.
+- `GET`/`PUT /api/me/resource-progress` loads and updates completed resources.
+- `GET`/`POST`/`PATCH /api/me/mentor-sessions` manages workspace advising sessions.
 
 FR6 User Management:
 
@@ -119,7 +119,7 @@ Data is persisted in `data/db.json`.
 3. Open Skill Gap and select/unselect current skills.
 4. Ask AI Mentor for internship or portfolio advice.
 5. Open Market Pulse and run the daily scan.
-6. Open E-Portfolio and sync a GitHub username.
-7. Open Workspace to show student/counselor/mentor operations.
-8. Open System Spec to explain how the demo maps to the functional requirements.
-# Software-Engineering-Students
+6. Open E-Portfolio, add or sync a project, then open its public recruiter link.
+7. Open Workspace to create a task and update an advising session.
+8. Open Resources to bookmark and complete a gap-first recommendation.
+9. Open System Spec to explain architecture, traceability, and acceptance checks.
