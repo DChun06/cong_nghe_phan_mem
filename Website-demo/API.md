@@ -24,6 +24,7 @@ Content-Type: application/json
 | GET | `/resources?role=Cloud%20Architect&level=Foundation&q=docker` | Search curated learning resources. |
 | GET | `/market/trends` | Return keyword trend data for market pulse charts. |
 | POST | `/market/scan` | Create a simulated daily job portal scan. |
+| GET | `/portfolio/:userId` | Return portfolio data used by the public recruiter page. |
 
 ## Authentication
 
@@ -77,16 +78,22 @@ Profile update body:
 | --- | --- | --- | --- |
 | FR1 | GET | `/me/chat` | Load AI mentor chat history. |
 | FR1 | POST | `/me/chat` | Save a question and return a mentor response based on role and skill gap. |
+| FR1 | DELETE | `/me/chat` | Clear the student's persisted chat history. |
 | FR2 | GET | `/me/roadmap` | Load the student's roadmap and completion state. |
 | FR2 | PUT | `/me/roadmap` | Save target role and completed roadmap nodes. |
 | FR3 | GET | `/me/skills` | Load current skills, required skills, gap result, and urgent priorities. |
-| FR3 | PUT | `/me/skills` | Save skills and create a skill assessment snapshot. |
+| FR3 | PUT | `/me/skills` | Save skills and optionally create an explicit assessment snapshot. |
 | FR3 | POST | `/me/skill-gap/report` | Generate a printable skill gap report payload. |
 | FR5 | GET | `/me/portfolio` | Load portfolio projects and share URL. |
 | FR5 | POST | `/me/portfolio/sync` | Save GitHub handle and portfolio projects, or generate role-aligned evidence. |
+| FR5 | GET | `/portfolio/:userId` | Load the public recruiter portfolio without authentication. |
+| Resources | GET | `/me/bookmarks` | Load saved resource IDs. |
 | FR5 | POST | `/me/bookmarks` | Save or remove a course resource bookmark. |
+| Resources | GET | `/me/resource-progress` | Load completed resource IDs. |
+| Resources | PUT | `/me/resource-progress` | Mark a resource complete or incomplete. |
 | Workspace | GET | `/me/mentor-sessions` | Load advising and mentor sessions. |
 | Workspace | POST | `/me/mentor-sessions` | Create a new counselor or mentor session. |
+| Workspace | PATCH | `/me/mentor-sessions/:id` | Update an advising session status. |
 
 Roadmap update body:
 
@@ -105,7 +112,8 @@ Skill update body:
 ```json
 {
   "targetRole": "Data Engineer",
-  "skills": ["JavaScript", "SQL", "Python", "Docker"]
+  "skills": ["JavaScript", "SQL", "Python", "Docker"],
+  "createSnapshot": true
 }
 ```
 

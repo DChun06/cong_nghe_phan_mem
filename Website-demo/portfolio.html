@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Public Portfolio - SE Career Compass</title>
+    <link rel="icon" href="assets/student-avatar.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="public-portfolio-body">
+    <main class="public-portfolio-page">
+      <nav class="public-nav" aria-label="Portfolio navigation">
+        <a class="public-brand" href="login.html">
+          <img src="assets/student-avatar.png" alt="SE Career Compass" />
+          <span><strong>SE Career Compass</strong><small>Verified career evidence</small></span>
+        </a>
+        <span class="public-badge"><i data-lucide="shield-check"></i> Public recruiter view</span>
+      </nav>
+
+      <section class="public-hero">
+        <div>
+          <p class="eyebrow">Software engineering career portfolio</p>
+          <h1 id="publicStudentName">Loading portfolio...</h1>
+          <p id="publicRoleLead">Personalized roadmap evidence and project outcomes.</p>
+          <div class="public-hero-actions">
+            <a id="publicGithub" class="primary-action hidden" target="_blank" rel="noreferrer"><i data-lucide="github"></i> View GitHub</a>
+            <span id="publicUpdated"><i data-lucide="clock-3"></i> Loading latest evidence</span>
+          </div>
+        </div>
+        <div class="public-proof-card">
+          <span>Career story</span>
+          <strong>Assess. Learn. Prove.</strong>
+          <p>Projects below connect technical choices, role alignment and demonstrable outcomes.</p>
+        </div>
+      </section>
+
+      <section class="section-kpi-grid" id="publicStats" aria-label="Portfolio summary"></section>
+
+      <section class="public-project-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Selected evidence</p>
+            <h2>Project portfolio</h2>
+          </div>
+        </div>
+        <div class="portfolio-grid" id="publicProjects">
+          <div class="empty-state"><i data-lucide="loader-circle"></i><strong>Loading project evidence</strong></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="assets/lucide.min.js"></script>
+    <script src="portfolio-public.js"></script>
+  </body>
+</html>
