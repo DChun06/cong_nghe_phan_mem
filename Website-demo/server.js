@@ -1,16 +1,54 @@
+// Import module "crypto" để tạo dữ liệu mã hóa,
+// chẳng hạn như token đăng nhập, ID ngẫu nhiên hoặc mã băm.
 const crypto = require("crypto");
+
+// Import phiên bản Promise của module "fs"
+// để đọc, ghi và quản lý file bằng async/await.
 const fs = require("fs/promises");
+
+// Import module "http" để tạo HTTP server.
 const http = require("http");
+
+// Import module "path" để xử lý và nối các đường dẫn file, thư mục.
 const path = require("path");
+
+// Import lớp URL từ module "url"
+// để phân tích và xử lý địa chỉ URL của request.
 const { URL } = require("url");
 
 
-const HOST = process.env.HOST || (process.env.PORT ? "0.0.0.0" : "127.0.0.1");
+// Xác định địa chỉ host của server.
+// Nếu có biến môi trường HOST thì sử dụng HOST.
+// Nếu đang deploy và có biến PORT thì lắng nghe trên tất cả địa chỉ mạng 0.0.0.0.
+// Nếu chạy trên máy cá nhân thì sử dụng địa chỉ 127.0.0.1.
+const HOST =
+  process.env.HOST || (process.env.PORT ? "0.0.0.0" : "127.0.0.1");
+
+// Xác định cổng chạy server.
+// Ưu tiên cổng do môi trường deploy cung cấp, nếu không có thì dùng cổng 4173.
 const PORT = Number(process.env.PORT || 4173);
+
+// Lấy đường dẫn tuyệt đối đến thư mục chứa file server hiện tại.
 const ROOT_DIR = __dirname;
-const DATA_DIR = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : path.join(ROOT_DIR, "data");
-const DB_FILE = process.env.DB_FILE ? path.resolve(process.env.DB_FILE) : path.join(DATA_DIR, "db.json");
+
+// Xác định thư mục lưu dữ liệu.
+// Nếu có biến môi trường DATA_DIR thì chuyển nó thành đường dẫn tuyệt đối.
+// Nếu không có thì sử dụng thư mục "data" nằm trong thư mục gốc của dự án.
+const DATA_DIR = process.env.DATA_DIR
+  ? path.resolve(process.env.DATA_DIR)
+  : path.join(ROOT_DIR, "data");
+
+// Xác định đường dẫn đến file cơ sở dữ liệu JSON.
+// Nếu có biến môi trường DB_FILE thì sử dụng đường dẫn đó.
+// Nếu không có thì sử dụng file "db.json" trong thư mục data.
+const DB_FILE = process.env.DB_FILE
+  ? path.resolve(process.env.DB_FILE)
+  : path.join(DATA_DIR, "db.json");
+
+// Thời gian tồn tại của phiên đăng nhập là 7 ngày, tính bằng mili giây.
+// 1000 ms × 60 giây × 60 phút × 24 giờ × 7 ngày.
 const SESSION_TTL_MS = 1000 * 60 * 60 * 24 * 7;
+
 
 // API login/register/user của bạn đặt ở đây
 const DEMO_ACCOUNT = {
