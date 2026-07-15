@@ -411,8 +411,8 @@ function saveAuthState() {
 function nextTarget() {
   const params = new URLSearchParams(window.location.search);
   const next = params.get("next");
-  if (next && !/^https?:\/\//i.test(next) && !next.startsWith("//")) {
-    return next;
+  if (next && /^(?:\.\/)?index\.html(?:#[a-z0-9_-]+)?$/i.test(next)) {
+    return next.replace(/^\.\//, "");
   }
   return "index.html#view-dashboard";
 }
